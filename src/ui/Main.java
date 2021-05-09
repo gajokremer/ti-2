@@ -6,6 +6,11 @@ import model.PetCenter;
 import model.Priority;
 import model.Status;
 
+
+/**
+ * Main class
+ * @author gajok
+ */
 public class Main{
 
 	//---RELATIONS
@@ -13,13 +18,21 @@ public class Main{
 	private Scanner sc;
 
 	//---CONSTRUCTOR
+	/**
+	 * Used to construct Main object.
+	 */
 	public Main() {
 
 		sc = new Scanner(System.in);
 		center = new PetCenter();
 	}
 
+	
 	//---MAIN
+	/**
+	 * Main method.
+	 * @param args .
+	 */
 	public static void main(String [] args) {
 
 		System.out.println("\n----------APPLICATION STARTS----------\n");
@@ -36,6 +49,11 @@ public class Main{
 		}while (option != 0);
 	}
 
+	
+	/**
+	 * Method to initialize the main menu.
+	 * @return integer with option to be executed
+	 */
 	public int mainMenu() {
 
 		int option = 0;
@@ -75,6 +93,11 @@ public class Main{
 		return option;
 	}
 
+	
+	/**
+	 * Method to execute the given operation.
+	 * @param operation must be an integer
+	 */
 	public void executeOption(int operation) {
 
 		switch(operation) {
@@ -136,6 +159,9 @@ public class Main{
 		}
 	}
 
+	/**
+	 * Method used to ask the user for a Veterinarian's information.
+	 */
 	public void registerVeterinarian() {
 
 		System.out.println("\n---NEW VETERINARIAN---");
@@ -157,6 +183,10 @@ public class Main{
 		center.addVeterinarian(idNumber, fullName, registerNumber, attendedPets, attendingNow);
 	}
 
+	
+	/**
+	 * Method to ask for the ID of the Veterinarian to be deleted.
+	 */
 	public void deleteVeterinarian() {
 
 		System.out.println("\n---DELETE VETERINARIAN---");
@@ -168,7 +198,11 @@ public class Main{
 
 		center.eraseVeterinarian(idNumber);
 	}
-
+	
+	
+	/**
+	 * Method to ask for the Information of a Pet.
+	 */
 	public void registerPet() {
 		
 		System.out.println("\n---REGISTER PET---");
@@ -271,7 +305,11 @@ public class Main{
 		
 		center.addPet(species, petName, age, breed, symptoms, priority, status, ownerName, ownerId, ownerPhone, ownerAddress, attendedById);
 	}
-
+	
+	
+	/**
+	 * Method to ask for the information of an Owner.
+	 */
 	public void registerOwner() {
 		
 		System.out.println("\n---OWNER DATA---");
@@ -281,7 +319,7 @@ public class Main{
 		System.out.print("Input full name: ");
 		fullName = sc.nextLine();
 		
-		if(center.repetatedOwner(fullName) == true) {
+		if(center.repeatedOwner(fullName) == true) {
 			
 			do {
 				
@@ -289,7 +327,7 @@ public class Main{
 				System.out.print("Input full name: ");
 				fullName = sc.nextLine();
 				
-			}while(center.repetatedOwner(fullName) == true);
+			}while(center.repeatedOwner(fullName) == true);
 		}
 		
 		System.out.print("Input ID: ");
@@ -304,6 +342,10 @@ public class Main{
 		center.addOwner(idNumber, fullName, phone, address);
 	}
 
+	
+	/**
+	 * Method to ask for the name of the Pet to be deleted.
+	 */
 	public void deletePet() {
 
 		System.out.println("\n---DELETE PET---");
@@ -316,6 +358,10 @@ public class Main{
 		center.erasePet(petName);
 	}
 	
+	
+	/**
+	 * Method to ask for the name of the Owner to be deleted.
+	 */
 	public void deleteOwner() {
 		
 		System.out.println("\n---DELETE OWNER---");
@@ -325,7 +371,11 @@ public class Main{
 		
 		center.eraseOwner(fullName);
 	}
-
+	
+	
+	/**
+	 * Method to start a consultation via a Pet's name and the Veterinarians ID.
+	 */
 	public void startConsultation() {
 
 		System.out.println("\n---NEW CONSULTATION---");
@@ -344,6 +394,10 @@ public class Main{
 		center.newConsultation(petName, idNumber, status);
 	}
 
+	/**
+	 * Method to end a consultation via a Pet's name and the Veterinarians ID. <br>
+	 * Asks user for new pet Status
+	 */
 	public void endConsultation() {
 
 		System.out.println("\n---END CONSULTATION---");
@@ -363,6 +417,10 @@ public class Main{
 		center.finishConsultation(petName, idNumber, status);
 	}
 	
+	
+	/**
+	 * Method to close the center and show the reports.
+	 */
 	public void closingReports() {
 		
 		System.out.println("\n---CLOSING REPORTS---");
