@@ -18,7 +18,7 @@ public class Veterinarian{
 
 	//---CONSTRUCTOR
 	/**
-	 * Used to construct Veterinarian object
+	 * Used to construct Veterinarian object.
 	 * @param idNumber must be a String composed of numbers
 	 * @param fullName must have name and surname included
 	 * @param registerNumber must be a String which can combine letters and numbers
@@ -40,14 +40,14 @@ public class Veterinarian{
 
 	//---GETTERS AND SETTERS
 	/**
-	 * Method to call a Veterinarians ID number
+	 * Method to call a Veterinarians ID number.
 	 * @return Veterinarian's ID number
 	 */
 	public String getIdNumber() {
 		return idNumber;
 	}
 	/**
-	 * Method to change a Veterinarians ID number
+	 * Method to change a Veterinarians ID number.
 	 * @param idNumber must exist and be a String composed of numbers
 	 */
 	public void setIdNumber(String idNumber) {
@@ -56,14 +56,14 @@ public class Veterinarian{
 	
 	
 	/**
-	 * Method to call a Veterinarian's full name
+	 * Method to call a Veterinarian's full name.
 	 * @return Veterinarian's full name
 	 */
 	public String getFullName() {
 		return fullName;
 	}
 	/**
-	 * Method to change a Veterinarian's full name
+	 * Method to change a Veterinarian's full name.
 	 * @param fullName must exist and be a String containing name and surname
 	 */
 	public void setFullName(String fullName) {
@@ -72,14 +72,14 @@ public class Veterinarian{
 	
 	
 	/**
-	 * Method to call a Veterinarian's register number
+	 * Method to call a Veterinarian's register number.
 	 * @return Veterinarian's register number
 	 */
 	public String getRegisterNumber() {
 		return registerNumber;
 	}
 	/**
-	 * Method to change a Veterinarian's register number
+	 * Method to change a Veterinarian's register number.
 	 * @param registerNumber must exist and can combine letters and numbers
 	 */
 	public void setRegisterNumber(String registerNumber) {
@@ -88,14 +88,14 @@ public class Veterinarian{
 	
 
 	/**
-	 * Method to call a Veterinarian's attended Pets
+	 * Method to call a Veterinarian's attended Pets.
 	 * @return Veterinarian's attended Pets
 	 */
 	public int getAttendedPets() {
 		return attendedPets;
 	}
 	/**
-	 * Method to change a Veterinarian's attended Pets
+	 * Method to change a Veterinarian's attended Pets.
 	 * @param attendedPets must exist and be a number
 	 */
 	public void setAttendedPets(int attendedPets) {
@@ -104,14 +104,14 @@ public class Veterinarian{
 	
 	
 	/**
-	 * Method to call the name of the Pet being attended by a Veterinarian
+	 * Method to call the name of the Pet being attended by a Veterinarian.
 	 * @return Name of pet being attended
 	 */
 	public String getAttendingNow() {
 		return attendingNow;		
 	}
 	/**
-	 * Method to change the name of the Pet being attended by a Veterinarian
+	 * Method to change the name of the Pet being attended by a Veterinarian.
 	 * @param attendingNow must exist and be a name, can have several words, can be null
 	 */
 	public void setAttendingNow(String attendingNow) {
@@ -120,14 +120,14 @@ public class Veterinarian{
 	
 	
 	/**
-	 * Method to call the Pet being attended by a Veterinarian
+	 * Method to call the Pet being attended by a Veterinarian.
 	 * @return Pet being attended by a Veterinarian
 	 */
 	public Pet getAttends() {
 		return attends;
 	}
 	/**
-	 * Method to change the Pet being attended by a Veterinarian
+	 * Method to change the Pet being attended by a Veterinarian.
 	 * @param attends must exist, but can be null.
 	 */
 	public void setAttends(Pet attends) {

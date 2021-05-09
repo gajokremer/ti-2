@@ -17,7 +17,7 @@ public class Owner{
 
 	//---CONSTRUCTOR
 	/**
-	 * Used to construct Owner object
+	 * Used to construct Owner object.
 	 * @param idNumber must be a String composed of numbers
 	 * @param fullName must be a String with name and surname included
 	 * @param phone must be a String with a phone number (10 digits)
@@ -34,14 +34,14 @@ public class Owner{
 
 	//---GETTERS AND SETTER
 	/**
-	 * Method to call an Owner's ID number
+	 * Method to call an Owner's ID number.
 	 * @return Owner's ID number
 	 */
 	public String getIdNumber() {
 		return idNumber;
 	}
 	/**
-	 * Method to change an Owner's ID number
+	 * Method to change an Owner's ID number.
 	 * @param idNumber must exist and be a String composed of numbers
 	 */
 	public void setIdNumber(String idNumber) {
@@ -50,14 +50,14 @@ public class Owner{
 	
 	
 	/**
-	 * Method to call an Owner's full name
+	 * Method to call an Owner's full name.
 	 * @return Owner's full name
 	 */
 	public String getFullName() {
 		return fullName;
 	}
 	/**
-	 * Method to change an Owner's full name
+	 * Method to change an Owner's full name.
 	 * @param fullName must exist and be a String containing name and surname
 	 */
 	public void setFullName(String fullName) {
@@ -66,14 +66,14 @@ public class Owner{
 	
 
 	/**
-	 * Method to call an Owner's phone number
+	 * Method to call an Owner's phone number.
 	 * @return Owner's phone number
 	 */
 	public String getPhone() {
 		return phone;
 	}
 	/**
-	 * Method to change an Owner's phone number
+	 * Method to change an Owner's phone number.
 	 * @param phone must exist and be a String of a phone number (10 numbers)
 	 */
 	public void setPhone(String phone) {
@@ -82,14 +82,14 @@ public class Owner{
 	
 	
 	/**
-	 * Method to call an Owner's address
+	 * Method to call an Owner's address.
 	 * @return Owner's address
 	 */
 	public String getAddress() {
 		return address;
 	}
 	/**
-	 * Method to change an Onwer's address
+	 * Method to change an Onwer's address.
 	 * @param address must exist and can contain words, numbers, and/or symbols
 	 */
 	public void setAddress(String address) {
