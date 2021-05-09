@@ -8,18 +8,18 @@ import model.Status;
 
 public class Main{
 
-	//relations
+	//---RELATIONS
 	private PetCenter center;
 	private Scanner sc;
 
-	//constructor
+	//---CONSTRUCTOR
 	public Main() {
 
 		sc = new Scanner(System.in);
 		center = new PetCenter();
 	}
 
-	//main
+	//---MAIN
 	public static void main(String [] args) {
 
 		System.out.println("\n----------APPLICATION STARTS----------\n");

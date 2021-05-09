@@ -2,7 +2,7 @@ package model;
 
 public class PetCenter{
 
-	//attributes
+	//---ATTRIBUTES
 	public static final int MAX_PETS = 120;
 	public static final int MAX_VETS = 7;
 	private int totalPets;
@@ -10,12 +10,12 @@ public class PetCenter{
 	private int totalOwners;
 	private int totalAttended;
 
-	//relations
+	//---RELATIONS
 	private Pet [] pets;
 	private Veterinarian [] veterinarians;
 	private Owner [] owners;
 
-	//constructor
+	//CONSTRUCTOR
 	public PetCenter() {
 
 		pets = new Pet[MAX_PETS];
@@ -25,7 +25,7 @@ public class PetCenter{
 		totalVets = 0;
 	}
 
-	//getters and setters
+	//GETTERS AND SETTERS
 	public int getTotalPets() {
 		return totalPets;
 	}
@@ -55,7 +55,7 @@ public class PetCenter{
 	}
 
 
-	//methods
+	//---METHODS
 	public void addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets, String attendingNow) {
 
 		Pet attends = null;
