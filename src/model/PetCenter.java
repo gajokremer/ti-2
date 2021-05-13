@@ -660,11 +660,10 @@ public class PetCenter{
 	/**
 	 * Method to print the next pet to be attended. <br>
 	 * Must prioritize Priority over arrival order.
-	 * <b>Still has mistakes.</b>
 	 * @return name of next Pet to be attended
 	 */
 	public String nextAttendant() {
-
+		
 		String next = null;
 
 		boolean highest = false;
@@ -677,29 +676,69 @@ public class PetCenter{
 				if(pets[i] != null) {
 
 					if(pets[i].getStatus() == Status.WAITING) {
-
+						
 						if(pets[i].getPriority() == Priority.RED_1) {
-
+							
 							next = pets[i].getPetName();
 							highest = true;
+						}
+					}
+				}
+			}
+			
+			for(i = 0; i < pets.length && !highest; i++) {
+				
+				if(pets[i] != null) {
 
-						}else if(pets[i].getPriority() == Priority.ORANGE_2) {
-
+					if(pets[i].getStatus() == Status.WAITING) {
+						
+						if(pets[i].getPriority() == Priority.ORANGE_2) {
+							
 							next = pets[i].getPetName();
 							highest = true;
+						}
+					}
+				}
+			}
+			
+			for(i = 0; i < pets.length && !highest; i++) {
+				
+				if(pets[i] != null) {
 
-						}else if(pets[i].getPriority() == Priority.YELLOW_3) {
-
+					if(pets[i].getStatus() == Status.WAITING) {
+						
+						if(pets[i].getPriority() == Priority.YELLOW_3) {
+							
 							next = pets[i].getPetName();
 							highest = true;
-	                                                                  
-						}else if(pets[i].getPriority() == Priority.GREEN_4) {
+						}
+					}
+				}
+			}
+			
+			for(i = 0; i < pets.length && !highest; i++) {
+				
+				if(pets[i] != null) {
 
+					if(pets[i].getStatus() == Status.WAITING) {
+						
+						if(pets[i].getPriority() == Priority.GREEN_4) {
+							
 							next = pets[i].getPetName();
 							highest = true;
+						}
+					}
+				}
+			}
+			
+			for(i = 0; i < pets.length && !highest; i++) {
+				
+				if(pets[i] != null) {
 
-						}else if(pets[i].getPriority() == Priority.BLUE_5) {
-
+					if(pets[i].getStatus() == Status.WAITING) {
+						
+						if(pets[i].getPriority() == Priority.BLUE_5) {
+							
 							next = pets[i].getPetName();
 							highest = true;
 						}
