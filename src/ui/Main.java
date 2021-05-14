@@ -73,19 +73,24 @@ public class Main{
 			"(10) to print all Veterinarians\n" + 
 
 			"\n(3) to register a new Pet\n" +
-			"(4) to delete a Pet\n" +
+			"(4) to retire a Pet\n" +
 			"(30) to print all Pets\n" +  
 			
 			"\n(5) to register an Owner\n" + 
-			"(6) to delete an Owner\n" + 
 			"(50) to print all Owners\n" + 
 
-			"\n(7) to start a new consultation\n" + 
-			"(8) to end a consultation\n" + 
+			"\n(6) to start a new consultation\n" + 
+			"(7) to end a consultation\n" + 
 			
-			"\n(9) to close center and print reports\n" + 
+			"\n(8) to close center and print reports\n" + 
 
 			"\n(0) to exit");
+		
+		/*
+		 ---SECRET FUNCTIONS
+		 (35) to delete a Pet
+		 (55) to delete an Owner
+		 */
 
 		option = sc.nextInt();
 		sc.nextLine();
@@ -117,9 +122,9 @@ public class Main{
 			case 3:
 				registerPet();
 				break;
-
+				
 			case 4:
-				deletePet();
+				retirePet();
 				break;
 				
 			case 5:
@@ -127,18 +132,14 @@ public class Main{
 				break;
 				
 			case 6:
-				deleteOwner();
-				break;
-
-			case 7:
 				startConsultation();
 				break;
 
-			case 8:
+			case 7:
 				endConsultation();
 				break;
 				
-			case 9:
+			case 8:
 				closingReports();
 				break;
 
@@ -152,9 +153,17 @@ public class Main{
 				center.printAllPets();
 				break;
 
+			case 35:
+				deletePet();
+				break;
+				
 			case 50:
 				System.out.print("\n---ALL OWNERS---\n");
 				center.printAllOwners();
+				break;
+				
+			case 55:
+				deleteOwner();
 				break;
 		}
 	}
@@ -306,6 +315,21 @@ public class Main{
 		center.addPet(species, petName, age, breed, symptoms, priority, status, ownerName, ownerId, ownerPhone, ownerAddress, attendedById);
 	}
 	
+	/**
+	 * Method to retire a Pet from the center. <br>
+	 */
+	public void retirePet() {
+		
+		System.out.println("\n---RETIRE PET---");
+		
+		String petName = null;
+		
+		System.out.print("\nInput name of pet to be retired: ");
+		petName = sc.nextLine();
+		
+		center.retireThisPet(petName);		
+	}
+	
 	
 	/**
 	 * Method to ask for the information of an Owner.
@@ -344,6 +368,7 @@ public class Main{
 
 	
 	/**
+	 * <b> Hidden function. </b> <br>
 	 * Method to ask for the name of the Pet to be deleted.
 	 */
 	public void deletePet() {
@@ -360,6 +385,7 @@ public class Main{
 	
 	
 	/**
+	 * <b> Hidden function. </b> <br>
 	 * Method to ask for the name of the Owner to be deleted.
 	 */
 	public void deleteOwner() {
@@ -430,11 +456,11 @@ public class Main{
 			System.out.println("\nHighest attendor: " + center.mostAttended());
 			center.petsPerPriority();
 			System.out.println("\nPercentage of unattended pets: " + center.unattendedPercentage() + "%");
-			center.resetPets();
+			center.resetPetsandOwners();
 			
 		}else {
 			
-			System.out.println("\nERROR: there are still pending pets");
+			System.out.println("\nERROR: Center can't be closed. There are still pending pets");
 		}
 	}
 }

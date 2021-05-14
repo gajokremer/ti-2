@@ -331,6 +331,29 @@ public class PetCenter{
 	
 	
 	/**
+	 * Changes a Pet's status to "Unattended".
+	 * @param petName must be a String, can contain more than one word
+	 */
+	public void retireThisPet(String petName) {
+		
+		for(int i = 0; i < pets.length; i++) {
+			
+			if(pets[i] != null) {
+				
+				if(petName.equalsIgnoreCase(pets[i].getPetName())) {
+					
+					if(pets[i].getStatus() == Status.WAITING) {
+						
+						pets[i].setStatus(Status.UNATTENDED);	
+					}
+				}
+			}
+		}
+	}
+	
+	
+	/**
+	 * <b> Hidden function. </b> <br>
 	 * Method to erase a Pet from the pets array.
 	 * @param petName must be a String, can contain more than one word
 	 */
@@ -340,7 +363,7 @@ public class PetCenter{
 	
 			if(pets[i] != null) {
 	
-				if(petName.equals(pets[i].getPetName())) {
+				if(petName.equalsIgnoreCase(pets[i].getPetName())) {
 	
 					if(pets[i].getStatus() == Status.WAITING) {
 	
@@ -457,6 +480,7 @@ public class PetCenter{
 	
 	
 	/**
+	 * <b> Hidden function. </b> <br>
 	 * Method to erase an Owner form the owners array.
 	 * @param fullName must be a String with name and surname included
 	 */
@@ -622,10 +646,12 @@ public class PetCenter{
 					pets[i].setStatus(Status.AUTHORIZED);
 				}
 
+				/*
 				if(status.equalsIgnoreCase("Unattended")) {
 
 					pets[i].setStatus(Status.UNATTENDED);
 				}
+				*/
 
 				samePetName = true;
 			}
@@ -857,11 +883,13 @@ public class PetCenter{
 					}	
 				}
 			}
-		}
-		
-		if(totalPets != 0) {
 			
 			percentage = (unattendedPets*100)/totalPets;
+		}
+		
+		if(totalPets == 0) {
+			
+			percentage = 0;
 		}
 		
 		return percentage;
@@ -869,9 +897,9 @@ public class PetCenter{
 	
 	
 	/**
-	 * Method to erase all Pets from pets array.
+	 * Method to erase all Pets and Owners the arrays.
 	 */
-	public void resetPets() {
+	public void resetPetsandOwners() {
 		
 		if(totalPets != 0) {
 			
@@ -883,6 +911,16 @@ public class PetCenter{
 			}
 			
 			setTotalAttended(0);
+		}
+		
+		if(totalOwners != 0) {
+			
+			totalOwners = 0;
+			
+			for(int i = 0; i < pets.length; i++) {
+				
+				owners[i] = null;
+			}
 		}
 	}
 }
