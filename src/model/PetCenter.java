@@ -15,6 +15,7 @@ public class PetCenter{
 	 * Max number of Veterinarians that can be registered.
 	 */
 	public static final int MAX_VETS = 7;
+	
 	private int totalPets;
 	private int totalVets;
 	private int totalOwners;
@@ -543,21 +544,27 @@ public class PetCenter{
 
 
 			for(i = 0; i < pets.length && !samePetName; i++) {
-
-				if(pets[i].getPetName().equalsIgnoreCase(petName)) {
-
-					aPet = pets[i];
-					samePetName = true;
+				
+				if(pets[i] != null) {
+					
+					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
+						
+						aPet = pets[i];
+						samePetName = true;
+					}
 				}
 			}
 
 
 			for(i = 0; i < veterinarians.length && !sameId; i++) {
-
-				if(veterinarians[i].getIdNumber().equals(idNumber)) {
-
-					aVeterinarian = veterinarians[i];
-					sameId = true;
+				
+				if(veterinarians[i] != null) {
+					
+					if(veterinarians[i].getIdNumber().equals(idNumber)) {
+						
+						aVeterinarian = veterinarians[i];
+						sameId = true;
+					}
 				}
 			}
 
@@ -566,40 +573,57 @@ public class PetCenter{
 			samePetName = false;
 
 			for(i = 0; i < veterinarians.length && !sameId; i++) {
-
-				if(veterinarians[i].getIdNumber().equals(idNumber) && veterinarians[i].getAttends() == null) {
-
-					veterinarians[i].setAttendedPets(veterinarians[i].getAttendedPets() + 1);
-					veterinarians[i].setAttendingNow(petName);
-					veterinarians[i].setAttends(aPet);
-					sameId = true;
-
-				}else if(!veterinarians[i].getIdNumber().equals(idNumber)) {
-
-					System.out.println("\nERROR: ID number does not correspond to any veterinaries");
-
-				}else if(veterinarians[i].getAttends() != null) {
-
-					System.out.println("\nERROR: Veterinarian is attending a pet");
+				
+				if(veterinarians[i] != null) {	
+					
+					if(veterinarians[i].getIdNumber().equals(idNumber)) {
+						
+						if(veterinarians[i].getAttends() == null) {
+							
+							veterinarians[i].setAttendedPets(veterinarians[i].getAttendedPets() + 1);
+							veterinarians[i].setAttendingNow(petName);
+							veterinarians[i].setAttends(aPet);
+							sameId = true;
+						}
+					}
+					
+					if(!veterinarians[i].getIdNumber().equals(idNumber)) {
+						
+						System.out.println("\nERROR: ID number does not correspond to any veterinaries");
+					}
+					
+					if(veterinarians[i].getAttends() != null) {
+						
+						System.out.println("\nERROR: Veterinarian is attending a pet");
+					}
 				}
+
 			}
 
-			for(i = 0; i < pets.length && !samePetName; i++) {
+			for(i = 0; i < pets.length && !samePetName && sameId == true; i++) {
+				
+				if(pets[i] != null) {
+					
+					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
 
-				if(pets[i].getPetName().equalsIgnoreCase(petName) && pets[i].getStatus() == Status.WAITING) {
-
-					pets[i].setAttendedById(idNumber);
-					pets[i].setAttendedBy(aVeterinarian);
-					pets[i].setStatus(status);
-					totalAttended++;
-					samePetName = true;
-
-				}else if(pets[i].getStatus() != Status.WAITING) {
+						if(pets[i].getStatus() == Status.WAITING) {
+							
+							pets[i].setAttendedById(idNumber);
+							pets[i].setAttendedBy(aVeterinarian);
+							pets[i].setStatus(status);
+							totalAttended++;
+							samePetName = true;
+						}
+					}
+				}
+				
+				if(pets[i].getStatus() != Status.WAITING) {
 
 					System.out.println("\nERROR: Pet does not have waiting status");
 				}
 			}
 
+			
 		} else{
 
 			System.out.println("\nERROR: There are no Veterinarians");
