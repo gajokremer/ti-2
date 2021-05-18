@@ -42,7 +42,7 @@ public class Main{
 		int option = 0;
 
 		do{
-
+			
 			option = principal.mainMenu();
 			principal.executeOption(option);
 
@@ -51,14 +51,61 @@ public class Main{
 
 	
 	/**
-	 * Method to initialize the main menu.
+	 * Method to initialize the Main menu.
 	 * @return integer with option to be executed
 	 */
 	public int mainMenu() {
+		
+		int option = 0;
+		
+		System.out.println("\n\n--------MAIN MENU--------\n");
+		
+		System.out.println(
+				"\nSelect an option:\n" + 
+				"(1) to enter Pet Center\n" + 
+				"(2) to enter Nursery zone" + 
+				
+				"\n(0) to exit");
+		
+		option = sc.nextInt();
+		sc.nextLine();
+		
+		return option;
+	}
+	
+	
+	/**
+	 * Method to execute the given operation in Main menu.
+	 * @param operation must be an integer
+	 */
+	public void executeOption(int operation) {
+		
+		switch(operation) {
+			
+		case 0:
+			System.out.println("\n-----OPERATION ENDED-----\n");
+			break;
+	
+		case 1:
+			petCenterMenu();
+			break;
+			
+		case 2:
+			nurseryMenu();
+			break;
+		}
+	}
+	
+	
+	/**
+	 * Method to initialize the Pet Center menu.
+	 * @return integer with option to be executed
+	 */
+	public int petCenterMenu() {
 
 		int option = 0;
 
-		System.out.println("\n\n-----MAIN MENU-----\n");
+		System.out.println("\n\n-----PET CENTER MENU-----\n");
 
 		System.out.println("---Total attended pets: " + center.getTotalAttended());
 
@@ -84,13 +131,13 @@ public class Main{
 			
 			"\n(8) to close center and print reports\n" + 
 
-			"\n(0) to exit");
+			"\n(0) to return to Main Menu");
 		
 		/*
 		 ---SECRET FUNCTIONS
 		 (35) to delete a Pet
 		 (55) to delete an Owner
-		 */
+		*/
 
 		option = sc.nextInt();
 		sc.nextLine();
@@ -100,71 +147,107 @@ public class Main{
 
 	
 	/**
-	 * Method to execute the given operation.
+	 * Method to execute the given operation in Pet Center menu.
 	 * @param operation must be an integer
 	 */
-	public void executeOption(int operation) {
+	public void petCenterOption(int operation) {
 
 		switch(operation) {
 			
-			case 0:
-				System.out.println("\n-----OPERATION ENDED-----\n");
-				break;
+		case 0:
+			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
+			break;
 
-			case 1:
-				registerVeterinarian();
-				break;
+		case 1:
+			registerVeterinarian();
+			break;
 
-			case 2:
-				deleteVeterinarian();
-				break; 
+		case 2:
+			deleteVeterinarian();
+			break; 
 
-			case 3:
-				registerPet();
-				break;
-				
-			case 4:
-				retirePet();
-				break;
-				
-			case 5:
-				registerOwner();
-				break;
-				
-			case 6:
-				startConsultation();
-				break;
+		case 3:
+			registerPet();
+			break;
+			
+		case 4:
+			retirePet();
+			break;
+			
+		case 5:
+			registerOwner();
+			break;
+			
+		case 6:
+			startConsultation();
+			break;
 
-			case 7:
-				endConsultation();
-				break;
-				
-			case 8:
-				closingReports();
-				break;
+		case 7:
+			endConsultation();
+			break;
+			
+		case 8:
+			closingReports();
+			break;
 
-			case 10:
-				System.out.print("\n---ALL VETERINARIANS---\n");
-				center.printAllVeterinarians();
-				break;
+		case 10:
+			System.out.print("\n---ALL VETERINARIANS---\n");
+			center.printAllVeterinarians();
+			break;
 
-			case 30:
-				System.out.print("\n---ALL PETS---\n");
-				center.printAllPets();
-				break;
+		case 30:
+			System.out.print("\n---ALL PETS---\n");
+			center.printAllPets();
+			break;
 
-			case 35:
-				deletePet();
-				break;
-				
-			case 50:
-				System.out.print("\n---ALL OWNERS---\n");
-				center.printAllOwners();
-				break;
-				
-			case 55:
-				deleteOwner();
-				break;
+		case 35:
+			deletePet();
+			break;
+			
+		case 50:
+			System.out.print("\n---ALL OWNERS---\n");
+			center.printAllOwners();
+			break;
+			
+		case 55:
+			deleteOwner();
+			break;
+		}
+	}
+	
+	
+	/**
+	 * Method to initialize the Nursery menu.
+	 * @return integer with option to be executed
+	 */
+	public int nurseryMenu() {
+		
+		int option = 0;
+		
+		System.out.println("\n\n-----NURSERY MENU-----\n");
+		
+		System.out.println(
+				"\nSelect an option:\n" + 
+				"\n(0) to return to Main Menu");
+		
+		option = sc.nextInt();
+		sc.nextLine();
+		
+		return option;
+	}
+	
+	
+	/**
+	 * Method to execute the given operation in Nursery menu.
+	 * @param operation must be an integer
+	 */
+	public void nurseryOption(int operation) {
+		
+		switch(operation) {
+		
+		case 0:
+			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
+			break;
 		}
 	}
 
