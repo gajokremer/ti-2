@@ -101,7 +101,8 @@ public class Owner{
 	@Override
 	public String toString() {
 
-		String out = "Name: " + getFullName() + 
+		String out = 
+			"\nName: " + getFullName() + 
 			"\nID: " + getIdNumber() + 
 			"\nPhone: " + getPhone() + 
 			"\nAddress: " + getAddress();

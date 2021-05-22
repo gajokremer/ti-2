@@ -75,23 +75,35 @@ public class Main{
 	
 	
 	/**
-	 * Method to execute the given operation in Main menu.
-	 * @param operation must be an integer
+	 * Method to execute the given option in Main menu.
+	 * @param option must be an integer
 	 */
-	public void executeOption(int operation) {
+	public void executeOption(int option) {
 		
-		switch(operation) {
+		int anOption;
+		
+		switch(option) {
 			
 		case 0:
 			System.out.println("\n-----OPERATION ENDED-----\n");
 			break;
 	
 		case 1:
-			petCenterMenu();
+			do {
+				
+				anOption = petCenterMenu();
+				petCenterOption(anOption);
+				
+			}while (anOption != 0);
 			break;
 			
-		case 2:
-			nurseryMenu();
+		case 2:			
+			do {
+				
+				anOption = nurseryMenu();
+				nurseryOption(anOption);
+				
+			}while (anOption != 0);
 			break;
 		}
 	}
@@ -147,17 +159,17 @@ public class Main{
 
 	
 	/**
-	 * Method to execute the given operation in Pet Center menu.
-	 * @param operation must be an integer
+	 * Method to execute the given option in Pet Center menu.
+	 * @param option must be an integer
 	 */
-	public void petCenterOption(int operation) {
+	public void petCenterOption(int option) {
 
-		switch(operation) {
+		switch(option) {
 			
 		case 0:
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
 			break;
-
+			
 		case 1:
 			registerVeterinarian();
 			break;
@@ -192,12 +204,12 @@ public class Main{
 
 		case 10:
 			System.out.print("\n---ALL VETERINARIANS---\n");
-			center.printAllVeterinarians();
+			System.out.println(center.printAllVeterinarians());
 			break;
 
 		case 30:
 			System.out.print("\n---ALL PETS---\n");
-			center.printAllPets();
+			System.out.println(center.printAllPets());
 			break;
 
 		case 35:
@@ -206,7 +218,7 @@ public class Main{
 			
 		case 50:
 			System.out.print("\n---ALL OWNERS---\n");
-			center.printAllOwners();
+			System.out.println(center.printAllOwners());
 			break;
 			
 		case 55:
@@ -238,12 +250,12 @@ public class Main{
 	
 	
 	/**
-	 * Method to execute the given operation in Nursery menu.
-	 * @param operation must be an integer
+	 * Method to execute the given option in Nursery menu.
+	 * @param option must be an integer
 	 */
-	public void nurseryOption(int operation) {
+	public void nurseryOption(int option) {
 		
-		switch(operation) {
+		switch(option) {
 		
 		case 0:
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
@@ -272,7 +284,7 @@ public class Main{
 
 		String attendingNow = null;
 
-		center.addVeterinarian(idNumber, fullName, registerNumber, attendedPets, attendingNow);
+		System.out.println(center.addVeterinarian(idNumber, fullName, registerNumber, attendedPets, attendingNow));
 	}
 
 	
@@ -283,12 +295,10 @@ public class Main{
 
 		System.out.println("\n---DELETE VETERINARIAN---");
 
-		//center.printAllVeterinarians();
-
 		System.out.print("\nInput ID number of the veterinarian to be deleted: ");
 		String idNumber = sc.nextLine();
 
-		center.eraseVeterinarian(idNumber);
+		System.out.println(center.eraseVeterinarian(idNumber));
 	}
 	
 	
@@ -322,7 +332,6 @@ public class Main{
 				
 			} while(center.repeatedPet(petName) == true);
 		}
-		
 
 		System.out.print("Input age: ");
 		age = sc.nextInt();
@@ -395,7 +404,8 @@ public class Main{
 			ownerAddress = sc.nextLine();
 		}
 		
-		center.addPet(species, petName, age, breed, symptoms, priority, status, ownerName, ownerId, ownerPhone, ownerAddress, attendedById);
+		System.out.println(center.addPet(species, petName, age, breed, symptoms, priority, status,
+				ownerName, ownerId, ownerPhone, ownerAddress, attendedById));
 	}
 	
 	/**
@@ -446,7 +456,7 @@ public class Main{
 		System.out.print("Input adress: ");
 		address = sc.nextLine();
 
-		center.addOwner(idNumber, fullName, phone, address);
+		System.out.println(center.addOwner(idNumber, fullName, phone, address));
 	}
 
 	
@@ -500,7 +510,7 @@ public class Main{
 
 		status = Status.CONSULTING;
 
-		center.newConsultation(petName, idNumber, status);
+		System.out.println(center.newConsultation(petName, idNumber, status));
 	}
 
 	/**
@@ -512,7 +522,7 @@ public class Main{
 		System.out.println("\n---END CONSULTATION---");
 
 		String petName, idNumber;
-		String status;
+		String newStatus;
 
 		System.out.print("Input Pet name: ");
 		petName = sc.nextLine();
@@ -521,9 +531,11 @@ public class Main{
 		idNumber = sc.nextLine();
 
 		System.out.print("Input new pet status: ");
-		status = sc.nextLine();
+		newStatus = sc.nextLine();
+		
+		Status status = Status.valueOf(newStatus.toUpperCase());
 
-		center.finishConsultation(petName, idNumber, status);
+		System.out.println(center.finishConsultation(petName, idNumber, status));
 	}
 	
 	

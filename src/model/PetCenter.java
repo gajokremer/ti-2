@@ -114,9 +114,11 @@ public class PetCenter{
 	 * @param registerNumber must be a String which can combine letters and numbers
 	 * @param attendedPets must be 0
 	 * @param attendingNow must be null
+	 * @return String with result of procedure
 	 */
-	public void addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets, String attendingNow) {
+	public String addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets, String attendingNow) {
 
+		String result = "";
 		Pet attends = null;
 
 		if(totalVets < MAX_VETS) {
@@ -131,23 +133,29 @@ public class PetCenter{
 					veterinarians[i] = new Veterinarian(idNumber, fullName, registerNumber, attendedPets, attendingNow, attends);
 					totalVets++;
 					empty = true;
+					
+					result = "\n--Veterinarian added successfully";
 				}
 			}
 
 		}else{
 
-			System.out.println("Veterinarian spaces are full\n" + 
-				"Delete one to proceed");
+			result = "Veterinarian spaces are full" + 
+				"\nDelete one to proceed";
 		}
-
+		
+		return result;
 	}
 
 	
 	/**
 	 * Method to erase a Veterinarian from the veterinarians array.
 	 * @param idNumber must be a String composed of numbers
+	 * @return String with result of procedure
 	 */
-	public void eraseVeterinarian(String idNumber) {
+	public String eraseVeterinarian(String idNumber) {
+		
+		String result = "";
 
 		if(pets.length == 0) {
 
@@ -159,21 +167,28 @@ public class PetCenter{
 
 						veterinarians[i] = null;
 						totalVets--;
+						
+						result = "\n--Veterinarian deleted successfully";
 					}	
 				}
 			}
 			
 		}else{
 
-			System.out.println("\nERROR: There are still registered pets");
+			result = "\nERROR: There are still registered pets";
 		}
+		
+		return result;
 	}
 
 	
 	/**
 	 * Method to show all Veterinarians in the veterinarians array.
+	 * @return String with all veterinarians
 	 */
-	public void printAllVeterinarians() {
+	public String printAllVeterinarians() {
+		
+		String result = "";
 
 		if(totalVets != 0) {
 
@@ -181,15 +196,16 @@ public class PetCenter{
 
 				if(veterinarians[i] != null) {
 
-					System.out.println("\nVeterinarian " + i);
-					System.out.println(veterinarians[i].toString());
+					result += "\nVeterinarians " + i + veterinarians[i].toString();					
 				}
 			}
 
 		}else{
 
-			System.out.println("\nERROR: No Veterinarians registered");
+			result = "\nERROR: No Veterinarians registered";
 		}
+		
+		return result;
 	}
 
 	
@@ -208,10 +224,13 @@ public class PetCenter{
 	 * @param ownerPhone must be a String with a phone number (10 digits)
 	 * @param ownerAddress must contain an address (words, numbers, symbols)
 	 * @param attendedById must start as null, then will show ID of Veterinarian who attended the Pet
+	 * @return String with result of procedure
 	 */
-	public void addPet(String species, String petName, int age, String breed, 
-		String symptoms, Priority priority, Status status, String ownerName, String ownerId, String ownerPhone, String ownerAddress,
-		String attendedById) {
+	public String addPet(String species, String petName, int age, String breed, 
+		String symptoms, Priority priority, Status status, String ownerName, String ownerId, 
+		String ownerPhone, String ownerAddress, String attendedById) {
+		
+		String result = "";
 
 		Owner ownedBy = null;
 			
@@ -254,8 +273,6 @@ public class PetCenter{
 					}
 				}
 			}
-			
-			
 		}
 		
 		if(totalOwners == 0) {
@@ -292,14 +309,18 @@ public class PetCenter{
 					pets[i] = new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedById, attendedBy);
 					totalPets++;
 					empty = true;
+					
+					result = "\n--Pet added successfully";
 				}
 			}
 
 		}else{
 
-			System.out.println("Pet spaces are full" + 
-				"\nDelete one to proceed");
+			result = "Pet spaces are full" + 
+				"\nDelete one to proceed";
 		}
+		
+		return result;
 	}
 	
 	
@@ -379,8 +400,11 @@ public class PetCenter{
 	
 	/**
 	 * Method to show all Pets in the pets array.
+	 * @return String with all Pets
 	 */
-	public void printAllPets() {
+	public String printAllPets() {
+		
+		String result = "";
 
 		if(totalPets != 0) {
 
@@ -388,15 +412,16 @@ public class PetCenter{
 
 				if(pets[i] != null) {
 
-					System.out.println("\nPet " + i);
-					System.out.println(pets[i].toString());
+					result += "\nPets " + i + pets[i].toString();		
 				}
 			}
 
 		}else{
 
-			System.out.println("\nERROR: No Pets registered");
+			result = "\nERROR: No Pets registered";
 		}
+		
+		return result;
 	}
 	
 	
@@ -406,9 +431,12 @@ public class PetCenter{
 	 * @param fullName must be a String with name and surname included
 	 * @param phone must be a String with a phone number (10 digits)
 	 * @param address must contain an address (words, numbers, symbols)
+	 * @return String with result of procedure
 	 */
-	public void addOwner(String idNumber, String fullName, String phone, String address) {
+	public String addOwner(String idNumber, String fullName, String phone, String address) {
 
+		String result = "";
+		
 		boolean empty = false;
 		int i;
 
@@ -419,8 +447,12 @@ public class PetCenter{
 				owners[i] = new Owner(idNumber, fullName, phone, address);
 				totalOwners++;
 				empty = true;
+				
+				result = "\n--Owner added successfully";
 			}
 		}
+		
+		return result;
 	}
 	
 	
@@ -503,8 +535,11 @@ public class PetCenter{
 	
 	/**
 	 * Method to show all Owners in owners array.
+	 * @return String with all Owners
 	 */
-	public void printAllOwners() {
+	public String printAllOwners() {
+		
+		String result = "";
 
 		if(totalOwners != 0) {
 
@@ -512,15 +547,16 @@ public class PetCenter{
 
 				if(owners[i] != null) {
 
-					System.out.println("\nOwner " + i);
-					System.out.println(owners[i].toString());
+					result += "\nOwners " + i + owners[i].toString();
 				}
 			}
 
 		}else{
 
-			System.out.println("\nERROR: No Owners registered");
+			result = "\nERROR: No Owners registered";
 		}
+		
+		return result;
 	}
 
 	
@@ -530,8 +566,11 @@ public class PetCenter{
 	 * @param petName must be a String, can contain more than one word
 	 * @param idNumber must be a String composed of numbers
 	 * @param status must be "Consulting" by default
+	 * @return String with result of procedure
 	 */
-	public void newConsultation(String petName, String idNumber, Status status) {
+	public String newConsultation(String petName, String idNumber, Status status) {
+		
+		String result = "";
 
 		if(totalVets != 0) {
 
@@ -549,8 +588,11 @@ public class PetCenter{
 					
 					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
 						
-						aPet = pets[i];
-						samePetName = true;
+						if(pets[i].getStatus() == Status.WAITING) {							
+							
+							aPet = pets[i];
+							samePetName = true;
+						}
 					}
 				}
 			}
@@ -578,6 +620,11 @@ public class PetCenter{
 					
 					if(veterinarians[i].getIdNumber().equals(idNumber)) {
 						
+						if(veterinarians[i].getAttends() != null) {
+							
+							result = "\nERROR: Veterinarian is attending a pet";
+						}
+						
 						if(veterinarians[i].getAttends() == null) {
 							
 							veterinarians[i].setAttendedPets(veterinarians[i].getAttendedPets() + 1);
@@ -585,50 +632,66 @@ public class PetCenter{
 							veterinarians[i].setAttends(aPet);
 							sameId = true;
 						}
-					}
-					
-					if(!veterinarians[i].getIdNumber().equals(idNumber)) {
 						
-						System.out.println("\nERROR: ID number does not correspond to any veterinaries");
-					}
-					
-					if(veterinarians[i].getAttends() != null) {
+					}else {
 						
-						System.out.println("\nERROR: Veterinarian is attending a pet");
-					}
-				}
+						result = "\nERROR: ID number does not correspond to any veterinarian";
 
+					}
+					
+//					if(!veterinarians[i].getIdNumber().equals(idNumber)) {
+//						
+//						result = "\nERROR: ID number does not correspond to any veterinarian";
+//					}
+				}
 			}
 
-			for(i = 0; i < pets.length && !samePetName && sameId == true; i++) {
+			for(i = 0; i < pets.length && !samePetName && sameId; i++) {
 				
 				if(pets[i] != null) {
 					
 					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
 
+//						if(pets[i].getStatus() != Status.WAITING){
+//							
+//							result = "\nERROR: Pet does not have waiting status";
+//						}
+						
 						if(pets[i].getStatus() == Status.WAITING) {
 							
-							pets[i].setAttendedById(idNumber);
-							pets[i].setAttendedBy(aVeterinarian);
-							pets[i].setStatus(status);
-							totalAttended++;
-							samePetName = true;
+							if(pets[i].getAttendedBy() == null) {
+								
+								
+								pets[i].setAttendedById(idNumber);
+								pets[i].setAttendedBy(aVeterinarian);
+								pets[i].setStatus(status);
+								totalAttended++;
+								samePetName = true;
+								
+							}else {
+								
+								result = "\nERROR: Pet has already been attended";
+							}
+						}else {
+							
+							result = "\nERROR: Pet does not have waiting status";
 						}
 					}
-				}
-				
-				if(pets[i].getStatus() != Status.WAITING) {
-
-					System.out.println("\nERROR: Pet does not have waiting status");
+					
+//					if(pets[i].getStatus() != Status.WAITING) {
+//						
+//						result = "\nERROR: Pet does not have waiting status";
+//					}
 				}
 			}
 
 			
 		} else{
 
-			System.out.println("\nERROR: There are no Veterinarians");
+			result = "\nERROR: There are no Veterinarians";
 		}
 
+		return result;
 	}
 	
 	
@@ -638,8 +701,11 @@ public class PetCenter{
 	 * @param petName must be a String, can contain more than one word
 	 * @param idNumber must be a String which can combine letters and numbers
 	 * @param status must be one of these three: "Transfer", "Authorized", "Unattended"
+	 * @return String with result of procedure
 	 */
-	public void finishConsultation(String petName, String idNumber, String status) {
+	public String finishConsultation(String petName, String idNumber, Status status) {
+		
+		String result = "";
 
 		boolean sameId = false;
 		int i;
@@ -647,10 +713,17 @@ public class PetCenter{
 		for(i = 0; i < veterinarians.length && !sameId; i++) {
 
 			if(veterinarians[i].getIdNumber().equals(idNumber)) {
-
-				veterinarians[i].setAttends(null);
-				veterinarians[i].setAttendingNow(null);
-				sameId = true;
+				
+				if(veterinarians[i].getAttends() != null) {
+					
+					veterinarians[i].setAttends(null);
+					veterinarians[i].setAttendingNow(null);
+					sameId = true;
+					
+				}else {
+				
+					result = "\nERROR: Veterinarian is not attending a pet";
+				}
 			}
 		}
 
@@ -659,27 +732,20 @@ public class PetCenter{
 		for(i = 0; i < pets.length && !samePetName; i++) {
 
 			if(pets[i].getPetName().equalsIgnoreCase(petName)) {
-
-				if(status.equalsIgnoreCase("Transfer")) {
-
-					pets[i].setStatus(Status.TRANSFER);
+				
+				if(pets[i].getStatus() == Status.CONSULTING) {
+					
+					pets[i].setStatus(status);				
+					samePetName = true;
+					
+				}else {
+					
+					result = "\nEROOR: Pet is not in consultation";
 				}
-
-				if(status.equalsIgnoreCase("Authorized")) {
-
-					pets[i].setStatus(Status.AUTHORIZED);
-				}
-
-				/*
-				if(status.equalsIgnoreCase("Unattended")) {
-
-					pets[i].setStatus(Status.UNATTENDED);
-				}
-				*/
-
-				samePetName = true;
 			}
 		}
+		
+		return result;
 	}
 
 	
@@ -830,8 +896,11 @@ public class PetCenter{
 	
 	/**
 	 * Method to show quantity of pets attended per each Priority.
+	 * @return String with number of attended pets pet each priority
 	 */
-	public void petsPerPriority() {
+	public String petsPerPriority() {
+		
+		String result = "";
 		
 		int red = 0;
 		int orange = 0;
@@ -872,17 +941,19 @@ public class PetCenter{
 				}
 			}
 			
-			System.out.println("\nPets attended per priority " + 
+			result = "\nPets attended per priority " + 
 					"\n- Priority 1: " + red + 
 					"\n- Priority 2: " + orange + 
 					"\n- Priority 3: " + yellow + 
 					"\n- Priority 4: " + green + 
-					"\n- Priority 5: " + blue);
+					"\n- Priority 5: " + blue;
 			
 		}else {
 			
-			System.out.println("\nERROR: There are no pets registered");
+			result = "\nERROR: There are no pets registered";
 		}
+		
+		return result;
 	}
 	
 	

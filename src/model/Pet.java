@@ -213,7 +213,7 @@ public class Pet{
 	@Override
 	public String toString() {
 
-		String out = "Species: " + getSpecies() + 
+		String out = "\nSpecies: " + getSpecies() + 
 			"\nName: " + getPetName() + 
 			"\nAge: " + getAge() + 
 			"\nBreed: " + getBreed() +
@@ -221,7 +221,7 @@ public class Pet{
 			"\nPriority: " + getPriority() + 
 			"\nStatus: " + getStatus() + 
 			"\nOwner: " + ownedBy.getFullName() + 
-			"\nAttended by: " + getAttendedById();
+			"\nAttended by: " + getAttendedById() + "\n";
 
 		return out;
 	}

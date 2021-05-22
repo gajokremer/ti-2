@@ -139,10 +139,11 @@ public class Veterinarian{
 	@Override
 	public String toString() {
 
-		String out = "Name: " + getFullName() + 
+		String out = "\nName: " + getFullName() + 
 			"\nID: " + getIdNumber() + 
+			"\nUnique number: " + getRegisterNumber() + 
 			"\nAttended pets: " + getAttendedPets() + 
-			"\nAttending now: " + getAttendingNow();
+			"\nAttending now: " + getAttendingNow() + "\n";
 
 		return out;
 	}
