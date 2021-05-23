@@ -9,7 +9,7 @@ package model;
  * {@link #GREEN_4}
  * {@link #BLUE_5}
  */
-public enum Priority{
+public enum Priority {
 	
 	/**
 	 * 1 or Red (Most urgent)

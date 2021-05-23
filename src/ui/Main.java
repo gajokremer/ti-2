@@ -6,15 +6,18 @@ import model.PetCenter;
 import model.Priority;
 import model.Status;
 
+import model.PetNursery;
+
 
 /**
  * Main class
  * @author gajok
  */
-public class Main{
+public class Main {
 
 	//---RELATIONS
 	private PetCenter center;
+	private PetNursery nursery;
 	private Scanner sc;
 
 	//---CONSTRUCTOR
@@ -25,6 +28,7 @@ public class Main{
 
 		sc = new Scanner(System.in);
 		center = new PetCenter();
+		nursery = new PetNursery();
 	}
 
 	
@@ -100,8 +104,8 @@ public class Main{
 		case 2:			
 			do {
 				
-				anOption = nurseryMenu();
-				nurseryOption(anOption);
+				anOption = petNurseryMenu();
+				petNurseryOption(anOption);
 				
 			}while (anOption != 0);
 			break;
@@ -141,7 +145,8 @@ public class Main{
 			"\n(6) to start a new consultation\n" + 
 			"(7) to end a consultation\n" + 
 			
-			"\n(8) to close center and print reports\n" + 
+			"\n(8) to transfer a Pet to the Nursery" + 
+			"\n(9) to close center and print reports\n" + 
 
 			"\n(0) to return to Main Menu");
 		
@@ -199,6 +204,10 @@ public class Main{
 			break;
 			
 		case 8:
+			
+			break;
+			
+		case 9:
 			closingReports();
 			break;
 
@@ -227,41 +236,6 @@ public class Main{
 		}
 	}
 	
-	
-	/**
-	 * Method to initialize the Nursery menu.
-	 * @return integer with option to be executed
-	 */
-	public int nurseryMenu() {
-		
-		int option = 0;
-		
-		System.out.println("\n\n-----NURSERY MENU-----\n");
-		
-		System.out.println(
-				"\nSelect an option:\n" + 
-				"\n(0) to return to Main Menu");
-		
-		option = sc.nextInt();
-		sc.nextLine();
-		
-		return option;
-	}
-	
-	
-	/**
-	 * Method to execute the given option in Nursery menu.
-	 * @param option must be an integer
-	 */
-	public void nurseryOption(int option) {
-		
-		switch(option) {
-		
-		case 0:
-			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
-			break;
-		}
-	}
 
 	/**
 	 * Method used to ask the user for a Veterinarian's information.
@@ -540,6 +514,22 @@ public class Main{
 	
 	
 	/**
+	 * Method to transfer a Pet to Nursery
+	 */
+	public void petToNursery() {
+	
+		System.out.println("\n---TRANSFER PET TO NURSERY---");
+		
+		String petName;
+		
+		System.out.print("Input Pet name: ");
+		petName = sc.nextLine();
+		
+		center.transferToNursery(petName);
+	}
+	
+	
+	/**
 	 * Method to close the center and show the reports.
 	 */
 	public void closingReports() {
@@ -558,4 +548,69 @@ public class Main{
 			System.out.println("\nERROR: Center can't be closed. There are still pending pets");
 		}
 	}
+	
+	
+	/**
+	 * Method to initialize the Nursery menu.
+	 * @return integer with option to be executed
+	 */
+	public int petNurseryMenu() {
+		
+		int option = 0;
+		
+		System.out.println("\n\n-----NURSERY MENU-----\n");
+		
+		System.out.println(
+				"\nSelect an option:\n" + 
+		
+				"\n(0) to return to Main Menu");
+		
+		option = sc.nextInt();
+		sc.nextLine();
+		
+		return option;
+	}
+	
+	
+	/**
+	 * Method to execute the given option in Nursery menu.
+	 * @param option must be an integer
+	 */
+	public void petNurseryOption(int option) {
+		
+		switch(option) {
+		
+		case 0:
+			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
+			break;
+			
+		case 1:
+			nursery.copyOfPets(center.getPets());
+			break;
+			
+		case 2:
+			break;
+		}
+	}
+	
+	
+//	public void registerPetToNursery() {
+//		
+//		System.out.println("\n---REGISTER PET---");
+//
+//		String species, petName, breed, symptoms;
+//		int age;
+//		Priority priority = null;
+//		Status status;
+//		String attendedById;
+//		
+//		System.out.print("Input species: ");
+//		species = sc.nextLine();
+//
+//		System.out.print("Input name: ");
+//		petName = sc.nextLine();
+//		
+//		System.out.print("Input age: ");
+//		age = sc.nextInt();
+//	}
 }

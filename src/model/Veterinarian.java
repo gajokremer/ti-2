@@ -4,7 +4,7 @@ package model;
  * Veterinarian class
  * @author gajok
  */
-public class Veterinarian{
+public class Veterinarian {
 
 	//---ATTRIBUTES
 	private String idNumber;
@@ -139,7 +139,8 @@ public class Veterinarian{
 	@Override
 	public String toString() {
 
-		String out = "\nName: " + getFullName() + 
+		String out = 
+			"\nName: " + getFullName() + 
 			"\nID: " + getIdNumber() + 
 			"\nUnique number: " + getRegisterNumber() + 
 			"\nAttended pets: " + getAttendedPets() + 

@@ -4,7 +4,7 @@ package model;
  * Pet class
  * @author gajok
  */
-public class Pet{
+public class Pet {
 
 	//---ATTRIBUTES
 	private String species;
@@ -13,10 +13,10 @@ public class Pet{
 	private String breed;
 	private String symptoms;
 	private String attendedById;
-
-	//---RELATIONS
 	private Priority priority;
 	private Status status;
+
+	//---RELATIONS
 	private Owner ownedBy;
 	private Veterinarian attendedBy;
 
@@ -213,7 +213,8 @@ public class Pet{
 	@Override
 	public String toString() {
 
-		String out = "\nSpecies: " + getSpecies() + 
+		String out = 
+			"\nSpecies: " + getSpecies() + 
 			"\nName: " + getPetName() + 
 			"\nAge: " + getAge() + 
 			"\nBreed: " + getBreed() +

@@ -4,7 +4,7 @@ package model;
  * Owner class
  * @author gajok
  */
-public class Owner{
+public class Owner {
 
 	//---ATTRIBUTES
 	private String idNumber;

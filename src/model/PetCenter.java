@@ -4,7 +4,7 @@ package model;
  * PetCenter class
  * @author gajok
  */
-public class PetCenter{
+public class PetCenter {
 
 	//---ATTRIBUTES
 	/**
@@ -25,6 +25,8 @@ public class PetCenter{
 	private Pet [] pets;
 	private Veterinarian [] veterinarians;
 	private Owner [] owners;
+	private PetNursery centerToNursery;
+
 
 	//CONSTRUCTOR
 	/**
@@ -35,13 +37,28 @@ public class PetCenter{
 		pets = new Pet[MAX_PETS];
 		veterinarians = new Veterinarian[MAX_VETS];
 		owners = new Owner[MAX_PETS];
-		totalPets = 0;
-		totalVets = 0;
-		totalOwners = 0;
+//		totalPets = 0;
+//		totalVets = 0;
+//		totalOwners = 0;
 	}
 	
 
 	//GETTERS AND SETTERS
+	/**
+	 * Method to call the Pets array.
+	 * @return pets array
+	 */
+	public Pet [] getPets() {
+		return pets;
+	}
+	/**
+	 * Method to change the Pets array.
+	 * @param pets array must exist
+	 */
+	public void setPets(Pet [] pets) {
+		this.pets = pets;
+	}
+	
 	/**
 	 * Method to call the total registered Pets.
 	 * @return total attended Pets
@@ -744,7 +761,7 @@ public class PetCenter{
 				}
 			}
 		}
-		
+				
 		return result;
 	}
 
@@ -770,6 +787,40 @@ public class PetCenter{
 		}
 
 		return pendingPets;
+	}
+	
+	
+	/**
+	 * @param petName must be a String, can contain more than one word.
+	 * @return String with result of procedure
+	 */
+	public String transferToNursery(String petName) {
+		
+		String result = "";
+		
+		boolean samePetName = false;
+		
+		for(int i = 0; i < pets.length && !samePetName; i++) {
+			
+			if(pets[i].getPetName() == petName) {
+				
+				if(pets[i].getStatus() == Status.TRANSFER) {
+					
+					centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
+					result = "\n--Pet and Owner successfully transfered to nursery";
+					
+				}else {
+					
+					result = "\nERROR: Pet does not have Transfer status";
+				}
+				
+			}else {
+				
+				result = "\nERROR: Name doesn't correspond to any pet";
+			}
+		}
+		
+		return result;
 	}
 
 	

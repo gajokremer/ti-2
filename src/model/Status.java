@@ -9,7 +9,7 @@ package model;
  * {@link #AUTHORIZED}
  * {@link #UNATTENDED}
  */
-public enum Status{
+public enum Status {
 	
 	/**
 	 * Waiting status
