@@ -8,9 +8,9 @@ public class DogHabitat extends Habitat{
 	//RELATIONS
 	
 	//CONSTRUCTOR
-	public DogHabitat(String habitatId, double length, double width, Usage usage, int toys) {
+	public DogHabitat(String habitatId, double length, double width, Usage usage, Pet petInside, int toys) {
 		
-		super(habitatId, length, width, usage);
+		super(habitatId, length, width, usage, petInside);
 		this.setToys(toys);
 	}
 	
@@ -28,10 +28,11 @@ public class DogHabitat extends Habitat{
 	public String toString() {
 		
 		String out = 
-			"\nHabitatId: " + getHabitatId() + 
+			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
 			"\nCurrent usage: " + getUsage() + 
+			"\nPet inside: " + getPetInside().getPetName() + 
 			"\nAvailable toys: " + getToys();
 		
 		return out;

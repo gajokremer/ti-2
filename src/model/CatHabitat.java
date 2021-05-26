@@ -9,9 +9,9 @@ public class CatHabitat extends Habitat{
 	//RELATIONS
 
 	//CONSTRUCTOR
-	public CatHabitat(String habitatId, double leight, double width, Usage usage, double height, double maxWeight) {
+	public CatHabitat(String habitatId, double leight, double width, Usage usage, Pet petInside, double height, double maxWeight) {
 		
-		super(habitatId, leight, width, usage);
+		super(habitatId, leight, width, usage, petInside);
 		this.setHeight(height);
 		this.setMaxWeight(maxWeight);
 	}
@@ -38,10 +38,11 @@ public class CatHabitat extends Habitat{
 	public String toString() {
 		
 		String out = 
-			"\nHabitatId: " + getHabitatId() + 
+			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
 			"\nCurrent usage: " + getUsage() + 
+			"\nPet inside: " + getPetInside().getPetName() + 
 			"\nHeight: " + getHeight() + 
 			"\nMax weight: " + getMaxWeight();
 		

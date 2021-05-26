@@ -223,7 +223,8 @@ public class Pet {
 			"\nStatus: " + getStatus() + 
 			"\nOwner: " + ownedBy.getFullName() + 
 			"\nAttended by: " + getAttendedById() + "\n";
-
+//			"\nAttended by: " + getAttendedBy().getIdNumber();
+		
 		return out;
 	}
 }

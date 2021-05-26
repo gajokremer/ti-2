@@ -791,40 +791,6 @@ public class PetCenter {
 	
 	
 	/**
-	 * @param petName must be a String, can contain more than one word.
-	 * @return String with result of procedure
-	 */
-	public String transferToNursery(String petName) {
-		
-		String result = "";
-		
-		boolean samePetName = false;
-		
-		for(int i = 0; i < pets.length && !samePetName; i++) {
-			
-			if(pets[i].getPetName() == petName) {
-				
-				if(pets[i].getStatus() == Status.TRANSFER) {
-					
-					centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
-					result = "\n--Pet and Owner successfully transfered to nursery";
-					
-				}else {
-					
-					result = "\nERROR: Pet does not have Transfer status";
-				}
-				
-			}else {
-				
-				result = "\nERROR: Name doesn't correspond to any pet";
-			}
-		}
-		
-		return result;
-	}
-
-	
-	/**
 	 * Method to print the next pet to be attended. <br>
 	 * Must prioritize Priority over arrival order.
 	 * @return name of next Pet to be attended
@@ -1069,4 +1035,39 @@ public class PetCenter {
 			}
 		}
 	}
+	
+	
+	/**
+	 * @param petName must be a String, can contain more than one word.
+	 * @return String with result of procedure
+	 */
+	public String transferToNursery(String petName) {
+		
+		String result = "";
+		
+		boolean samePetName = false;
+		
+		for(int i = 0; i < pets.length && !samePetName; i++) {
+			
+			if(pets[i].getPetName() == petName) {
+				
+				if(pets[i].getStatus() == Status.TRANSFER) {
+					
+					centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
+					result = "\n--Pet and Owner successfully transfered to nursery";
+					
+				}else {
+					
+					result = "\nERROR: Pet does not have Transfer status";
+				}
+				
+			}else {
+				
+				result = "\nERROR: Name doesn't correspond to any pet";
+			}
+		}
+		
+		return result;
+	}
+
 }

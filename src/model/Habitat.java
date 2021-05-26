@@ -7,16 +7,18 @@ public abstract class Habitat {
 	private double length;
 	private double width;
 	private Usage usage;
+	private Pet petInside;
 	
 	//RELATIONS
 	
 	//CONSTRUCTOR
-	public Habitat(String habitatId, double length, double width, Usage usage) {
+	public Habitat(String habitatId, double length, double width, Usage usage, Pet petInside) {
 		
 		this.setHabitatId(habitatId);
 		this.setLength(length);
 		this.setWidth(width);
 		this.setUsage(usage);
+		this.setPetInside(petInside);
 	}
 
 	//GETTERS AND SETTERS
@@ -52,16 +54,26 @@ public abstract class Habitat {
 		this.usage = usage;
 	}
 	
+	public Pet getPetInside() {
+		return petInside;
+	}
+	
+	public void setPetInside(Pet petInside) {
+		this.petInside = petInside;
+	}
+	
 	//TO STRING
 	@Override
 	public String toString() {
 		
 		String out = 
-			"\nHabitatId: " + getHabitatId() + 
+			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
-			"\nCurrent usage: " + getUsage();
+			"\nCurrent usage: " + getUsage() + 
+			"\nPet inside: " + petInside.getPetName();
 		
 		return out;
 	}
+
 }

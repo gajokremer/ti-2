@@ -31,4 +31,15 @@ public class Plant {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	
+	//TO STRING
+	@Override
+	public String toString() {
+		
+		String out = 
+				"\nPlant type: " + getType() + 
+				"\nPant quantity: " + getQuantity();
+			
+			return out;
+	}
 }

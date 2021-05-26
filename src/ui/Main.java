@@ -7,6 +7,9 @@ import model.Priority;
 import model.Status;
 
 import model.PetNursery;
+import model.Aquarium;
+import model.Cage;
+import model.Usage;
 
 
 /**
@@ -383,7 +386,7 @@ public class Main {
 	}
 	
 	/**
-	 * Method to retire a Pet from the center. <br>
+	 * Method to retire a Pet from the center.
 	 */
 	public void retirePet() {
 		
@@ -514,22 +517,6 @@ public class Main {
 	
 	
 	/**
-	 * Method to transfer a Pet to Nursery
-	 */
-	public void petToNursery() {
-	
-		System.out.println("\n---TRANSFER PET TO NURSERY---");
-		
-		String petName;
-		
-		System.out.print("Input Pet name: ");
-		petName = sc.nextLine();
-		
-		center.transferToNursery(petName);
-	}
-	
-	
-	/**
 	 * Method to close the center and show the reports.
 	 */
 	public void closingReports() {
@@ -550,6 +537,12 @@ public class Main {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Method to initialize the Nursery menu.
 	 * @return integer with option to be executed
@@ -561,7 +554,14 @@ public class Main {
 		System.out.println("\n\n-----NURSERY MENU-----\n");
 		
 		System.out.println(
-				"\nSelect an option:\n" + 
+				"\nSelect an option:" + 
+				"\n(1) to create a new Habitat" + 
+				"\n(2) to register a new Pet\n" + 
+				
+				"\n(3) to print all Nursery Pets" + 
+				"\n(4) to print all Nursery Owners\n" + 
+				
+				"\n(5) to print all Habitats matrix\n" + 
 		
 				"\n(0) to return to Main Menu");
 		
@@ -585,32 +585,203 @@ public class Main {
 			break;
 			
 		case 1:
-			nursery.copyOfPets(center.getPets());
+			createHabitat();
 			break;
 			
 		case 2:
+			registerPetToNursery();
+			break;
+			
+		case 3:
+			System.out.print("\n---ALL PETS---\n");
+			System.out.println(nursery.printAllPets());
+			break;
+			
+		case 4:
+			System.out.print("\n---ALL OWNERS---\n");
+			System.out.println(nursery.printAllOwners());
+			
+		case 5:
+			System.out.print("\n---HABITATS MATRIX---\n");
+			System.out.println(nursery.printMatrix());
 			break;
 		}
 	}
 	
 	
-//	public void registerPetToNursery() {
-//		
-//		System.out.println("\n---REGISTER PET---");
-//
-//		String species, petName, breed, symptoms;
-//		int age;
-//		Priority priority = null;
-//		Status status;
-//		String attendedById;
-//		
-//		System.out.print("Input species: ");
-//		species = sc.nextLine();
-//
-//		System.out.print("Input name: ");
-//		petName = sc.nextLine();
-//		
-//		System.out.print("Input age: ");
-//		age = sc.nextInt();
-//	}
+	/**
+	 * Method to transfer a Pet to Nursery
+	 */
+	public void petToNursery() {
+	
+		System.out.println("\n---TRANSFER PET TO NURSERY---");
+		
+		String petName;
+		
+		System.out.print("Input Pet name: ");
+		petName = sc.nextLine();
+		
+		center.transferToNursery(petName);
+	}
+	
+	public void createHabitat() {
+		
+		System.out.println("\n---CREATE HABITAT---");
+		
+		String habitatId, typeOfPet;
+		double length, width;
+//		Usage usage;
+		String currentUsage;
+		
+		System.out.print("Type of Pet for habitat: ");
+		typeOfPet = sc.nextLine().toUpperCase();
+		
+		System.out.print("\nInput habitat ID: ");
+		habitatId = sc.nextLine(); 
+		
+		System.out.println("Input length and width: ");
+		length = sc.nextDouble();
+		width  = sc.nextDouble();
+		
+		System.out.print("Input current usage: ");
+		sc.nextLine();
+		currentUsage = sc.nextLine();
+		
+		Usage usage = Usage.valueOf(currentUsage.toUpperCase());
+		
+		habitatType(typeOfPet, habitatId, length, width, usage);	
+	}
+	
+	public void habitatType(String typeOfPet, String habitatId, double length, double width, Usage usage) {
+		
+		switch(typeOfPet) {
+		
+		default:
+			System.out.println("\nHabitat type doesn't exist");
+			break;
+		
+		case "DOG":
+			
+			int toys;
+			
+			System.out.print("\nInput toys available: ");
+			toys = sc.nextInt();
+			
+			nursery.newDogHabitat(habitatId, length, width, usage, toys);
+			
+			break;
+			
+		case "CAT":
+			
+			double height, maxWeight;
+			
+			System.out.print("\nInput height: ");
+			height = sc.nextDouble();
+			
+			System.out.print("Input max weight: ");
+			maxWeight = sc.nextDouble();
+			
+			nursery.newCatHabitat(habitatId, length, width, usage, height, maxWeight);
+			
+			break;
+			
+		case "BIRD":
+			
+			Cage cage = null;
+			String aCage;
+			
+			System.out.print("\nInput cage type: ");
+			aCage = sc.nextLine();
+			
+			cage = Cage.valueOf(aCage.toUpperCase());
+			
+			nursery.newBirdHabitat(habitatId, length, width, usage, cage);
+			
+			break;
+			
+		case "RABBIT":
+			
+			String plantType; 
+			int quantity;
+			
+			System.out.print("\nInput plant type: ");
+			plantType = sc.nextLine();
+			
+			System.out.print("Input quantity: ");
+			quantity = sc.nextInt();
+			
+			nursery.newRabbitHabitat(habitatId, length, width, usage, plantType, quantity);
+			
+			break;
+			
+		case "REPTILE":
+			
+			Aquarium aquarium;
+			String anAquarium, material;
+			
+			System.out.print("\nInput aquarium type: ");
+			anAquarium = sc.nextLine();
+			
+			aquarium = Aquarium.valueOf(anAquarium.toUpperCase());
+			
+			System.out.print("Input material: ");
+			material = sc.nextLine();
+			
+			nursery.newReptileHabitat(habitatId, length, width, usage, aquarium, material);
+			
+			break;
+		}
+	}
+	
+	public void registerPetToNursery() {
+		
+		System.out.println("\n---REGISTER PET---");
+
+		String species, petName, breed; 
+		int age;
+		
+		System.out.print("Input species: ");
+		species = sc.nextLine();
+
+		System.out.print("Input name: ");
+		petName = sc.nextLine();
+		
+		System.out.print("Input age: ");
+		age = sc.nextInt();
+		
+		if(species.equalsIgnoreCase("Dog") || species.equalsIgnoreCase("Cat")) {
+
+			sc.nextLine();
+			System.out.print("Input breed: ");
+			breed = sc.nextLine();
+
+		}else{
+
+			breed = null;
+			sc.nextLine();
+		}
+		
+		String ownerId = null;
+		String ownerPhone = null;
+		String ownerAddress = null;
+		
+		System.out.print("Input owner's name: ");
+		String ownerName = sc.nextLine();
+		
+		if(nursery.ownerExists(ownerName) == false) {
+			
+			System.out.println("\n---This owner doesn't exist, create it");
+			
+			System.out.print("Input ID: ");
+			ownerId = sc.nextLine();
+
+			System.out.print("Input phone number: ");
+			ownerPhone = sc.nextLine();
+
+			System.out.print("Input adress: ");
+			ownerAddress = sc.nextLine();
+		}
+		
+		nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress);
+	}
 }

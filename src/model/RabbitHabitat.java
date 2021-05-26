@@ -8,9 +8,9 @@ public class RabbitHabitat extends Habitat{
 	private Plant plant;
 	
 	//CONSTRUCTOR
-	public RabbitHabitat(String habitatId, double length, double width, Usage usage, Plant plant) {
+	public RabbitHabitat(String habitatId, double length, double width, Usage usage, Pet petInside, Plant plant) {
 		
-		super(habitatId, length, width, usage);
+		super(habitatId, length, width, usage, petInside);
 		this.setPlant(plant);
 	}
 
@@ -28,12 +28,12 @@ public class RabbitHabitat extends Habitat{
 	public String toString() {
 		
 		String out = 
-			"\nHabitatId: " + getHabitatId() + 
+			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
 			"\nCurrent usage: " + getUsage() + 
-			"\nPlant type: " + plant.getType() + 
-			"\nPant quanityt: " + plant.getQuantity();
+			"\nPet inside: " + getPetInside().getPetName() + 
+			getPlant().toString();
 		
 		return out;
 	}

@@ -9,9 +9,10 @@ public class ReptileHabitat extends Habitat {
 	//RELATIONS
 	
 	//CONSTRUCTOR
-	public ReptileHabitat(String habitatId, double length, double width, Usage usage, Aquarium aquarium, String material) {
+	public ReptileHabitat(String habitatId, double length, double width, Usage usage, Pet petInside, 
+			Aquarium aquarium, String material) {
 		
-		super(habitatId, length, width, usage);
+		super(habitatId, length, width, usage, petInside);
 		this.setAquarium(aquarium);
 		this.setMaterial(material);
 	}
@@ -38,10 +39,11 @@ public class ReptileHabitat extends Habitat {
 	public String toString() {
 		
 		String out = 
-			"\nHabitatId: " + getHabitatId() + 
+			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
 			"\nCurrent usage: " + getUsage() + 
+			"\nPet inside: " + getPetInside().getPetName() + 
 			"\nAquarium type: " + getAquarium() + 
 			"\nMaterial: " + getMaterial();
 		
