@@ -2,15 +2,19 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * Pet Nursery class
+ * @author gajok
+ */
 public class PetNursery {
 	
-	//RELATIONS
+	//---RELATIONS
 	private ArrayList <Pet> nurseryPets;
 	private ArrayList <Owner> nurseryOwners;
 	private Habitat [][] habitats;
 //	private PetCenter nurseryToCenter;
 	
-	//CONSTRUCTOR
+	//---CONSTRUCTOR
 	public PetNursery() {
 		
 		nurseryPets = new ArrayList<Pet>();
@@ -20,7 +24,7 @@ public class PetNursery {
 	}
 
 
-	//GETTERS AND SETTERS
+	//---GETTERS AND SETTERS
 	public ArrayList <Pet> getNurseryPets() {
 		return nurseryPets;
 	}
@@ -29,7 +33,7 @@ public class PetNursery {
 		this.nurseryPets = nurseryPets;
 	}
 	
-	//METHODS	
+	//---METHODS	
 	public void transferedPetAndOwner(Pet aPet, Owner anOwner) {
 		
 		nurseryPets.add(aPet);
@@ -39,10 +43,6 @@ public class PetNursery {
 	public void addPet(String species, String petName, int age, String breed, String ownerName, 
 			String ownerId, String ownerPhone, String ownerAddress) {
 		
-		Priority priority = null;
-		String symptoms = null;
-		Status status = null;
-		Veterinarian attendedBy = null;
 		Owner ownedBy = null;
 		
 		if(ownerExists(ownerName) == false) {
@@ -58,8 +58,8 @@ public class PetNursery {
 			}
 		}
 		
-		Pet aPet = new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy);
-		nurseryPets.add(new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy));
+		Pet aPet = new Pet(species, petName, age, breed, ownedBy);
+		nurseryPets.add(aPet);
 		
 		enterPetToHabitat(aPet);
 	}
@@ -317,117 +317,6 @@ public class PetNursery {
 			break;
 		}
 		
-//		String[] parts;
-//		
-//		switch(species) {
-//		
-//		case "DOG":
-//			
-//			for(int i = 0; i < habitats.length && !available; i++) {
-//				
-//				for(int j = 0; j < habitats[0].length && !available; j++) {
-//			
-//					parts = habitats[i][j].getHabitatId().split("");
-//					
-//					if(parts[0].equalsIgnoreCase("D")) {
-//						
-//						if(habitats[i][j].getPetInside() == null) {
-//							
-//							available = true;
-//						}
-//					}
-//				}
-//			}
-//			
-//			break;
-//			
-//		case "CAT":
-//			
-//			for(int i = 0; i < habitats.length && !available; i++) {
-//				
-//				for(int j = 0; j < habitats[0].length && !available; j++) {
-//			
-//					parts = habitats[i][j].getHabitatId().split("");
-//					
-//					if(parts[0].equalsIgnoreCase("C")) {
-//						
-//						if(habitats[i][j].getPetInside() == null) {
-//							
-//							available = true;
-//						}
-//					}
-//				}
-//			}
-//			
-//			break;
-//			
-//		case "BIRD":
-//			
-//			for(int i = 0; i < habitats.length && !available; i++) {
-//				
-//				for(int j = 0; j < habitats[0].length && !available; j++) {
-//			
-//					parts = habitats[i][j].getHabitatId().split("");
-//					
-//					if(parts[0].equalsIgnoreCase("B")) {
-//						
-//						if(habitats[i][j].getPetInside() == null) {
-//							
-//							available = true;
-//						}
-//					}
-//				}
-//			}
-//			
-//			break;
-//			
-//		case "RABBIT":
-//			
-//			for(int i = 0; i < habitats.length && !available; i++) {
-//				
-//				for(int j = 0; j < habitats[0].length && !available; j++) {
-//			
-//					parts = habitats[i][j].getHabitatId().split("");
-//					
-//					if(parts[0].equalsIgnoreCase("R")) {
-//						
-//						if(parts[1].equalsIgnoreCase("a")) {
-//							
-//							if(habitats[i][j].getPetInside() == null) {
-//								
-//								available = true;
-//							}
-//						}
-//					}
-//				}
-//			}
-//			
-//			break;
-//			
-//		case "REPTILE":
-//			
-//			for(int i = 0; i < habitats.length && !available; i++) {
-//				
-//				for(int j = 0; j < habitats[0].length && !available; j++) {
-//			
-//					parts = habitats[i][j].getHabitatId().split("");
-//					
-//					if(parts[0].equalsIgnoreCase("R")) {
-//						
-//						if(parts[1].equalsIgnoreCase("p")) {
-//							
-//							if(habitats[i][j].getPetInside() == null) {
-//								
-//								available = true;
-//							}
-//						}
-//					}
-//				}
-//			}
-//			
-//			break;
-//		}
-		
 		return available;
 	}
 	
@@ -578,56 +467,56 @@ public class PetNursery {
 	
 	
 	
-	public void copyOfPets(Pet [] pets) {
-		
-		for(int i = 0; i < pets.length; i++) {
-			
-			if(pets[i] != null) {
-				
-				if(pets[i].getStatus() == Status.TRANSFER) {
-					
-					nurseryPets.add(pets[i]);
-				}
-			}
-		}
-		
-		for(int i = 0; i < nurseryPets.size(); i++) {
-			
-			System.out.println(nurseryPets.get(i).toString());
-		}
-	}
-	
-	public void copyOfPets2(Pet [] pets) {
-		
-		Pet [] petsCopy = new Pet[120];
-		
-		boolean copied = false;
-		
-		for(int i = 0; i < pets.length; i++) {
-			
-			if(pets[i] != null) {
-				
-				if(pets[i].getStatus() == Status.TRANSFER) {
-					
-					for(int j =0; j < petsCopy.length && !copied; j++) {
-						
-						if(petsCopy[j] == null) {
-							
-							petsCopy[j] = pets[i];
-							copied = true;
-						}
-					}
-				}
-			}
-		}
-		
-		for(int i = 0; i < petsCopy.length; i++) {
-			
-			if(petsCopy[i] != null) {
-				
-				System.out.println("\nPets " + i);				
-				System.out.println(petsCopy[i].toString());
-			}
-		}
-	}
+//	public void copyOfPets(Pet [] pets) {
+//		
+//		for(int i = 0; i < pets.length; i++) {
+//			
+//			if(pets[i] != null) {
+//				
+//				if(pets[i].getStatus() == Status.TRANSFER) {
+//					
+//					nurseryPets.add(pets[i]);
+//				}
+//			}
+//		}
+//		
+//		for(int i = 0; i < nurseryPets.size(); i++) {
+//			
+//			System.out.println(nurseryPets.get(i).toString());
+//		}
+//	}
+//	
+//	public void copyOfPets2(Pet [] pets) {
+//		
+//		Pet [] petsCopy = new Pet[120];
+//		
+//		boolean copied = false;
+//		
+//		for(int i = 0; i < pets.length; i++) {
+//			
+//			if(pets[i] != null) {
+//				
+//				if(pets[i].getStatus() == Status.TRANSFER) {
+//					
+//					for(int j =0; j < petsCopy.length && !copied; j++) {
+//						
+//						if(petsCopy[j] == null) {
+//							
+//							petsCopy[j] = pets[i];
+//							copied = true;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		for(int i = 0; i < petsCopy.length; i++) {
+//			
+//			if(petsCopy[i] != null) {
+//				
+//				System.out.println("\nPets " + i);				
+//				System.out.println(petsCopy[i].toString());
+//			}
+//		}
+//	}
 }

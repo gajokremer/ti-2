@@ -22,7 +22,7 @@ public class PetCenter {
 	private int totalAttended;
 
 	//---RELATIONS
-	private Pet [] pets;
+	private SickPet [] pets;
 	private Veterinarian [] veterinarians;
 	private Owner [] owners;
 	private PetNursery centerToNursery;
@@ -35,7 +35,7 @@ public class PetCenter {
 	 */
 	public PetCenter() {
 
-		pets = new Pet[MAX_PETS];
+		pets = new SickPet[MAX_PETS];
 		veterinarians = new Veterinarian[MAX_VETS];
 		owners = new Owner[MAX_PETS];
 	}
@@ -53,7 +53,7 @@ public class PetCenter {
 	 * Method to change the Pets array.
 	 * @param pets array must exist
 	 */
-	public void setPets(Pet [] pets) {
+	public void setPets(SickPet [] pets) {
 		this.pets = pets;
 	}
 	
@@ -133,7 +133,7 @@ public class PetCenter {
 	public String addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets) {
 
 		String result = "";
-		Pet attends = null;
+		SickPet attends = null;
 
 		if(totalVets < MAX_VETS) {
 
@@ -319,7 +319,10 @@ public class PetCenter {
 
 				if(pets[i] == null) {
 
-					pets[i] = new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy);
+					pets[i] = new SickPet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy);
+					
+					System.out.println("---" + ownedBy);
+		
 					totalPets++;
 					empty = true;
 					
@@ -587,7 +590,7 @@ public class PetCenter {
 
 		if(totalVets != 0) {
 
-			Pet aPet = null;
+			SickPet aPet = null;
 			Veterinarian aVeterinarian = null;
 			
 			boolean sameId = false;
@@ -723,9 +726,9 @@ public class PetCenter {
 
 		for(i = 0; i < veterinarians.length && !sameId; i++) {
 
-			if(veterinarians[i].getIdNumber().equals(idNumber)) {
+			if(veterinarians[i].getAttends() != null) {
 				
-				if(veterinarians[i].getAttends() != null) {
+				if(veterinarians[i].getIdNumber().equals(idNumber)) {
 					
 					veterinarians[i].setAttends(null);
 					sameId = true;

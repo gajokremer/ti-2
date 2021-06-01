@@ -13,7 +13,7 @@ public class Veterinarian {
 	private int attendedPets;
 
 	//---RELATIONS
-	private Pet attends;
+	private SickPet attends;
 
 	//---CONSTRUCTOR
 	/**
@@ -25,7 +25,7 @@ public class Veterinarian {
 	 * @param attends must start as null, later contains Pet being attended
 	 */
 	public Veterinarian(String idNumber, String fullName, String registerNumber, 
-		int attendedPets, Pet attends) {
+		int attendedPets, SickPet attends) {
 		
 		this.idNumber = idNumber;
 		this.fullName = fullName;
@@ -112,7 +112,7 @@ public class Veterinarian {
 	 * Method to change the Pet being attended by a Veterinarian.
 	 * @param attends must exist, but can be null.
 	 */
-	public void setAttends(Pet attends) {
+	public void setAttends(SickPet attends) {
 		this.attends = attends;
 	}
 	

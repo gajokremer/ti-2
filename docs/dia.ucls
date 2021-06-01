@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="model.PetCenter" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/PetCenter.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="497" y="468"/>    
+    <position height="-1" width="-1" x="432" y="468"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,23 +21,14 @@
   </class>  
   <class id="3" language="java" name="model.Pet" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Pet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1000" y="238"/>    
+    <position height="-1" width="-1" x="918" y="215"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="model.Veterinarian" project="tareaIntegradora2" 
-    file="/tareaIntegradora2/src/model/Veterinarian.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1012" y="858"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="5" language="java" name="model.Owner" project="tareaIntegradora2" 
+  <class id="4" language="java" name="model.Owner" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Owner.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="532" y="-218"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -46,43 +37,43 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="6" language="java" name="model.Priority" project="tareaIntegradora2" 
+  <enumeration id="5" language="java" name="model.Priority" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Priority.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1346" y="363"/>    
+    <position height="-1" width="-1" x="1634" y="445"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="7" language="java" name="model.Status" project="tareaIntegradora2" 
+  <enumeration id="6" language="java" name="model.Status" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Status.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1341" y="97"/>    
+    <position height="-1" width="-1" x="1359" y="351"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="8" language="java" name="model.DogHabitat" project="tareaIntegradora2" 
+  <class id="7" language="java" name="model.DogHabitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/DogHabitat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1595" y="-235"/>    
+    <position height="-1" width="-1" x="1619" y="-227"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="model.CatHabitat" project="tareaIntegradora2" 
+  <class id="8" language="java" name="model.CatHabitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/CatHabitat.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1604" y="-436"/>    
+    <position height="-1" width="-1" x="1620" y="-450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="model.BirdHabitat" project="tareaIntegradora2" 
+  <class id="9" language="java" name="model.BirdHabitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/BirdHabitat.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1587" y="-660"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -91,7 +82,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="model.RabbitHabitat" project="tareaIntegradora2" 
+  <class id="10" language="java" name="model.RabbitHabitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/RabbitHabitat.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1564" y="-24"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -100,7 +91,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="model.ReptileHabitat" project="tareaIntegradora2" 
+  <class id="11" language="java" name="model.ReptileHabitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/ReptileHabitat.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1273" y="-766"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -109,7 +100,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="13" language="java" name="model.Cage" project="tareaIntegradora2" 
+  <enumeration id="12" language="java" name="model.Cage" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Cage.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1646" y="-847"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -118,7 +109,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <enumeration id="14" language="java" name="model.Usage" project="tareaIntegradora2" 
+  <enumeration id="13" language="java" name="model.Usage" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Usage.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1295" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -127,7 +118,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="15" language="java" name="model.Plant" project="tareaIntegradora2" 
+  <class id="14" language="java" name="model.Plant" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Plant.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1564" y="212"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -136,7 +127,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="16" language="java" name="model.Aquarium" project="tareaIntegradora2" 
+  <enumeration id="15" language="java" name="model.Aquarium" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Aquarium.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="941" y="-872"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -145,7 +136,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="17" language="java" name="model.PetNursery" project="tareaIntegradora2" 
+  <class id="16" language="java" name="model.PetNursery" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/PetNursery.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="905" y="-483"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -154,7 +145,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="model.Habitat" project="tareaIntegradora2" 
+  <class id="17" language="java" name="model.Habitat" project="tareaIntegradora2" 
     file="/tareaIntegradora2/src/model/Habitat.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1280" y="-434"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -163,242 +154,274 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="19">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="20" name="status">        
-        <position height="18" width="38" x="1232" y="107"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="16" width="23" x="1253" y="142"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="23" name="aquarium">        
-        <position height="0" width="0" x="-32" y="-168"/>      
-      </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-32" y="-168"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
+  <class id="18" language="java" name="model.SickPet" project="tareaIntegradora2" 
+    file="/tareaIntegradora2/src/model/SickPet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1357" y="687"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="model.Veterinarian" project="tareaIntegradora2" 
+    file="/tareaIntegradora2/src/model/Veterinarian.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="893" y="942"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="20">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="26" name="usage"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="21" name="attendedBy">        
+        <position height="18" width="63" x="1012" y="833"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="16" width="23" x="1014" y="850"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="29" name="nursery">        
-        <position height="0" width="0" x="-41" y="-74"/>      
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="pets">        
+        <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-41" y="-74"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="27" name="ownedBy">        
+        <position height="18" width="55" x="635" y="-132"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="16" width="23" x="628" y="-89"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="30" name="cage">        
+        <position height="0" width="0" x="7" y="-15"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="7" y="-15"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="33" name="habitats">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="31">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="owners">        
-        <position height="0" width="0" x="-64" y="-1025"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-64" y="-1025"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="35" name="nurseryOwners">        
-        <position height="18" width="86" x="629" y="-282"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="2147483647">        
-        <position height="16" width="21" x="630" y="-311"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="38" name="habitats"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
+  <association id="35">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="41" name="center">        
-        <position height="0" width="0" x="1" y="235"/>      
+      <attribute id="36" name="nursery">        
+        <position height="0" width="0" x="-41" y="-74"/>      
       </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
-        <position height="0" width="0" x="1" y="235"/>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-41" y="-74"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
+  <association id="38">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="39" name="nurseryPets">        
+        <position height="0" width="0" x="-82" y="-23"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-82" y="-23"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="42" name="priority">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="44">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="45" name="plant">        
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="45" name="status">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="46" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="47">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="48" name="pets">        
-        <position height="0" width="0" x="24" y="0"/>      
+      <attribute id="48" name="veterinarians">        
+        <position height="0" width="0" x="-61" y="6"/>      
       </attribute>      
       <multiplicity id="49" minimum="0" maximum="2147483647">        
-        <position height="16" width="21" x="785" y="339"/>      
+        <position height="0" width="0" x="-61" y="6"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="50">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="18"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="17"/>  
   </generalization>  
   <association id="51">    
-    <bendpoint x="1061" y="597"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="52" name="attends">        
-        <position height="0" width="0" x="24" y="0"/>      
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="52" name="aquarium">        
+        <position height="0" width="0" x="-32" y="-168"/>      
       </attribute>      
       <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="16" width="23" x="1055" y="530"/>      
+        <position height="0" width="0" x="-32" y="-168"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="55">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="56" name="centerToNursery">        
+        <position height="18" width="89" x="811" y="-244"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="16" width="23" x="823" y="-259"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="59" name="petInside">        
+        <position height="0" width="0" x="-82" y="-23"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-82" y="-23"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="55" name="cage">        
-        <position height="0" width="0" x="7" y="-15"/>      
+  <association id="61">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="62" name="attends">        
+        <position height="18" width="44" x="1160" y="823"/>      
       </attribute>      
-      <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="7" y="-15"/>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="16" width="23" x="1138" y="834"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="64">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="65" name="usage">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="66" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="57">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="58" name="petInside"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="61" name="centerToNursery">        
-        <position height="18" width="89" x="811" y="-244"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="16" width="23" x="823" y="-259"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="63">    
+  <generalization id="67">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="68">    
     <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="18"/>  
+    <end type="TARGET" refId="17"/>  
   </generalization>  
-  <association id="64">    
+  <association id="69">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="70" name="plant">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="73" name="center">        
+        <position height="0" width="0" x="-64" y="235"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-64" y="235"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <association id="77">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="65" name="veterinarians">        
-        <position height="18" width="71" x="808" y="696"/>      
+      <attribute id="78" name="owners">        
+        <position height="0" width="0" x="-64" y="-1025"/>      
       </attribute>      
-      <multiplicity id="66" minimum="0" maximum="2147483647">        
-        <position height="16" width="21" x="858" y="716"/>      
+      <multiplicity id="79" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-64" y="-1025"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="67">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="68" name="nurseryPets">        
-        <position height="0" width="0" x="0" y="0"/>      
+  <association id="80">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="81" name="nurseryOwners">        
+        <position height="18" width="86" x="629" y="-282"/>      
       </attribute>      
-      <multiplicity id="69" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="70">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="71" name="priority">        
-        <position height="18" width="41" x="1245" y="306"/>      
-      </attribute>      
-      <multiplicity id="72" minimum="0" maximum="1">        
-        <position height="16" width="23" x="1255" y="355"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="73">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <generalization id="74">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <association id="75">    
-    <bendpoint x="943" y="602"/>    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="76" name="attendedBy">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="77" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="82" minimum="0" maximum="2147483647">        
+        <position height="16" width="21" x="630" y="-311"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="78">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="79" name="ownedBy">        
-        <position height="18" width="55" x="635" y="-132"/>      
-      </attribute>      
-      <multiplicity id="80" minimum="0" maximum="1">        
-        <position height="16" width="23" x="628" y="-89"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
