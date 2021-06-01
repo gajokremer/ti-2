@@ -12,7 +12,6 @@ public class Pet {
 	private int age;
 	private String breed;
 	private String symptoms;
-	private String attendedById;
 	private Priority priority;
 	private Status status;
 
@@ -31,11 +30,10 @@ public class Pet {
 	 * @param priority must be one of five Priority options
 	 * @param status must be "Waiting" when created, the can be changed to one of five Status options
 	 * @param ownedBy must exist, if not program will ask user to create it
-	 * @param attendedById must start as null, then will show ID of Veterinarian who attended the Pet
 	 * @param attendedBy must start as null, then will store the Veterinarian who attended the Pet
 	 */
 	public Pet(String species, String petName, int age, String breed, String symptoms, 
-		Priority priority, Status status, Owner ownedBy, String attendedById, Veterinarian attendedBy) {
+		Priority priority, Status status, Owner ownedBy, Veterinarian attendedBy) {
 
 		this.species = species;
 		this.petName = petName;
@@ -45,10 +43,9 @@ public class Pet {
 		this.priority = priority;
 		this.status = status;
 		this.ownedBy = ownedBy;
-		this.attendedById = attendedById;
 		this.attendedBy = attendedBy;
 	}
-	
+
 
 	//---GETTERS AND SETTERS
 	/**
@@ -194,20 +191,6 @@ public class Pet {
 		this.attendedBy = attendedBy;
 	}
 	
-	/**
-	 * Method to call the ID of the Veterinarian that attended a Pet.
-	 * @return ID of the Veterinarian that attended a Pet
-	 */
-	public String getAttendedById() {
-		return attendedById;
-	}
-	/**
-	 * Method to call the ID of the Veterinarian that attended a Pet.
-	 * @param attendedById must exist as a String composed of numbers, but can be null
-	 */
-	public void setAttendedById(String attendedById) {
-		this.attendedById = attendedById;
-	}
 
 	//---TO STRING
 	@Override
@@ -221,9 +204,16 @@ public class Pet {
 			"\nSymptoms: " + getSymptoms() + 
 			"\nPriority: " + getPriority() + 
 			"\nStatus: " + getStatus() + 
-			"\nOwner: " + ownedBy.getFullName() + 
-			"\nAttended by: " + getAttendedById() + "\n";
-//			"\nAttended by: " + getAttendedBy().getIdNumber();
+			"\nOwner: " + ownedBy.getFullName(); 
+		
+		if(getAttendedBy() != null) {
+			
+			out += "\nAttended by: " + getAttendedBy().getIdNumber();
+			
+		}else {
+			
+			out += "\nAttended by: None";
+		}
 		
 		return out;
 	}

@@ -26,6 +26,7 @@ public class PetCenter {
 	private Veterinarian [] veterinarians;
 	private Owner [] owners;
 	private PetNursery centerToNursery;
+//	private PetNursery centerToNursery = new PetNursery();
 
 
 	//CONSTRUCTOR
@@ -37,9 +38,6 @@ public class PetCenter {
 		pets = new Pet[MAX_PETS];
 		veterinarians = new Veterinarian[MAX_VETS];
 		owners = new Owner[MAX_PETS];
-//		totalPets = 0;
-//		totalVets = 0;
-//		totalOwners = 0;
 	}
 	
 
@@ -130,10 +128,9 @@ public class PetCenter {
 	 * @param fullName must have name and surname included
 	 * @param registerNumber must be a String which can combine letters and numbers
 	 * @param attendedPets must be 0
-	 * @param attendingNow must be null
 	 * @return String with result of procedure
 	 */
-	public String addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets, String attendingNow) {
+	public String addVeterinarian(String idNumber, String fullName, String registerNumber, int attendedPets) {
 
 		String result = "";
 		Pet attends = null;
@@ -147,7 +144,7 @@ public class PetCenter {
 
 				if(veterinarians[i] == null) {
 
-					veterinarians[i] = new Veterinarian(idNumber, fullName, registerNumber, attendedPets, attendingNow, attends);
+					veterinarians[i] = new Veterinarian(idNumber, fullName, registerNumber, attendedPets, attends);
 					totalVets++;
 					empty = true;
 					
@@ -240,12 +237,11 @@ public class PetCenter {
 	 * @param ownerId must be a String composed of numbers
 	 * @param ownerPhone must be a String with a phone number (10 digits)
 	 * @param ownerAddress must contain an address (words, numbers, symbols)
-	 * @param attendedById must start as null, then will show ID of Veterinarian who attended the Pet
 	 * @return String with result of procedure
 	 */
 	public String addPet(String species, String petName, int age, String breed, 
 		String symptoms, Priority priority, Status status, String ownerName, String ownerId, 
-		String ownerPhone, String ownerAddress, String attendedById) {
+		String ownerPhone, String ownerAddress) {
 		
 		String result = "";
 
@@ -323,7 +319,7 @@ public class PetCenter {
 
 				if(pets[i] == null) {
 
-					pets[i] = new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedById, attendedBy);
+					pets[i] = new Pet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy);
 					totalPets++;
 					empty = true;
 					
@@ -645,7 +641,6 @@ public class PetCenter {
 						if(veterinarians[i].getAttends() == null) {
 							
 							veterinarians[i].setAttendedPets(veterinarians[i].getAttendedPets() + 1);
-							veterinarians[i].setAttendingNow(petName);
 							veterinarians[i].setAttends(aPet);
 							sameId = true;
 						}
@@ -679,7 +674,6 @@ public class PetCenter {
 							if(pets[i].getAttendedBy() == null) {
 								
 								
-								pets[i].setAttendedById(idNumber);
 								pets[i].setAttendedBy(aVeterinarian);
 								pets[i].setStatus(status);
 								totalAttended++;
@@ -734,7 +728,6 @@ public class PetCenter {
 				if(veterinarians[i].getAttends() != null) {
 					
 					veterinarians[i].setAttends(null);
-					veterinarians[i].setAttendingNow(null);
 					sameId = true;
 					
 				}else {
@@ -1038,36 +1031,39 @@ public class PetCenter {
 	
 	
 	/**
+	 * 
 	 * @param petName must be a String, can contain more than one word.
 	 * @return String with result of procedure
 	 */
 	public String transferToNursery(String petName) {
-		
+
 		String result = "";
 		
 		boolean samePetName = false;
 		
 		for(int i = 0; i < pets.length && !samePetName; i++) {
 			
-			if(pets[i].getPetName() == petName) {
+			if(pets[i] != null) {
 				
 				if(pets[i].getStatus() == Status.TRANSFER) {
 					
-					centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
-					result = "\n--Pet and Owner successfully transfered to nursery";
+					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
+						
+						if(centerToNursery == null) {
+							
+							centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
+							
+							System.out.println("\n---" + pets[i].getPetName().toUpperCase());
+						}
+					}
 					
 				}else {
 					
-					result = "\nERROR: Pet does not have Transfer status";
+					result += "\nERROR: Pet doesn't need to be transfered";
 				}
-				
-			}else {
-				
-				result = "\nERROR: Name doesn't correspond to any pet";
-			}
+			}			
 		}
 		
 		return result;
 	}
-
 }
