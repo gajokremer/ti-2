@@ -293,7 +293,7 @@ public class Main {
 		System.out.print("Input species: ");
 		species = sc.nextLine();
 
-		System.out.print("Input name: ");
+		System.out.print("Input Pet name: ");
 		petName = sc.nextLine();
 		
 		if(center.repeatedPet(petName) == true) {
@@ -551,12 +551,21 @@ public class Main {
 		
 		System.out.println(
 				"\nSelect an option:" + 
+		
+				"\n(-1) for scenario\n" + 
+						
 				"\n(1) to register a new Pet\n" + 
 				
 				"\n(2) to print all Nursery Pets" + 
 				"\n(3) to print all Nursery Owners\n" + 
 				
-				"\n(4) to print all Habitats matrix\n" + 
+				"\n(4) to find a Pet's location" + 
+				"\n(5) to show a specific Habitat's info\n" +
+				
+				"\n(6) to print all Habitats matrix" + 
+				"\n(7) to print all Habitats in list format\n" +
+				
+				"\n(8) to print Habitat ocuppation reports\n" + 
 		
 				"\n(0) to return to Main Menu");
 		
@@ -579,6 +588,10 @@ public class Main {
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
 			break;
 			
+		case -1:
+			createNurseryScenario();
+			break;
+			
 		case 1:
 			registerPetToNursery();
 			break;
@@ -591,11 +604,39 @@ public class Main {
 		case 3:
 			System.out.print("\n---ALL OWNERS---\n");
 			System.out.println(nursery.printAllOwners());
+			break;
 			
 		case 4:
+			findPet();
+			break;
+			
+		case 5:
+			showHabitat();
+			break;
+			
+		case 6:
 			System.out.print("\n---HABITATS MATRIX---\n");
-//			System.out.println(nursery.printHabitats());
-			System.out.println(nursery.printMatrix());
+			System.out.println(nursery.printHabitatsMatrix());
+			break;
+			
+		case 7:
+			System.out.print("\n---HABITATS LIST---\n");
+			System.out.println(nursery.printHabitatsList());
+			break;
+			
+		case 8:
+			System.out.print("\n---HABITAT OCCUPATION REPORTS---\n");
+			
+			System.out.println("\n---Cat habitats: " + nursery.catOccupation() + "%");
+			System.out.println("---Dog habitats: " + nursery.dogOccupation() + "%");
+			System.out.println("---Reptile habitats: " + nursery.reptileOccupation() + "%");
+			System.out.println("---Rabbit habitats: " + nursery.rabbitOccupation() + "%");
+			System.out.println("---Bird habitats: " + nursery.birdOccupation() + "%");
+			
+			System.out.println("\n---Total occupation: " + nursery.totalOccupation() + "%");
+			
+			System.out.println("\n---Healthy pets: " + nursery.percentageHealthy() + "%");
+			System.out.println("\n---Sick pets: " + nursery.percentageSick() + "%");
 			break;
 		}
 	}
@@ -616,115 +657,6 @@ public class Main {
 		center.transferToNursery(petName);
 	}
 	
-//	public void createHabitat() {
-//		
-//		System.out.println("\n---CREATE HABITAT---");
-//		
-//		String habitatId, typeOfPet;
-//		double length, width;
-////		Usage usage;
-//		String currentUsage;
-//		
-//		System.out.print("Type of Pet for habitat: ");
-//		typeOfPet = sc.nextLine().toUpperCase();
-//		
-//		System.out.print("\nInput habitat ID: ");
-//		habitatId = sc.nextLine(); 
-//		
-//		System.out.println("Input length and width: ");
-//		length = sc.nextDouble();
-//		width  = sc.nextDouble();
-//		
-//		System.out.print("Input current usage: ");
-//		sc.nextLine();
-//		currentUsage = sc.nextLine();
-//		
-//		Usage usage = Usage.valueOf(currentUsage.toUpperCase());
-//		
-//		habitatType(typeOfPet, habitatId, length, width, usage);	
-//	}
-//	
-//	public void habitatType(String typeOfPet, String habitatId, double length, double width, Usage usage) {
-//		
-//		switch(typeOfPet) {
-//		
-//		default:
-//			System.out.println("\nHabitat type doesn't exist");
-//			break;
-//		
-//		case "DOG":
-//			
-//			int toys;
-//			
-//			System.out.print("\nInput toys available: ");
-//			toys = sc.nextInt();
-//			
-//			nursery.newDogHabitat(habitatId, length, width, usage, toys);
-//			
-//			break;
-//			
-//		case "CAT":
-//			
-//			double height, maxWeight;
-//			
-//			System.out.print("\nInput height: ");
-//			height = sc.nextDouble();
-//			
-//			System.out.print("Input max weight: ");
-//			maxWeight = sc.nextDouble();
-//			
-//			nursery.newCatHabitat(habitatId, length, width, usage, height, maxWeight);
-//			
-//			break;
-//			
-//		case "BIRD":
-//			
-//			Cage cage = null;
-//			String aCage;
-//			
-//			System.out.print("\nInput cage type: ");
-//			aCage = sc.nextLine();
-//			
-//			cage = Cage.valueOf(aCage.toUpperCase());
-//			
-//			nursery.newBirdHabitat(habitatId, length, width, usage, cage);
-//			
-//			break;
-//			
-//		case "RABBIT":
-//			
-//			String plantType; 
-//			int quantity;
-//			
-//			System.out.print("\nInput plant type: ");
-//			plantType = sc.nextLine();
-//			
-//			System.out.print("Input quantity: ");
-//			quantity = sc.nextInt();
-//			
-//			nursery.newRabbitHabitat(habitatId, length, width, usage, plantType, quantity);
-//			
-//			break;
-//			
-//		case "REPTILE":
-//			
-//			Aquarium aquarium;
-//			String anAquarium, material;
-//			
-//			System.out.print("\nInput aquarium type: ");
-//			anAquarium = sc.nextLine();
-//			
-//			aquarium = Aquarium.valueOf(anAquarium.toUpperCase());
-//			
-//			System.out.print("Input material: ");
-//			material = sc.nextLine();
-//			
-//			nursery.newReptileHabitat(habitatId, length, width, usage, aquarium, material);
-//			
-//			break;
-//		}
-//	}
-	
 	public void registerPetToNursery() {
 		
 		System.out.println("\n---REGISTER PET---");
@@ -735,7 +667,7 @@ public class Main {
 		System.out.print("Input species: ");
 		species = sc.nextLine();
 
-		System.out.print("Input name: ");
+		System.out.print("Input Pet name: ");
 		petName = sc.nextLine();
 		
 		System.out.print("Input age: ");
@@ -775,6 +707,39 @@ public class Main {
 		}
 		
 		
-		nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress);
+		System.out.println(nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress));
+	}
+	
+	public void findPet() {
+		
+		System.out.println("\n---FIND PET---");
+		
+		String petName;
+		
+		System.out.print("Input Pet name: ");
+		petName = sc.nextLine();
+		
+		System.out.println(nursery.petLocation(petName));
+	}
+	
+	public void showHabitat() {
+		
+		System.out.println("\n---FIND HABITAT---");
+		
+		String habitatId;
+		
+		System.out.print("Input habitat ID: ");
+		habitatId = sc.nextLine();
+				
+		System.out.println(nursery.habitatInfo(habitatId));
+	}
+	
+	
+	
+	
+	public  void createNurseryScenario() {
+		
+		Test scenario = new Test();
+		scenario.createScenario1(nursery);
 	}
 }

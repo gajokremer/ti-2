@@ -30,10 +30,20 @@ public String toString() {
 		String out = 
 			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
-			"\nWidth: " + getWidth() + 
-			"\nCurrent usage: " + getUsage() + 
-			"\nPet inside: " + getPetInside().getPetName() + 
-			"\nCage type :" + getCage();
+			"\nWidth: " + getWidth() +
+			"\nCurrent usage: " + getUsage();
+		
+		if(getPetInside() == null) {
+			
+			out += "\nPet inside: None"; 
+
+		}else {
+			
+			out += "\nPet inside: " + getPetInside().getPetName();
+		}
+		
+		out +=
+			"\nCage type: " + getCage();
 		
 		return out;
 	}

@@ -41,8 +41,18 @@ public class CatHabitat extends Habitat{
 			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
-			"\nCurrent usage: " + getUsage() + 
-			"\nPet inside: " + getPetInside().getPetName() + 
+			"\nCurrent usage: " + getUsage();
+			
+		if(getPetInside() == null) {
+			
+			out += "\nPet inside: None"; 
+
+		}else {
+			
+			out += "\nPet inside: " + getPetInside().getPetName();
+		}
+			
+		out += 
 			"\nHeight: " + getHeight() + 
 			"\nMax weight: " + getMaxWeight();
 		

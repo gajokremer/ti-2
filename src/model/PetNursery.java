@@ -40,8 +40,10 @@ public class PetNursery {
 		nurseryOwners.add(anOwner);
 	}
 	
-	public void addPet(String species, String petName, int age, String breed, String ownerName, 
+	public String addPet(String species, String petName, int age, String breed, String ownerName, 
 			String ownerId, String ownerPhone, String ownerAddress) {
+		
+		String result = "";
 		
 		Owner ownedBy = null;
 		
@@ -58,51 +60,60 @@ public class PetNursery {
 			}
 		}
 		
-		Pet aPet = new Pet(species, petName, age, breed, ownedBy);
-		nurseryPets.add(aPet);
+		if(habitatAvailable(species) == true) {
+			
+			Pet aPet = new Pet(species, petName, age, breed, ownedBy);
+			nurseryPets.add(aPet);
+			
+			result = enterPetToHabitat(aPet);
+			
+		}else {
+			
+			result = "\nERROR: There are no spaces available"; 
+		}
 		
-		enterPetToHabitat(aPet);
+		return result;
 	}
 	
 	public void createAllHabitats() {
 
 		Pet aPet = null;
 		
-		dogHabitats(aPet);
 		catHabitats(aPet);
+		dogHabitats(aPet);
 		reptileHabitats(aPet);
 		rabbitHabitats(aPet);
 		birdHabitats(aPet);
 	}
 	
-	public void dogHabitats(Pet aPet) {
-		
-		habitats[0][0] = new DogHabitat("D1", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[0][1] = new DogHabitat("D2", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[0][2] = new DogHabitat("D3", 200, 200, Usage.EMPTY, aPet, 5);
-		
-		habitats[1][0] = new DogHabitat("D4", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[1][1] = new DogHabitat("D5", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[1][2] = new DogHabitat("D6", 200, 200, Usage.EMPTY, aPet, 5);
-		
-		habitats[2][0] = new DogHabitat("D7", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[2][1] = new DogHabitat("D8", 200, 200, Usage.EMPTY, aPet, 5);
-		habitats[2][2] = new DogHabitat("D9", 200, 200, Usage.EMPTY, aPet, 5);
-	}
-	
 	public void catHabitats(Pet aPet) {
 		
-		habitats[3][0] = new CatHabitat("C1", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[3][1] = new CatHabitat("C2", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[3][2] = new CatHabitat("C3", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[0][0] = new CatHabitat("C1", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[0][1] = new CatHabitat("C2", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[0][2] = new CatHabitat("C3", 100, 100, Usage.EMPTY, aPet, 100, 5);
 		
-		habitats[4][0] = new CatHabitat("C4", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[4][1] = new CatHabitat("C5", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[4][2] = new CatHabitat("C6", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[1][0] = new CatHabitat("C4", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[1][1] = new CatHabitat("C5", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[1][2] = new CatHabitat("C6", 100, 100, Usage.EMPTY, aPet, 100, 5);
 		
-		habitats[5][0] = new CatHabitat("C7", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[5][1] = new CatHabitat("C8", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[5][2] = new CatHabitat("C9", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[2][0] = new CatHabitat("C7", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[2][1] = new CatHabitat("C8", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[2][2] = new CatHabitat("C9", 100, 100, Usage.EMPTY, aPet, 100, 5);
+	}
+	
+	public void dogHabitats(Pet aPet) {
+		
+		habitats[3][0] = new DogHabitat("D1", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[3][1] = new DogHabitat("D2", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[3][2] = new DogHabitat("D3", 200, 200, Usage.EMPTY, aPet, 5);
+		
+		habitats[4][0] = new DogHabitat("D4", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[4][1] = new DogHabitat("D5", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[4][2] = new DogHabitat("D6", 200, 200, Usage.EMPTY, aPet, 5);
+		
+		habitats[5][0] = new DogHabitat("D7", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[5][1] = new DogHabitat("D8", 200, 200, Usage.EMPTY, aPet, 5);
+		habitats[5][2] = new DogHabitat("D9", 200, 200, Usage.EMPTY, aPet, 5);
 	}
 	
 	public void reptileHabitats(Pet aPet) {
@@ -135,104 +146,6 @@ public class PetNursery {
 	}
 
 	
-//	public void newDogHabitat(String habitatId, double length, double width, Usage usage, int toys) {
-//		
-//		Pet aPet = null;
-//		
-//		boolean empty = false;
-//		
-//		for(int i = 0; i < habitats.length && !empty; i++) {
-//			
-//			for(int j = 0; j < habitats[i].length && !empty; j++) {
-//				
-//				if(habitats[i][j] == null) {
-//					
-//					habitats[i][j] = new DogHabitat(habitatId, length, width, usage, aPet, toys);
-//					empty = true;
-//				}
-//			}
-//		}
-//	}
-//	
-//	public void newCatHabitat(String habitatId, double length, double width, Usage usage, double height, double maxWeight) {
-//
-//		Pet aPet = null;
-//		
-//		boolean empty = false;
-//		
-//		for(int i = 0; i < habitats.length && !empty; i++) {
-//			
-//			for(int j = 0; j < habitats[i].length && !empty; j++) {
-//				
-//				if(habitats[i][j] == null) {
-//					
-//					habitats[i][j] = new CatHabitat(habitatId, length, width, usage, aPet, height, maxWeight);
-//					empty = true;
-//				}
-//			}
-//		}
-//	}
-//	
-//	public void newBirdHabitat(String habitatId, double length, double width, Usage usage, Cage cage) {
-//		
-//		Pet aPet = null;
-//		
-//		boolean empty = false;
-//		
-//		for(int i = 0; i < habitats.length && !empty; i++) {
-//			
-//			for(int j = 0; j < habitats[i].length && !empty; j++) {
-//				
-//				if(habitats[i][j] == null) {
-//					
-//					habitats[i][j] = new BirdHabitat(habitatId, length, width, usage, aPet, cage);
-//					empty = true;
-//				}
-//			}
-//		}
-//	}
-//	
-//	public void newRabbitHabitat(String habitatId, double length, double width, Usage usage, String plantType, int quantity) {
-//		
-//		Plant aPlant = new Plant(plantType, quantity);
-//		
-//		Pet aPet = null;
-//		
-//		boolean empty = false;
-//		
-//		for(int i = 0; i < habitats.length && !empty; i++) {
-//			
-//			for(int j = 0; j < habitats[i].length && !empty; j++) {
-//				
-//				if(habitats[i][j] == null) {
-//					
-//					habitats[i][j] = new RabbitHabitat(habitatId, length, width, usage, aPet, aPlant);
-//					empty = true;
-//				}
-//			}
-//		}
-//	}
-//	
-//	public void newReptileHabitat(String habitatId, double length, double width, Usage usage, Aquarium aquarium, String material) {
-//		
-//		Pet aPet = null;
-//		
-//		boolean empty = false;
-//		
-//		for(int i = 0; i < habitats.length && !empty; i++) {
-//			
-//			for(int j = 0; j < habitats[i].length && !empty; j++) {
-//				
-//				if(habitats[i][j] == null) {
-//					
-//					habitats[i][j] = new ReptileHabitat(habitatId, length, width, usage, aPet, aquarium, material);
-//					empty = true;
-//				}
-//			}
-//		}
-//	}
-	
-	
 	public boolean habitatAvailable(String species) {
 		
 		boolean available = false;
@@ -241,7 +154,7 @@ public class PetNursery {
 		
 		switch(species) {
 		
-		case "DOG":
+		case "CAT":
 			
 			for(int i = 0; i < 3 && !available; i++) {
 			
@@ -256,7 +169,7 @@ public class PetNursery {
 			
 			break;
 			
-		case "CAT":
+		case "DOG":
 			
 			for(int i = 3; i < 6 && !available; i++) {
 				
@@ -320,29 +233,106 @@ public class PetNursery {
 		return available;
 	}
 	
+	
 	public String enterPetToHabitat(Pet aPet) {
 		
 		String result = "";
 		
 		boolean empty = false;
 		
-		for(int i = 0; i < habitats.length && !empty; i++) {
+		switch(aPet.getSpecies().toUpperCase()) {
+		
+		case "CAT":
 			
-			for(int j = 0; j < habitats[i].length; j++) {
-				
-				if(habitatAvailable(aPet.getSpecies()) == true) {
+			for(int i = 0; i < 3 && !empty; i++) {
+			
+				for(int j = 0; j < 3 && !empty; j++) {
 					
-					result = "\n--Pet successfully interned\n";
-					habitats[i][j].setPetInside(aPet);
-					empty = true;
-					
-				}else {
-					
-					result = "\nERROR: No available habitats";
+					if(habitats[i][j].getPetInside() == null) {
+						
+						habitats[i][j].setPetInside(aPet);
+						habitats[i][j].setUsage(Usage.HEALTHY);
+						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+						empty = true;
+					}
 				}
 			}
+			
+			break;
+			
+		case "DOG":
+			
+			for(int i = 3; i < 6 && !empty; i++) {
+				
+				for(int j = 0; j < 3 && !empty; j++) {
+					
+					if(habitats[i][j].getPetInside() == null) {
+						
+						habitats[i][j].setPetInside(aPet);
+						habitats[i][j].setUsage(Usage.HEALTHY);
+						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+						empty = true;
+					}
+				}
+			}
+			
+			break;
+			
+		case "REPTILE":
+			
+			for(int i = 0; i < 2 && !empty; i++) {
+				
+				for(int j = 3; j < 5 && !empty; j++) {
+					
+					if(habitats[i][j].getPetInside() == null) {
+						
+						habitats[i][j].setPetInside(aPet);
+						habitats[i][j].setUsage(Usage.HEALTHY);
+						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+						empty = true;
+					}
+				}
+			}
+			
+			break;
+			
+		case "RABBIT":
+			
+			for(int i = 2; i < 4 && !empty; i++) {
+				
+				for(int j = 3; j < 5 && !empty; j++) {
+					
+					if(habitats[i][j].getPetInside() == null) {
+						
+						habitats[i][j].setPetInside(aPet);
+						habitats[i][j].setUsage(Usage.HEALTHY);
+						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+						empty = true;
+					}
+				}
+			}
+			
+			break;
+			
+		case "BIRD":
+			
+			for(int i = 4; i < 6 && !empty; i++) {
+				
+				for(int j = 3; j < 5 && !empty; j++) {
+					
+					if(habitats[i][j].getPetInside() == null) {
+						
+						habitats[i][j].setPetInside(aPet);
+						habitats[i][j].setUsage(Usage.HEALTHY);
+						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+						empty = true;
+					}
+				}
+			}
+			
+			break;
 		}
-		
+				
 		return result;
 	}
 	
@@ -353,7 +343,7 @@ public class PetNursery {
 		
 		for(int i = 0; i < nurseryPets.size(); i++) {
 			
-			result += nurseryPets.get(i).toString();
+			result +=  nurseryPets.get(i).toString() + "\n";
 		}
 		
 		return result;
@@ -389,14 +379,39 @@ public class PetNursery {
 		
 		for(int i = 0; i < nurseryOwners.size(); i++) {
 			
-			result += nurseryOwners.get(i).toString();
+			result += nurseryOwners.get(i).toString() + "\n";
+		}
+		
+		return result;
+	}
+	
+	public String petLocation(String petName) {
+		
+		String result = "";
+		
+		boolean samePetName = false;
+		
+		for(int i = 0; i < habitats.length && !samePetName; i++) {
+			
+			for(int j = 0; j < habitats[0].length && !samePetName; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
+						
+						result += "\n--" + petName + " is located in habitat " + habitats[i][j].getHabitatId();
+						samePetName = true;
+						
+					}
+				}
+			}
 		}
 		
 		return result;
 	}
 	
 	
-	public String printHabitats() {
+	public String printHabitatsList() {
 		
 		String result = "";
 		
@@ -414,9 +429,14 @@ public class PetNursery {
 		return result;
 	}
 	
-	public String printMatrix() {
+	public String printHabitatsMatrix() {
 		
-		String result = "\n";
+		String result = "";
+		
+		result += 
+			"\nE = Empty" + 
+			"\nH = Occupied Healthy" + 
+			"\nS = Occupied Sick\n\n";
 		
 		String usage = "";
 		
@@ -427,19 +447,19 @@ public class PetNursery {
 				switch(habitats[i][j].getUsage()) {
 				
 				case EMPTY:
-					usage = "E";
+					usage = "(E)";
 					break;
 					
 				case HEALTHY:
-					usage = "H";
+					usage = "(H)";
 					break;
 					
 				case SICK:
-					usage = "S";
+					usage = "(S)";
 					break;
 				}
 				
-				result += " - " + habitats[i][j].getHabitatId() + usage;
+				result += "- " + habitats[i][j].getHabitatId() + usage + " -";
 			}
 			
 			result += "\n\n";
@@ -448,7 +468,195 @@ public class PetNursery {
 		return result;
 	}
 	
+	public String habitatInfo(String habitatId) {
+		
+		String result = "";
+		
+		boolean sameId = false;
+		
+		for(int i = 0; i < habitats.length && !sameId; i++) {
+			
+			for(int j = 0; j < habitats[0].length && !sameId; j++) {
+				
+				if(habitats[i][j].getHabitatId().equalsIgnoreCase(habitatId)) {
+					
+					result += habitats[i][j].toString();
+					sameId = true;
+				}
+			}
+		}
+		
+		return result;		
+	}
 	
+	public double catOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 0; i < 3; i++) {
+			
+			for(int j = 0; j < 3; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/9;
+		
+		return percentage;
+	}
+	
+	public double dogOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 3; i < 6; i++) {
+			
+			for(int j = 0; j < 3; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/9;
+		
+		return percentage;
+	}
+	
+	public double reptileOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 0; i < 2; i++) {
+			
+			for(int j = 3; j < 5; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/4;
+		
+		return percentage;
+	}
+	
+	public double rabbitOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 2; i < 4; i++) {
+			
+			for(int j = 3; j < 5; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/4;
+		
+		return percentage;
+	}
+	
+	
+	public double birdOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 4; i < 6; i++) {
+			
+			for(int j = 3; j < 5; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/4;
+		
+		return percentage;
+	}
+	
+	public double totalOccupation() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 0; i < habitats.length; i++) {
+			
+			for(int j = 0; j < habitats[0].length; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/30;
+		
+		return percentage;
+	}
+	
+	public double percentageHealthy() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 0; i < habitats.length; i++) {
+			
+			for(int j = 0; j < habitats[0].length; j++) {
+				
+				if(habitats[i][j].getUsage() == Usage.HEALTHY) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/30;
+		
+		return percentage;
+	}
+	
+	public double percentageSick() {
+		
+		double percentage = 0;
+		int count = 0;
+		
+		for(int i = 0; i < habitats.length; i++) {
+			
+			for(int j = 0; j < habitats[0].length; j++) {
+				
+				if(habitats[i][j].getUsage() == Usage.SICK) {
+					
+					count++;
+				}
+			}
+		}
+		
+		percentage = (count*100)/30;
+		
+		return percentage;
+	}
 	
 	
 	

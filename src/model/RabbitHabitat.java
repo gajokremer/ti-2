@@ -31,9 +31,18 @@ public class RabbitHabitat extends Habitat{
 			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
-			"\nCurrent usage: " + getUsage() + 
-			"\nPet inside: " + getPetInside().getPetName() + 
-			getPlant().toString();
+			"\nCurrent usage: " + getUsage();
+			
+		if(getPetInside() == null) {
+			
+			out += "\nPet inside: None"; 
+
+		}else {
+			
+			out += "\nPet inside: " + getPetInside().getPetName();
+		}
+					
+		out += getPlant().toString();
 		
 		return out;
 	}

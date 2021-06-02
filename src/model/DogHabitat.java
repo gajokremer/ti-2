@@ -31,9 +31,18 @@ public class DogHabitat extends Habitat{
 			"\nHabitat ID: " + getHabitatId() + 
 			"\nLength: " + getLength() + 
 			"\nWidth: " + getWidth() + 
-			"\nCurrent usage: " + getUsage() + 
-			"\nPet inside: " + getPetInside().getPetName() + 
-			"\nAvailable toys: " + getToys();
+			"\nCurrent usage: " + getUsage();
+			
+		if(getPetInside() == null) {
+			
+			out += "\nPet inside: None"; 
+
+		}else {
+			
+			out += "\nPet inside: " + getPetInside().getPetName();
+		}
+			
+		out += "\nAvailable toys: " + getToys();
 		
 		return out;
 	}
