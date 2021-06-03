@@ -32,6 +32,7 @@ public class Main {
 		sc = new Scanner(System.in);
 		center = new PetCenter();
 		nursery = new PetNursery();
+		center.setCenterToNursery(nursery);
 	}
 
 	
@@ -148,8 +149,7 @@ public class Main {
 			"\n(6) to start a new consultation\n" + 
 			"(7) to end a consultation\n" + 
 			
-			"\n(8) to transfer a Pet to the Nursery" + 
-			"\n(9) to close center and print reports\n" + 
+			"\n(8) to close center and print reports\n" + 
 
 			"\n(0) to return to Main Menu");
 		
@@ -207,10 +207,6 @@ public class Main {
 			break;
 			
 		case 8:
-			petToNursery();
-			break;
-			
-		case 9:
 			closingReports();
 			break;
 
@@ -225,6 +221,8 @@ public class Main {
 			break;
 
 		case 35:
+			System.out.println("\n---HIDDEN FUNCTION---");
+			System.out.println("\n---DELETE PET---\n");
 			deletePet();
 			break;
 			
@@ -234,6 +232,8 @@ public class Main {
 			break;
 			
 		case 55:
+			System.out.println("\n---HIDDEN FUNCTION---");
+			System.out.println("\n---DELETE OWNER---\n");
 			deleteOwner();
 			break;
 		}

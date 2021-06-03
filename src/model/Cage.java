@@ -1,6 +1,20 @@
 package model;
 
+/**
+ * Possible types of Cage
+ * @author gajok
+ * {@link #HUNG}
+ * {@link #GROUNDED}
+ */
 public enum Cage {
-
-	HUNG, GROUNDED;
+	
+	/**
+	 * Hung cage
+	 */
+	HUNG, 
+	
+	/**
+	 * Grounded Cage
+	 */
+	GROUNDED;
 }

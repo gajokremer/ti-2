@@ -5,8 +5,8 @@ package model;
  * Pet subclass
  * @author gajok
  */
-public class SickPet extends Pet{
-
+public class SickPet extends Pet {
+ 
 	//---ATTRIBUTES
 	private String symptoms;
 	private Priority priority;

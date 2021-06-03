@@ -12,7 +12,6 @@ public class PetNursery {
 	private ArrayList <Pet> nurseryPets;
 	private ArrayList <Owner> nurseryOwners;
 	private Habitat [][] habitats;
-//	private PetCenter nurseryToCenter;
 	
 	//---CONSTRUCTOR
 	public PetNursery() {
@@ -38,6 +37,8 @@ public class PetNursery {
 		
 		nurseryPets.add(aPet);
 		nurseryOwners.add(anOwner);
+		enterPetToHabitat(aPet);
+		
 	}
 	
 	public String addPet(String species, String petName, int age, String breed, String ownerName, 

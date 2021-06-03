@@ -119,6 +119,14 @@ public class PetCenter {
 	public void setTotalAttended(int totalAttended) {
 		this.totalAttended = totalAttended;
 	}
+	
+	public PetNursery getCenterToNursery() {
+		return centerToNursery;
+	}
+	
+	public void setCenterToNursery(PetNursery centerToNursery) {
+		this.centerToNursery = centerToNursery;
+	}
 
 
 	//---METHODS
@@ -748,12 +756,20 @@ public class PetCenter {
 				
 				if(pets[i].getStatus() == Status.CONSULTING) {
 					
-					pets[i].setStatus(status);				
+					pets[i].setStatus(status);	
+					
+					if(status == Status.TRANSFER) {
+						
+						centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());	
+						
+						result += "\n--" + pets[i].getPetName() + " successfully transfered to nursery";
+					}
+					
 					samePetName = true;
 					
 				}else {
 					
-					result = "\nEROOR: Pet is not in consultation";
+					result = "\nERROR: Pet is not in consultation";
 				}
 			}
 		}
