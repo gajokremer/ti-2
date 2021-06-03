@@ -146,9 +146,8 @@ public class PetCenter {
 		if(totalVets < MAX_VETS) {
 
 			boolean empty = false;
-			int i;
 
-			for(i = 0; i < MAX_VETS && !empty; i++) {
+			for(int i = 0; i < MAX_VETS && !empty; i++) {
 
 				if(veterinarians[i] == null) {
 
@@ -260,9 +259,8 @@ public class PetCenter {
 			if(ownerExists(ownerName) == true) {
 				
 				boolean sameName = false;
-				int i = 0;
 				
-				for(i = 0; i < MAX_PETS && !sameName; i++) {
+				for(int i = 0; i < MAX_PETS && !sameName; i++) {
 					
 					if(owners[i] != null) {
 						
@@ -280,9 +278,8 @@ public class PetCenter {
 				addOwner(ownerId, ownerName, ownerPhone, ownerAddress);
 				
 				boolean sameName = false;
-				int i = 0;
 				
-				for(i = 0; i < MAX_PETS && !sameName; i++) {
+				for(int i = 0; i < MAX_PETS && !sameName; i++) {
 					
 					if(owners[i] != null) {
 						
@@ -301,9 +298,8 @@ public class PetCenter {
 			addOwner(ownerId, ownerName, ownerPhone, ownerAddress);
 			
 			boolean sameName = false;
-			int i = 0;
 			
-			for(i = 0; i < MAX_PETS && !sameName; i++) {
+			for(int i = 0; i < MAX_PETS && !sameName; i++) {
 				
 				if(owners[i] != null) {
 					
@@ -321,9 +317,8 @@ public class PetCenter {
 		if(totalPets < MAX_PETS) {
 
 			boolean empty = false;
-			int i;
 
-			for(i = 0; i < MAX_PETS && !empty; i++) {
+			for(int i = 0; i < MAX_PETS && !empty; i++) {
 
 				if(pets[i] == null) {
 
@@ -356,11 +351,10 @@ public class PetCenter {
 	public boolean repeatedPet(String petName) {
 		
 		boolean repeated = false;
-		int i = 0;
 		
 		if(totalPets != 0) {
 			
-			for(i = 0; i < pets.length && !repeated; i++) {
+			for(int i = 0; i < pets.length && !repeated; i++) {
 				
 				if(pets[i] != null) {
 					
@@ -462,9 +456,8 @@ public class PetCenter {
 		String result = "";
 		
 		boolean empty = false;
-		int i;
 
-		for(i = 0; i < MAX_PETS && !empty; i++) {
+		for(int i = 0; i < MAX_PETS && !empty; i++) {
 
 			if(owners[i] == null) {
 
@@ -488,11 +481,10 @@ public class PetCenter {
 	public boolean ownerExists(String ownerName) {
 		
 		boolean isThere = false;
-		int i = 0;
 		
 		if(totalOwners != 0) {
 			
-			for(i = 0; i < owners.length && !isThere; i++) {
+			for(int i = 0; i < owners.length && !isThere; i++) {
 				
 				if(owners[i] != null) {
 					
@@ -516,11 +508,10 @@ public class PetCenter {
 	public boolean repeatedOwner(String fullName) {
 		
 		boolean repeated = false;
-		int i = 0;
 		
 		if(totalOwners != 0) {
 			
-			for(i = 0; i < owners.length && !repeated; i++) {
+			for(int i = 0; i < owners.length && !repeated; i++) {
 				
 				if(owners[i] != null) {
 					
@@ -760,7 +751,7 @@ public class PetCenter {
 					
 					if(status == Status.TRANSFER) {
 						
-						centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());	
+						centerToNursery.transferedPetAndOwner(pets[i]);	
 						
 						result += "\n--" + pets[i].getPetName() + " successfully transfered to nursery";
 					}
@@ -812,11 +803,10 @@ public class PetCenter {
 		String next = null;
 
 		boolean highest = false;
-		int i;
 
 		if(totalPets != 0) {
 
-			for(i = 0; i < pets.length && !highest; i++) {
+			for(int i = 0; i < pets.length && !highest; i++) {
 
 				if(pets[i] != null) {
 
@@ -831,7 +821,7 @@ public class PetCenter {
 				}
 			}
 			
-			for(i = 0; i < pets.length && !highest; i++) {
+			for(int i = 0; i < pets.length && !highest; i++) {
 				
 				if(pets[i] != null) {
 
@@ -846,7 +836,7 @@ public class PetCenter {
 				}
 			}
 			
-			for(i = 0; i < pets.length && !highest; i++) {
+			for(int i = 0; i < pets.length && !highest; i++) {
 				
 				if(pets[i] != null) {
 
@@ -861,7 +851,7 @@ public class PetCenter {
 				}
 			}
 			
-			for(i = 0; i < pets.length && !highest; i++) {
+			for(int i = 0; i < pets.length && !highest; i++) {
 				
 				if(pets[i] != null) {
 
@@ -876,7 +866,7 @@ public class PetCenter {
 				}
 			}
 			
-			for(i = 0; i < pets.length && !highest; i++) {
+			for(int i = 0; i < pets.length && !highest; i++) {
 				
 				if(pets[i] != null) {
 
@@ -1049,40 +1039,42 @@ public class PetCenter {
 	}
 	
 	
-	/**
-	 * 
-	 * @param petName must be a String, can contain more than one word.
-	 * @return String with result of procedure
-	 */
-	public String transferToNursery(String petName) {
-
-		String result = "";
-		
-		boolean samePetName = false;
-		
-		for(int i = 0; i < pets.length && !samePetName; i++) {
-			
-			if(pets[i] != null) {
-				
-				if(pets[i].getStatus() == Status.TRANSFER) {
-					
-					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
-						
-						if(centerToNursery == null) {
-							
-							centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
-							
-							System.out.println("\n---" + pets[i].getPetName().toUpperCase());
-						}
-					}
-					
-				}else {
-					
-					result += "\nERROR: Pet doesn't need to be transfered";
-				}
-			}			
-		}
-		
-		return result;
-	}
+//	/**
+//	 * 
+//	 * @param petName must be a String, can contain more than one word.
+//	 * @return String with result of procedure
+//	 */
+//	public String transferToNursery(String petName) {
+//
+//		String result = "";
+//		
+//		boolean samePetName = false;
+//		
+//		for(int i = 0; i < pets.length && !samePetName; i++) {
+//			
+//			if(pets[i] != null) {
+//				
+//				if(pets[i].getStatus() == Status.TRANSFER) {
+//					
+//					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
+//						
+//						if(centerToNursery == null) {
+//							
+//							centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
+//							
+//							System.out.println("\n---" + pets[i].getPetName().toUpperCase());
+//						}
+//					}
+//					
+//				}else {
+//					
+//					result += "\nERROR: Pet doesn't need to be transfered";
+//				}
+//			}			
+//		}
+//		
+//		return result;
+//	}
+	
+	
 }

@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 /**
  * Pet Nursery class
@@ -9,35 +9,36 @@ import java.util.ArrayList;
 public class PetNursery {
 	
 	//---RELATIONS
-	private ArrayList <Pet> nurseryPets;
-	private ArrayList <Owner> nurseryOwners;
+//	private ArrayList <Pet> nurseryPets;
+//	private ArrayList <Owner> nurseryOwners;
 	private Habitat [][] habitats;
 	
 	//---CONSTRUCTOR
 	public PetNursery() {
 		
-		nurseryPets = new ArrayList<Pet>();
-		nurseryOwners = new ArrayList<Owner>();
+//		nurseryPets = new ArrayList<Pet>();
+//		nurseryOwners = new ArrayList<Owner>();
 		habitats = new Habitat[6][5];
 		createAllHabitats();
 	}
 
 
 	//---GETTERS AND SETTERS
-	public ArrayList <Pet> getNurseryPets() {
-		return nurseryPets;
-	}
-
-	public void setNurseryPets(ArrayList <Pet> nurseryPets) {
-		this.nurseryPets = nurseryPets;
-	}
+//	public ArrayList <Pet> getNurseryPets() {
+//		return nurseryPets;
+//	}
+//
+//	public void setNurseryPets(ArrayList <Pet> nurseryPets) {
+//		this.nurseryPets = nurseryPets;
+//	}
 	
 	//---METHODS	
-	public void transferedPetAndOwner(Pet aPet, Owner anOwner) {
+	public void transferedPetAndOwner(Pet aPet) {
 		
-		nurseryPets.add(aPet);
-		nurseryOwners.add(anOwner);
-		enterPetToHabitat(aPet);
+//		nurseryPets.add(aPet);
+//		nurseryOwners.add(anOwner);
+		Usage usage = Usage.SICK;
+		enterPetToHabitat(aPet, usage);
 		
 	}
 	
@@ -46,32 +47,44 @@ public class PetNursery {
 		
 		String result = "";
 		
-		Owner ownedBy = null;
+//		Owner ownedBy = null;
+//		
+//		if(ownerExists(ownerName) == false) {
+//			
+//			addOwner(ownerId, ownerName, ownerPhone, ownerAddress);
+//		}
+//		
+//		for(int i = 0; i < nurseryOwners.size(); i++) {
+//			
+//			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
+//				
+//				ownedBy = nurseryOwners.get(i);
+//			}
+//		}
+//		
+//		if(habitatAvailable(species) == true) {
+//			
+//			Pet aPet = new Pet(species, petName, age, breed, ownedBy);
+//			nurseryPets.add(aPet);
+//			
+//			result = enterPetToHabitat(aPet);
+//			
+//		}else {
+//			
+//			result = "\nERROR: There are no spaces available"; 
+//		}
 		
-		if(ownerExists(ownerName) == false) {
-			
-			addOwner(ownerId, ownerName, ownerPhone, ownerAddress);
-		}
+		Owner anOwner = null;
 		
-		for(int i = 0; i < nurseryOwners.size(); i++) {
-			
-			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
-				
-				ownedBy = nurseryOwners.get(i);
-			}
-		}
+		anOwner = new Owner(ownerId, ownerName, ownerPhone, ownerAddress);
 		
-		if(habitatAvailable(species) == true) {
-			
-			Pet aPet = new Pet(species, petName, age, breed, ownedBy);
-			nurseryPets.add(aPet);
-			
-			result = enterPetToHabitat(aPet);
-			
-		}else {
-			
-			result = "\nERROR: There are no spaces available"; 
-		}
+		Pet aPet = new Pet(species, petName, age, breed, anOwner);
+		
+		result += "\n--Pet successfully added";
+		
+		Usage usage = Usage.HEALTHY;
+		
+		enterPetToHabitat(aPet, usage);
 		
 		return result;
 	}
@@ -235,7 +248,7 @@ public class PetNursery {
 	}
 	
 	
-	public String enterPetToHabitat(Pet aPet) {
+	public String enterPetToHabitat(Pet aPet, Usage usage) {
 		
 		String result = "";
 		
@@ -252,7 +265,7 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside() == null) {
 						
 						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(Usage.HEALTHY);
+						habitats[i][j].setUsage(usage);
 						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
 						empty = true;
 					}
@@ -270,7 +283,7 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside() == null) {
 						
 						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(Usage.HEALTHY);
+						habitats[i][j].setUsage(usage);
 						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
 						empty = true;
 					}
@@ -288,7 +301,7 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside() == null) {
 						
 						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(Usage.HEALTHY);
+						habitats[i][j].setUsage(usage);
 						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
 						empty = true;
 					}
@@ -306,7 +319,7 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside() == null) {
 						
 						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(Usage.HEALTHY);
+						habitats[i][j].setUsage(usage);
 						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
 						empty = true;
 					}
@@ -324,7 +337,7 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside() == null) {
 						
 						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(Usage.HEALTHY);
+						habitats[i][j].setUsage(usage);
 						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
 						empty = true;
 					}
@@ -342,45 +355,123 @@ public class PetNursery {
 		
 		String result = "";
 		
-		for(int i = 0; i < nurseryPets.size(); i++) {
+//		for(int i = 0; i < nurseryPets.size(); i++) {
+//			
+//			result +=  nurseryPets.get(i).toString() + "\n";
+//		}
+		
+		for(int i = 0; i < habitats.length; i++) {
 			
-			result +=  nurseryPets.get(i).toString() + "\n";
+			for(int j = 0; j < habitats[i].length; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					result += habitats[i][j].getPetInside().toString() + "\n";
+				}
+			}
 		}
 		
 		return result;
 	}
 	
-	public void addOwner(String idNumber, String fullName, String phone, String address) {
-
-//		String result = "";
-		
-		nurseryOwners.add(new Owner(idNumber, fullName, phone, address));
-
-//		return result;
-	}
+//	public void addOwner(String idNumber, String fullName, String phone, String address) {
+//
+////		String result = "";
+//		
+//		nurseryOwners.add(new Owner(idNumber, fullName, phone, address));
+//
+////		return result;
+//	}
 	
 	public boolean ownerExists(String ownerName) {
 		
 		boolean isThere = false;
-		int i = 0;
-				
-		for(i = 0; i < nurseryOwners.size() && !isThere; i++) {
+		
+//		int i = 0;
+//				
+//		for(i = 0; i < nurseryOwners.size() && !isThere; i++) {
+//			
+//			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
+//				
+//				isThere = true;
+//			}
+//		}
+		
+		System.out.println("\n---GOT INSIDE FOR");
+		
+		for(int i = 0; i < habitats.length && !isThere; i++) {
 			
-			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
+			System.out.println("\n---STEP 1");
+			
+			for(int j = 0; j < habitats[i].length && !isThere; j++) {
+								
+				System.out.println("\n---STEP 2");
 				
-				isThere = true;
+				if(habitats[i][j].getPetInside() != null) {
+					
+					System.out.println("\n---STEP 3");
+					
+					System.out.println("\n-Parameter: " + ownerName);
+					System.out.println("\n-Full Name: " + habitats[i][j].getPetInside().getOwnedBy().getFullName());
+					System.out.println("\nOwned By: " + habitats[i][j].getPetInside().getOwnedBy().toString());
+					
+					if(habitats[i][j].getPetInside().getOwnedBy().getFullName().equalsIgnoreCase(ownerName)) {
+						
+						System.out.println("---FOUND IT!");
+						
+						isThere = true;
+						
+					}else {
+						
+						System.out.println("\n---NO STEP 4");
+					}
+				}
 			}
 		}
+		
 		return isThere;
+	}
+	
+	public Owner findOwner(String ownerName) {
+		
+		Owner anOwner = null;
+		
+		for(int i = 0; i < habitats.length; i++) {
+			
+			for(int j = 0; j < habitats[i].length; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					if(habitats[i][j].getPetInside().getOwnedBy().getFullName().equalsIgnoreCase(ownerName)) {
+						
+						
+						anOwner = habitats[i][j].getPetInside().getOwnedBy();
+					}
+				}
+			}
+		}
+		
+		return anOwner;
 	}
 	
 	public String printAllOwners() {
 		
 		String result = "";
 		
-		for(int i = 0; i < nurseryOwners.size(); i++) {
+//		for(int i = 0; i < nurseryOwners.size(); i++) {
+//			
+//			result += nurseryOwners.get(i).toString() + "\n";
+//		}
+		
+		for(int i = 0; i < habitats.length; i++) {
 			
-			result += nurseryOwners.get(i).toString() + "\n";
+			for(int j = 0; j < habitats[i].length; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					result += habitats[i][j].getPetInside().getOwnedBy().toString() + "\n";
+				}
+			}
 		}
 		
 		return result;
@@ -394,13 +485,14 @@ public class PetNursery {
 		
 		for(int i = 0; i < habitats.length && !samePetName; i++) {
 			
-			for(int j = 0; j < habitats[0].length && !samePetName; j++) {
+			for(int j = 0; j < habitats[i].length && !samePetName; j++) {
 				
 				if(habitats[i][j].getPetInside() != null) {
 					
 					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
 						
-						result += "\n--" + petName + " is located in habitat " + habitats[i][j].getHabitatId();
+						result += "\n--" + petName + " is " + habitats[i][j].getUsage() + 
+								" and is located in habitat " + habitats[i][j].getHabitatId();
 						samePetName = true;
 						
 					}
@@ -443,7 +535,7 @@ public class PetNursery {
 		
 		for (int i = 0; i < habitats.length; i++ ) {
 			
-			for (int j = 0; j < habitats[0].length; j++) {
+			for (int j = 0; j < habitats[i].length; j++) {
 				
 				switch(habitats[i][j].getUsage()) {
 				
@@ -477,7 +569,7 @@ public class PetNursery {
 		
 		for(int i = 0; i < habitats.length && !sameId; i++) {
 			
-			for(int j = 0; j < habitats[0].length && !sameId; j++) {
+			for(int j = 0; j < habitats[i].length && !sameId; j++) {
 				
 				if(habitats[i][j].getHabitatId().equalsIgnoreCase(habitatId)) {
 					
@@ -603,7 +695,7 @@ public class PetNursery {
 		
 		for(int i = 0; i < habitats.length; i++) {
 			
-			for(int j = 0; j < habitats[0].length; j++) {
+			for(int j = 0; j < habitats[i].length; j++) {
 				
 				if(habitats[i][j].getPetInside() != null) {
 					
@@ -624,7 +716,7 @@ public class PetNursery {
 		
 		for(int i = 0; i < habitats.length; i++) {
 			
-			for(int j = 0; j < habitats[0].length; j++) {
+			for(int j = 0; j < habitats[i].length; j++) {
 				
 				if(habitats[i][j].getUsage() == Usage.HEALTHY) {
 					
@@ -645,7 +737,7 @@ public class PetNursery {
 		
 		for(int i = 0; i < habitats.length; i++) {
 			
-			for(int j = 0; j < habitats[0].length; j++) {
+			for(int j = 0; j < habitats[i].length; j++) {
 				
 				if(habitats[i][j].getUsage() == Usage.SICK) {
 					

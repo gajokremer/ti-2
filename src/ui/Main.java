@@ -7,9 +7,9 @@ import model.Priority;
 import model.Status;
 
 import model.PetNursery;
-import model.Aquarium;
-import model.Cage;
-import model.Usage;
+//import model.Aquarium;
+//import model.Cage;
+//import model.Usage;
 
 
 /**
@@ -134,20 +134,20 @@ public class Main {
 		System.out.println("---Next in list: " + center.nextAttendant());
 
 		System.out.println(
-			"\nSelect an option:\n" + 
-			"(1) to add a new Veterinarian\n" +
-			"(2) to delete a Veterinarian\n" +  
-			"(10) to print all Veterinarians\n" + 
+			"\nSelect an option:" + 
+			"\n(1) to add a new Veterinarian" +
+			"\n(2) to delete a Veterinarian" +  
+			"\n(10) to print all Veterinarians\n" + 
 
-			"\n(3) to register a new Pet\n" +
-			"(4) to retire a Pet\n" +
-			"(30) to print all Pets\n" +  
+			"\n(3) to register a new Pet" +
+			"\n(4) to retire a Pet" +
+			"\n(30) to print all Pets\n" +  
 			
-			"\n(5) to register an Owner\n" + 
-			"(50) to print all Owners\n" + 
+			"\n(5) to register an Owner" + 
+			"\n(50) to print all Owners\n" + 
 
-			"\n(6) to start a new consultation\n" + 
-			"(7) to end a consultation\n" + 
+			"\n(6) to start a new consultation" + 
+			"\n(7) to end a consultation\n" + 
 			
 			"\n(8) to close center and print reports\n" + 
 
@@ -552,8 +552,7 @@ public class Main {
 		System.out.println(
 				"\nSelect an option:" + 
 		
-				"\n(-1) for scenario\n" + 
-						
+				"\n(-1) for scenario" + 
 				"\n(1) to register a new Pet\n" + 
 				
 				"\n(2) to print all Nursery Pets" + 
@@ -643,19 +642,19 @@ public class Main {
 	
 	
 	/**
-	 * Method to transfer a Pet to Nursery
-	 */
-	public void petToNursery() {
-	
-		System.out.println("\n---TRANSFER PET TO NURSERY---");
-		
-		String petName;
-		
-		System.out.print("Input Pet name: ");
-		petName = sc.nextLine();
-		
-		center.transferToNursery(petName);
-	}
+//	 * Method to transfer a Pet to Nursery
+//	 */
+//	public void petToNursery() {
+//	
+//		System.out.println("\n---TRANSFER PET TO NURSERY---");
+//		
+//		String petName;
+//		
+//		System.out.print("Input Pet name: ");
+//		petName = sc.nextLine();
+//		
+//		center.transferToNursery(petName);
+//	}
 	
 	public void registerPetToNursery() {
 		
@@ -740,6 +739,6 @@ public class Main {
 	public  void createNurseryScenario() {
 		
 		Test scenario = new Test();
-		scenario.createScenario1(nursery);
+		scenario.createScenario1(nursery, center);
 	}
 }
