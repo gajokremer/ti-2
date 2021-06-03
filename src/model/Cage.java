@@ -9,7 +9,7 @@ package model;
 public enum Cage {
 	
 	/**
-	 * Hung cage
+	 * Hung Cage
 	 */
 	HUNG, 
 	

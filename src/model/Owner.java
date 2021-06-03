@@ -34,7 +34,7 @@ public class Owner {
 
 	//---GETTERS AND SETTER
 	/**
-	 * Method to call an Owner's ID number.
+	 * Method to call for an Owner's ID number.
 	 * @return Owner's ID number
 	 */
 	public String getIdNumber() {
@@ -50,7 +50,7 @@ public class Owner {
 	
 	
 	/**
-	 * Method to call an Owner's full name.
+	 * Method to call for an Owner's full name.
 	 * @return Owner's full name
 	 */
 	public String getFullName() {
@@ -66,7 +66,7 @@ public class Owner {
 	
 
 	/**
-	 * Method to call an Owner's phone number.
+	 * Method to call for an Owner's phone number.
 	 * @return Owner's phone number
 	 */
 	public String getPhone() {
@@ -82,7 +82,7 @@ public class Owner {
 	
 	
 	/**
-	 * Method to call an Owner's address.
+	 * Method to call for an Owner's address.
 	 * @return Owner's address
 	 */
 	public String getAddress() {

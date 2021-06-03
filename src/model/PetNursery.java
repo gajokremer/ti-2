@@ -1,7 +1,5 @@
 package model;
 
-//import java.util.ArrayList;
-
 /**
  * Pet Nursery class
  * @author gajok
@@ -9,70 +7,52 @@ package model;
 public class PetNursery {
 	
 	//---RELATIONS
-//	private ArrayList <Pet> nurseryPets;
-//	private ArrayList <Owner> nurseryOwners;
 	private Habitat [][] habitats;
 	
 	//---CONSTRUCTOR
+	/**
+	 * Used to construct PetNursery.
+	 */
 	public PetNursery() {
 		
-//		nurseryPets = new ArrayList<Pet>();
-//		nurseryOwners = new ArrayList<Owner>();
 		habitats = new Habitat[6][5];
 		createAllHabitats();
 	}
 
 
 	//---GETTERS AND SETTERS
-//	public ArrayList <Pet> getNurseryPets() {
-//		return nurseryPets;
-//	}
-//
-//	public void setNurseryPets(ArrayList <Pet> nurseryPets) {
-//		this.nurseryPets = nurseryPets;
-//	}
+	//EMPTY
+	
 	
 	//---METHODS	
-	public void transferedPetAndOwner(Pet aPet) {
+	/**
+	 * Method that receives a Pet from the PetCenter.
+	 * @param aPet must be a SickPet
+	 */
+	public void transferedPetAndOwner(SickPet aPet) {
 		
-//		nurseryPets.add(aPet);
-//		nurseryOwners.add(anOwner);
 		Usage usage = Usage.SICK;
 		enterPetToHabitat(aPet, usage);
-		
 	}
 	
+	
+	/**
+	 * Method to receive the information of the Pet and it's Owner.
+	 * @param species must be an animal species
+	 * @param petName must be a String, can contain more than one word
+	 * @param age must be an integer
+	 * @param breed if species is dog or cat, must be a String, else it's null
+	 * @param ownerId must be a String composed of numbers
+	 * @param ownerName must be a String with name and surname included
+	 * @param ownerPhone must be a String with a phone number (10 digits)
+	 * @param ownerAddress must contain an address (words, numbers, symbols)
+	 * @param daysStaying must be a number
+	 * @return message if pet was successfully added to the Nursery
+	 */
 	public String addPet(String species, String petName, int age, String breed, String ownerName, 
-			String ownerId, String ownerPhone, String ownerAddress) {
+			String ownerId, String ownerPhone, String ownerAddress, int daysStaying) {
 		
 		String result = "";
-		
-//		Owner ownedBy = null;
-//		
-//		if(ownerExists(ownerName) == false) {
-//			
-//			addOwner(ownerId, ownerName, ownerPhone, ownerAddress);
-//		}
-//		
-//		for(int i = 0; i < nurseryOwners.size(); i++) {
-//			
-//			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
-//				
-//				ownedBy = nurseryOwners.get(i);
-//			}
-//		}
-//		
-//		if(habitatAvailable(species) == true) {
-//			
-//			Pet aPet = new Pet(species, petName, age, breed, ownedBy);
-//			nurseryPets.add(aPet);
-//			
-//			result = enterPetToHabitat(aPet);
-//			
-//		}else {
-//			
-//			result = "\nERROR: There are no spaces available"; 
-//		}
 		
 		Owner anOwner = null;
 		
@@ -80,15 +60,21 @@ public class PetNursery {
 		
 		Pet aPet = new Pet(species, petName, age, breed, anOwner);
 		
-		result += "\n--Pet successfully added";
+		aPet.setDaysStaying(daysStaying);
 		
 		Usage usage = Usage.HEALTHY;
 		
 		enterPetToHabitat(aPet, usage);
 		
+		result += "\n--Pet successfully added";
+		
 		return result;
 	}
 	
+	
+	/**
+	 * Method that calls all method to create the empty Habitats.
+	 */
 	public void createAllHabitats() {
 
 		Pet aPet = null;
@@ -100,6 +86,11 @@ public class PetNursery {
 		birdHabitats(aPet);
 	}
 	
+	
+	/**
+	 * Method to create all Cat Habitats.
+	 * @param aPet must be null
+	 */
 	public void catHabitats(Pet aPet) {
 		
 		habitats[0][0] = new CatHabitat("C1", 100, 100, Usage.EMPTY, aPet, 100, 5);
@@ -115,6 +106,11 @@ public class PetNursery {
 		habitats[2][2] = new CatHabitat("C9", 100, 100, Usage.EMPTY, aPet, 100, 5);
 	}
 	
+	
+	/**
+	 * Method to create all Dog Habitats.
+	 * @param aPet must be null
+	 */
 	public void dogHabitats(Pet aPet) {
 		
 		habitats[3][0] = new DogHabitat("D1", 200, 200, Usage.EMPTY, aPet, 5);
@@ -130,6 +126,11 @@ public class PetNursery {
 		habitats[5][2] = new DogHabitat("D9", 200, 200, Usage.EMPTY, aPet, 5);
 	}
 	
+	
+	/**
+	 * Method to create all ReptileHabitats.
+	 * @param aPet must be null
+	 */
 	public void reptileHabitats(Pet aPet) {
 		
 		habitats[0][3] = new ReptileHabitat("Rp1", 150, 150, Usage.EMPTY, aPet, Aquarium.TERRESTRIAL, "Melamin");
@@ -139,6 +140,11 @@ public class PetNursery {
 		habitats[1][4] = new ReptileHabitat("Rp4", 150, 150, Usage.EMPTY, aPet, Aquarium.AMPHIBIAN, "Glass");
 	}
 	
+	
+	/**
+	 * Method to create all Rabbit Habitats.
+	 * @param aPet must be null
+	 */
 	public void rabbitHabitats(Pet aPet) {
 		
 		Plant aPlant = new Plant("Petunia", 10);
@@ -150,6 +156,11 @@ public class PetNursery {
 		habitats[3][4] = new RabbitHabitat("Rb4", 100, 100, Usage.EMPTY, aPet, aPlant);
 	}
 	
+	
+	/**
+	 * Method to create all Bird Habitats.
+	 * @param aPet must be null
+	 */
 	public void birdHabitats(Pet aPet) {
 		
 		habitats[4][3] = new BirdHabitat("B1", 50, 50, Usage.EMPTY, aPet, Cage.HUNG);
@@ -159,7 +170,12 @@ public class PetNursery {
 		habitats[5][4] = new BirdHabitat("B4", 50, 50, Usage.EMPTY, aPet, Cage.GROUNDED);
 	}
 
-	
+
+	/**
+	 * Method to check if there's an available Habitat for a pet depending on the species.
+	 * @param species must be an animal species
+	 * @return true if there's an available space, false if not
+	 */
 	public boolean habitatAvailable(String species) {
 		
 		boolean available = false;
@@ -248,6 +264,12 @@ public class PetNursery {
 	}
 	
 	
+	/**
+	 * Method to enter a Pet to an Habitat.
+	 * @param aPet must exist and have an Owner
+	 * @param usage must be either "Healthy", or "Sick" if it comes from PetCenter
+	 * @return message notifying Pet has successfully entered the Habitat
+	 */
 	public String enterPetToHabitat(Pet aPet, Usage usage) {
 		
 		String result = "";
@@ -351,14 +373,14 @@ public class PetNursery {
 	}
 	
 	
+	/**
+	 * <b> Secret function. </b> <br>
+	 * Method to print all Pets inside the Habitats.
+	 * @return String with all Pets inside the Habitats
+	 */
 	public String printAllPets() {
 		
 		String result = "";
-		
-//		for(int i = 0; i < nurseryPets.size(); i++) {
-//			
-//			result +=  nurseryPets.get(i).toString() + "\n";
-//		}
 		
 		for(int i = 0; i < habitats.length; i++) {
 			
@@ -374,56 +396,26 @@ public class PetNursery {
 		return result;
 	}
 	
-//	public void addOwner(String idNumber, String fullName, String phone, String address) {
-//
-////		String result = "";
-//		
-//		nurseryOwners.add(new Owner(idNumber, fullName, phone, address));
-//
-////		return result;
-//	}
 	
+	/**
+	 * Method to check if an Owner exists.
+	 * @param ownerName must be a String with name and surname included
+	 * @return true if owner is found, false if not
+	 */
 	public boolean ownerExists(String ownerName) {
 		
 		boolean isThere = false;
 		
-//		int i = 0;
-//				
-//		for(i = 0; i < nurseryOwners.size() && !isThere; i++) {
-//			
-//			if(nurseryOwners.get(i).getFullName().equalsIgnoreCase(ownerName)) {
-//				
-//				isThere = true;
-//			}
-//		}
-		
-		System.out.println("\n---GOT INSIDE FOR");
-		
 		for(int i = 0; i < habitats.length && !isThere; i++) {
-			
-			System.out.println("\n---STEP 1");
 			
 			for(int j = 0; j < habitats[i].length && !isThere; j++) {
 								
-				System.out.println("\n---STEP 2");
-				
 				if(habitats[i][j].getPetInside() != null) {
-					
-					System.out.println("\n---STEP 3");
-					
-					System.out.println("\n-Parameter: " + ownerName);
-					System.out.println("\n-Full Name: " + habitats[i][j].getPetInside().getOwnedBy().getFullName());
-					System.out.println("\nOwned By: " + habitats[i][j].getPetInside().getOwnedBy().toString());
 					
 					if(habitats[i][j].getPetInside().getOwnedBy().getFullName().equalsIgnoreCase(ownerName)) {
 						
-						System.out.println("---FOUND IT!");
-						
 						isThere = true;
 						
-					}else {
-						
-						System.out.println("\n---NO STEP 4");
 					}
 				}
 			}
@@ -432,6 +424,11 @@ public class PetNursery {
 		return isThere;
 	}
 	
+	/**
+	 * Method to find an Owner and return it.
+	 * @param ownerName must be a String with name and surname included
+	 * @return Owner that has this name
+	 */
 	public Owner findOwner(String ownerName) {
 		
 		Owner anOwner = null;
@@ -454,14 +451,15 @@ public class PetNursery {
 		return anOwner;
 	}
 	
+	
+	/**
+	 * <b> Secret function. </b> <br>
+	 * Method to print all Owners of the Pets inside the Habitats
+	 * @return String with all the Owners
+	 */
 	public String printAllOwners() {
 		
 		String result = "";
-		
-//		for(int i = 0; i < nurseryOwners.size(); i++) {
-//			
-//			result += nurseryOwners.get(i).toString() + "\n";
-//		}
 		
 		for(int i = 0; i < habitats.length; i++) {
 			
@@ -477,51 +475,11 @@ public class PetNursery {
 		return result;
 	}
 	
-	public String petLocation(String petName) {
-		
-		String result = "";
-		
-		boolean samePetName = false;
-		
-		for(int i = 0; i < habitats.length && !samePetName; i++) {
-			
-			for(int j = 0; j < habitats[i].length && !samePetName; j++) {
-				
-				if(habitats[i][j].getPetInside() != null) {
-					
-					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
-						
-						result += "\n--" + petName + " is " + habitats[i][j].getUsage() + 
-								" and is located in habitat " + habitats[i][j].getHabitatId();
-						samePetName = true;
-						
-					}
-				}
-			}
-		}
-		
-		return result;
-	}
 	
-	
-	public String printHabitatsList() {
-		
-		String result = "";
-		
-		for(int i = 0; i < habitats.length; i++) {
-			
-			for(int j = 0; j < habitats[i].length; j++) {
-				
-				if(habitats[i][j] != null) {
-					
-					result += habitats[i][j].toString() + "\n";
-				}
-			}
-		}
-		
-		return result;
-	}
-	
+	/**
+	 * Method to print all Habitats in a matrix format, including their current usage.
+	 * @return String with Habitats Matrix
+	 */
 	public String printHabitatsMatrix() {
 		
 		String result = "";
@@ -561,6 +519,48 @@ public class PetNursery {
 		return result;
 	}
 	
+	
+	/**
+	 * Method to get information about a specific Pet.
+	 * @param petName must be a String, can contain more than one word
+	 * @return String with the Pet's information
+	 */
+	public String petInfo(String petName) {
+		
+		String result = "";
+		
+		boolean samePetName = false;
+		
+		for(int i = 0; i < habitats.length && !samePetName; i++) {
+			
+			for(int j = 0; j < habitats[i].length && !samePetName; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
+						
+						result += 
+								"\nPet name: " + petName + 
+								"\nLocation: " + habitats[i][j].getHabitatId() + 
+								"\nStatus: " + habitats[i][j].getUsage() + 
+								"\nDays staying: " + habitats[i][j].getPetInside().getDaysStaying();
+						
+						samePetName = true;
+						
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	/**
+	 * Method to get info on a specific Habitat.
+	 * @param habitatId must be a letter and a number
+	 * @return Habitat's info
+	 */
 	public String habitatInfo(String habitatId) {
 		
 		String result = "";
@@ -582,6 +582,11 @@ public class PetNursery {
 		return result;		
 	}
 	
+	
+	/**
+	 * Method to calculate the occupation percentage of the Cat Habitats.
+	 * @return percentage of occupation
+	 */
 	public double catOccupation() {
 		
 		double percentage = 0;
@@ -603,6 +608,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the occupation percentage of the Dog Habitats.
+	 * @return percentage of occupation
+	 */
 	public double dogOccupation() {
 		
 		double percentage = 0;
@@ -624,6 +634,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the occupation percentage of the Reptile Habitats.
+	 * @return percentage of occupation
+	 */
 	public double reptileOccupation() {
 		
 		double percentage = 0;
@@ -645,6 +660,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the occupation percentage of the Rabbit Habitats.
+	 * @return percentage of occupation
+	 */
 	public double rabbitOccupation() {
 		
 		double percentage = 0;
@@ -667,6 +687,10 @@ public class PetNursery {
 	}
 	
 	
+	/**
+	 * Method to calculate the occupation percentage of the Bird Habitats.
+	 * @return percentage of occupation
+	 */
 	public double birdOccupation() {
 		
 		double percentage = 0;
@@ -688,6 +712,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the total occupation percentage of Habitats.
+	 * @return percentage of occupation of all Habitats
+	 */
 	public double totalOccupation() {
 		
 		double percentage = 0;
@@ -709,6 +738,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the percentage of Healthy Pets.
+	 * @return percentage of Healthy Pets
+	 */
 	public double percentageHealthy() {
 		
 		double percentage = 0;
@@ -730,6 +764,11 @@ public class PetNursery {
 		return percentage;
 	}
 	
+	
+	/**
+	 * Method to calculate the percentage of Sick Pets.
+	 * @return percentage of Sick Pets
+	 */
 	public double percentageSick() {
 		
 		double percentage = 0;
@@ -750,74 +789,4 @@ public class PetNursery {
 		
 		return percentage;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	public void copyOfPets(Pet [] pets) {
-//		
-//		for(int i = 0; i < pets.length; i++) {
-//			
-//			if(pets[i] != null) {
-//				
-//				if(pets[i].getStatus() == Status.TRANSFER) {
-//					
-//					nurseryPets.add(pets[i]);
-//				}
-//			}
-//		}
-//		
-//		for(int i = 0; i < nurseryPets.size(); i++) {
-//			
-//			System.out.println(nurseryPets.get(i).toString());
-//		}
-//	}
-//	
-//	public void copyOfPets2(Pet [] pets) {
-//		
-//		Pet [] petsCopy = new Pet[120];
-//		
-//		boolean copied = false;
-//		
-//		for(int i = 0; i < pets.length; i++) {
-//			
-//			if(pets[i] != null) {
-//				
-//				if(pets[i].getStatus() == Status.TRANSFER) {
-//					
-//					for(int j =0; j < petsCopy.length && !copied; j++) {
-//						
-//						if(petsCopy[j] == null) {
-//							
-//							petsCopy[j] = pets[i];
-//							copied = true;
-//						}
-//					}
-//				}
-//			}
-//		}
-//		
-//		for(int i = 0; i < petsCopy.length; i++) {
-//			
-//			if(petsCopy[i] != null) {
-//				
-//				System.out.println("\nPets " + i);				
-//				System.out.println(petsCopy[i].toString());
-//			}
-//		}
-//	}
 }

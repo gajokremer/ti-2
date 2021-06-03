@@ -7,10 +7,6 @@ import model.Priority;
 import model.Status;
 
 import model.PetNursery;
-//import model.Aquarium;
-//import model.Cage;
-//import model.Usage;
-
 
 /**
  * Main class
@@ -55,6 +51,7 @@ public class Main {
 			principal.executeOption(option);
 
 		}while (option != 0);
+		
 	}
 
 	
@@ -91,7 +88,11 @@ public class Main {
 		int anOption;
 		
 		switch(option) {
-			
+		
+		default:
+			System.out.println("\n---Invalid Option");
+			break;
+		
 		case 0:
 			System.out.println("\n-----OPERATION ENDED-----\n");
 			break;
@@ -115,6 +116,12 @@ public class Main {
 			break;
 		}
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	/**
@@ -173,6 +180,10 @@ public class Main {
 	public void petCenterOption(int option) {
 
 		switch(option) {
+		
+		default:
+			System.out.println("\n---Invalid Option");
+			break;
 			
 		case 0:
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
@@ -221,8 +232,7 @@ public class Main {
 			break;
 
 		case 35:
-			System.out.println("\n---HIDDEN FUNCTION---");
-			System.out.println("\n---DELETE PET---\n");
+			System.out.println("\n***---SECRET FUNCTION---***");
 			deletePet();
 			break;
 			
@@ -232,8 +242,7 @@ public class Main {
 			break;
 			
 		case 55:
-			System.out.println("\n---HIDDEN FUNCTION---");
-			System.out.println("\n---DELETE OWNER---\n");
+			System.out.println("\n***---SECRET FUNCTION---***");
 			deleteOwner();
 			break;
 		}
@@ -439,7 +448,7 @@ public class Main {
 	 */
 	public void deletePet() {
 
-		System.out.println("\n---DELETE PET---");
+		System.out.println("---DELETE PET---");
 
 		//center.printAllPets();
 
@@ -456,7 +465,7 @@ public class Main {
 	 */
 	public void deleteOwner() {
 		
-		System.out.println("\n---DELETE OWNER---");
+		System.out.println("---DELETE OWNER---");
 		
 		System.out.print("\nInput name of owner to be deleted: ");
 		String fullName = sc.nextLine();
@@ -524,7 +533,7 @@ public class Main {
 			System.out.println("\nHighest attendor: " + center.mostAttended());
 			center.petsPerPriority();
 			System.out.println("\nPercentage of unattended pets: " + center.unattendedPercentage() + "%");
-			center.resetPetsandOwners();
+			center.resetPetsAndOwners();
 			
 		}else {
 			
@@ -555,18 +564,19 @@ public class Main {
 				"\n(-1) for scenario" + 
 				"\n(1) to register a new Pet\n" + 
 				
-				"\n(2) to print all Nursery Pets" + 
-				"\n(3) to print all Nursery Owners\n" + 
+				"\n(2) to show a specific Pet's info" + 
+				"\n(3) to show a specific Habitat's info\n" +
 				
-				"\n(4) to find a Pet's location" + 
-				"\n(5) to show a specific Habitat's info\n" +
-				
-				"\n(6) to print all Habitats matrix" + 
-				"\n(7) to print all Habitats in list format\n" +
-				
-				"\n(8) to print Habitat ocuppation reports\n" + 
+				"\n(4) to print all Habitats matrix" + 
+				"\n(5) to print Habitat ocuppation reports\n" + 
 		
 				"\n(0) to return to Main Menu");
+		
+		//---SECRET FUNCTIONS
+		/*
+		(10) to print all Nursery Pets 
+		(30) to print all Nursery Owners 
+		 */
 		
 		option = sc.nextInt();
 		sc.nextLine();
@@ -583,6 +593,10 @@ public class Main {
 		
 		switch(option) {
 		
+		default:
+			System.out.println("\n---Invalid Option");
+			break;
+		
 		case 0:
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
 			break;
@@ -596,34 +610,19 @@ public class Main {
 			break;
 			
 		case 2:
-			System.out.print("\n---ALL PETS---\n");
-			System.out.println(nursery.printAllPets());
-			break;
-			
-		case 3:
-			System.out.print("\n---ALL OWNERS---\n");
-			System.out.println(nursery.printAllOwners());
-			break;
-			
-		case 4:
 			findPet();
 			break;
 			
-		case 5:
+		case 3:
 			showHabitat();
 			break;
 			
-		case 6:
+		case 4:
 			System.out.print("\n---HABITATS MATRIX---\n");
 			System.out.println(nursery.printHabitatsMatrix());
 			break;
 			
-		case 7:
-			System.out.print("\n---HABITATS LIST---\n");
-			System.out.println(nursery.printHabitatsList());
-			break;
-			
-		case 8:
+		case 5:
 			System.out.print("\n---HABITAT OCCUPATION REPORTS---\n");
 			
 			System.out.println("\n---Cat habitats: " + nursery.catOccupation() + "%");
@@ -635,27 +634,27 @@ public class Main {
 			System.out.println("\n---Total occupation: " + nursery.totalOccupation() + "%");
 			
 			System.out.println("\n---Healthy pets: " + nursery.percentageHealthy() + "%");
-			System.out.println("\n---Sick pets: " + nursery.percentageSick() + "%");
+			System.out.println("---Sick pets: " + nursery.percentageSick() + "%");
+			break;
+			
+		case 10:
+			System.out.println("\n***---SECRET FUNCTION---***");
+			System.out.print("---ALL PETS---\n");
+			System.out.println(nursery.printAllPets());
+			break;
+			
+		case 30:
+			System.out.println("\n***---SECRET FUNCTION---***");
+			System.out.print("---ALL OWNERS---\n");
+			System.out.println(nursery.printAllOwners());
 			break;
 		}
 	}
 	
 	
 	/**
-//	 * Method to transfer a Pet to Nursery
-//	 */
-//	public void petToNursery() {
-//	
-//		System.out.println("\n---TRANSFER PET TO NURSERY---");
-//		
-//		String petName;
-//		
-//		System.out.print("Input Pet name: ");
-//		petName = sc.nextLine();
-//		
-//		center.transferToNursery(petName);
-//	}
-	
+	 * Method to register a Pet to the Nursery.
+	 */
 	public void registerPetToNursery() {
 		
 		System.out.println("\n---REGISTER PET---");
@@ -705,10 +704,16 @@ public class Main {
 			ownerAddress = sc.nextLine();
 		}
 		
+		System.out.print("\nInput days staying: ");
+		int daysStaying = sc.nextInt();
 		
-		System.out.println(nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress));
+		System.out.println(nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress, daysStaying));
 	}
 	
+	
+	/**
+	 * Method to ask the user for the name of the Pet for which they want info.
+	 */
 	public void findPet() {
 		
 		System.out.println("\n---FIND PET---");
@@ -718,9 +723,13 @@ public class Main {
 		System.out.print("Input Pet name: ");
 		petName = sc.nextLine();
 		
-		System.out.println(nursery.petLocation(petName));
+		System.out.println(nursery.petInfo(petName));
 	}
 	
+	
+	/**
+	 * Method to ask the user for the ID of the Habitat for which they want info.
+	 */
 	public void showHabitat() {
 		
 		System.out.println("\n---FIND HABITAT---");
@@ -734,8 +743,9 @@ public class Main {
 	}
 	
 	
-	
-	
+	/**
+	 * Method to create a small scenario for testing.
+	 */
 	public  void createNurseryScenario() {
 		
 		Test scenario = new Test();

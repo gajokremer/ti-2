@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Sick Pet class
+ * Sick Pet class <br>
  * Pet subclass
  * @author gajok
  */
@@ -11,13 +11,13 @@ public class SickPet extends Pet {
 	private String symptoms;
 	private Priority priority;
 	private Status status;
-
+	
 	//---RELATIONS
 	private Veterinarian attendedBy;
 
 	//---CONSTRUCTOR
 	/**
-	 * Used to construct Pet object.
+	 * Used to construct SickPet object.
 	 * @param species must be an animal species
 	 * @param petName must be a String, can contain more than one word
 	 * @param age must be an integer
@@ -41,14 +41,14 @@ public class SickPet extends Pet {
 
 	//---GETTERS AND SETTERS	
 	/**
-	 * Method to call a Pet's symptoms.
-	 * @return Pet's symptoms
+	 * Method to call a sick Pet's symptoms.
+	 * @return sick Pet's symptoms
 	 */
 	public String getSymptoms() {
 		return symptoms;
 	}
 	/**
-	 * Method to change a Pet's symptoms.
+	 * Method to change a sick Pet's symptoms.
 	 * @param symptoms must exist and can be as long as user needs
 	 */
 	public void setSymptoms(String symptoms) {
@@ -57,14 +57,14 @@ public class SickPet extends Pet {
 	
 	
 	/**
-	 * Method to call a Pet's Priority.
-	 * @return Pet's priority
+	 * Method to call a sick Pet's Priority.
+	 * @return sick Pet's priority
 	 */
 	public Priority getPriority() {
 		return priority;
 	}
 	/**
-	 * Method to change a Pet's Priority.
+	 * Method to change a sick Pet's Priority.
 	 * @param priority must exist and be one of five Priority options
 	 */
 	public void setPriority(Priority priority) {
@@ -73,36 +73,20 @@ public class SickPet extends Pet {
 
 	
 	/**
-	 * Method to get a Pet's status.
-	 * @return Pet's status
+	 * Method to get a sick Pet's status.
+	 * @return sick Pet's status
 	 */
 	public Status getStatus() {
 		return status;
 	}
 	/**
-	 * Method to change a Pet's Status.
+	 * Method to change a sick Pet's Status.
 	 * @param status must exist and be one of five Status options
 	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
-	
-//	/**
-//	 * Method to call a Pet's Owner.
-//	 * @return Pet's owner
-//	 */
-//	public Owner getOwnedBy() {
-//		return ownedBy;
-//	}
-//	/**
-//	 * Method to change a Pet's Owner.
-//	 * @param ownedBy must exist, but can be null
-//	 */
-//	public void setOwnedBy(Owner ownedBy) {
-//		this.ownedBy = ownedBy;
-//	}
-
 	
 	/**
 	 * Method to call the Veterinarian that attended a Pet.

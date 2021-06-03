@@ -57,6 +57,7 @@ public class PetCenter {
 		this.pets = pets;
 	}
 	
+	
 	/**
 	 * Method to call the total registered Pets.
 	 * @return total attended Pets
@@ -120,10 +121,17 @@ public class PetCenter {
 		this.totalAttended = totalAttended;
 	}
 	
+	/**
+	 * Method to call the relation from PetCenter to PetNursery.
+	 * @return relation from center to nursery
+	 */
 	public PetNursery getCenterToNursery() {
 		return centerToNursery;
 	}
-	
+	/**
+	 * Method to change the relation from PetCenter to PetNursery.
+	 * @param centerToNursery must exist
+	 */
 	public void setCenterToNursery(PetNursery centerToNursery) {
 		this.centerToNursery = centerToNursery;
 	}
@@ -393,7 +401,7 @@ public class PetCenter {
 	
 	
 	/**
-	 * <b> Hidden function. </b> <br>
+	 * <b> Secret function. </b> <br>
 	 * Method to erase a Pet from the pets array.
 	 * @param petName must be a String, can contain more than one word
 	 */
@@ -528,7 +536,7 @@ public class PetCenter {
 	
 	
 	/**
-	 * <b> Hidden function. </b> <br>
+	 * <b> Secret function. </b> <br>
 	 * Method to erase an Owner form the owners array.
 	 * @param fullName must be a String with name and surname included
 	 */
@@ -1013,7 +1021,7 @@ public class PetCenter {
 	/**
 	 * Method to erase all Pets and Owners the arrays.
 	 */
-	public void resetPetsandOwners() {
+	public void resetPetsAndOwners() {
 		
 		if(totalPets != 0) {
 			
@@ -1037,44 +1045,4 @@ public class PetCenter {
 			}
 		}
 	}
-	
-	
-//	/**
-//	 * 
-//	 * @param petName must be a String, can contain more than one word.
-//	 * @return String with result of procedure
-//	 */
-//	public String transferToNursery(String petName) {
-//
-//		String result = "";
-//		
-//		boolean samePetName = false;
-//		
-//		for(int i = 0; i < pets.length && !samePetName; i++) {
-//			
-//			if(pets[i] != null) {
-//				
-//				if(pets[i].getStatus() == Status.TRANSFER) {
-//					
-//					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
-//						
-//						if(centerToNursery == null) {
-//							
-//							centerToNursery.transferedPetAndOwner(pets[i], pets[i].getOwnedBy());
-//							
-//							System.out.println("\n---" + pets[i].getPetName().toUpperCase());
-//						}
-//					}
-//					
-//				}else {
-//					
-//					result += "\nERROR: Pet doesn't need to be transfered";
-//				}
-//			}			
-//		}
-//		
-//		return result;
-//	}
-	
-	
 }

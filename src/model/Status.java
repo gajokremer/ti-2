@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Possible pet status
+ * Possible Pet status
  * @author gajok
  * {@link #WAITING}
  * {@link #CONSULTING}

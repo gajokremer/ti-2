@@ -12,6 +12,8 @@ public class Pet {
 	private int age;
 	private String breed;
 	
+	private int daysStaying;
+	
 	//---RELATIONS
 	private Owner ownedBy;
 	
@@ -35,85 +37,101 @@ public class Pet {
 
 	
 	//---GETTERS AND SETTERS
-		/**
-		 * Method to call a Pet's species.
-		 * @return Pet's species
-		 */
-		public String getSpecies() {
-			return species;
-		}
-		/**
-		 * Method to change a Pet's species.
-		 * @param species must exist and be a String containing a species name
-		 */
-		public void setSpecies(String species) {
-			this.species = species;
-		}
-		
-		
-		/**
-		 * Method to call a Pet's name.
-		 * @return Pet's name
-		 */
-		public String getPetName() {
-			return petName;
-		}
-		/**
-		 * Method to change a Pet's name.
-		 * @param petName must exist and be a String which can have more than one word
-		 */
-		public void setPetName(String petName) {
-			this.petName = petName;
-		}
-		
-		
-		/**
-		 * Method to get a Pet's age.
-		 * @return Pet's age
-		 */
-		public int getAge() {
-			return age;
-		}
-		/**
-		 * Method to set a Pet's age.
-		 * @param age must exist and be an integer
-		 */
-		public void setAge(int age) {
-			this.age = age;
-		}
-
-		
-		/**
-		 * Method to call a Pet's breed.
-		 * @return Pet's breed
-		 */
-		public String getBreed() {
-			return breed;
-		}
-		/**
-		 * Method to change a Pet's breed.
-		 * @param breed must exist and be a String which can have more than one word
-		 */
-		public void setBreed(String breed) {
-			this.breed = breed;
-		}
-		
-		
-		/**
-		 * Method to call a Pet's Owner.
-		 * @return Pet's owner
-		 */
-		public Owner getOwnedBy() {
-			return ownedBy;
-		}
-		/**
-		 * Method to change a Pet's Owner.
-		 * @param ownedBy must exist, but can be null
-		 */
-		public void setOwnedBy(Owner ownedBy) {
-			this.ownedBy = ownedBy;
-		}
+	/**
+	 * Method to call for a Pet's species.
+	 * @return Pet's species
+	 */
+	public String getSpecies() {
+		return species;
+	}
+	/**
+	 * Method to change a Pet's species.
+	 * @param species must exist and be a String containing a species name
+	 */
+	public void setSpecies(String species) {
+		this.species = species;
+	}
 	
+	
+	/**
+	 * Method to call for a Pet's name.
+	 * @return Pet's name
+	 */
+	public String getPetName() {
+		return petName;
+	}
+	/**
+	 * Method to change a Pet's name.
+	 * @param petName must exist and be a String which can have more than one word
+	 */
+	public void setPetName(String petName) {
+		this.petName = petName;
+	}
+	
+	
+	/**
+	 * Method to get a Pet's age.
+	 * @return Pet's age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * Method to set a Pet's age.
+	 * @param age must exist and be an integer
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	
+	/**
+	 * Method to call for a Pet's breed.
+	 * @return Pet's breed
+	 */
+	public String getBreed() {
+		return breed;
+	}
+	/**
+	 * Method to change a Pet's breed.
+	 * @param breed must exist and be a String which can have more than one word
+	 */
+	public void setBreed(String breed) {
+		this.breed = breed;
+	}
+	
+	
+	/**
+	 * Method to call for a Pet's Owner.
+	 * @return Pet's owner
+	 */
+	public Owner getOwnedBy() {
+		return ownedBy;
+	}
+	/**
+	 * Method to change a Pet's Owner.
+	 * @param ownedBy must exist, but can be null
+	 */
+	public void setOwnedBy(Owner ownedBy) {
+		this.ownedBy = ownedBy;
+	}
+
+	
+	/**
+	 * Method to call for the number of days a Pet is staying.
+	 * @return days a Pet is staying
+	 */
+	public int getDaysStaying() {
+		return daysStaying;
+	}
+	/**
+	 * Method to change the number of days a Pet is staying.
+	 * @param daysStaying must be a number
+	 */
+	public void setDaysStaying(int daysStaying) {
+		this.daysStaying = daysStaying;
+	}
+
 
 	//---TO STRING
 	@Override
@@ -124,7 +142,8 @@ public class Pet {
 				"\nName: " + getPetName() + 
 				"\nAge: " + getAge() + 
 				"\nBreed: " + getBreed() +
-				"\nOwner: " + getOwnedBy().getFullName(); 
+				"\nOwner: " + getOwnedBy().getFullName();
+//				+ "\nDays staying: " + getDaysStaying();
 			
 			return out;
 	}
