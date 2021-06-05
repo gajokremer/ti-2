@@ -561,7 +561,6 @@ public class Main {
 		System.out.println(
 				"\nSelect an option:" + 
 		
-				"\n(-1) for scenario" + 
 				"\n(1) to register a new Pet\n" + 
 				
 				"\n(2) to show a specific Pet's info" + 

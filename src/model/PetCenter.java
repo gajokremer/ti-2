@@ -46,7 +46,7 @@ public class PetCenter {
 	 * Method to call the Pets array.
 	 * @return pets array
 	 */
-	public Pet [] getPets() {
+	public SickPet [] getPets() {
 		return pets;
 	}
 	/**
