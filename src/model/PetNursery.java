@@ -542,8 +542,16 @@ public class PetNursery {
 						result += 
 								"\nPet name: " + petName + 
 								"\nLocation: " + habitats[i][j].getHabitatId() + 
-								"\nStatus: " + habitats[i][j].getUsage() + 
-								"\nDays staying: " + habitats[i][j].getPetInside().getDaysStaying();
+								"\nStatus: " + habitats[i][j].getUsage();
+						
+						if(habitats[i][j].getUsage() != Usage.SICK) {
+							
+							result += "\nDays staying: " + habitats[i][j].getPetInside().getDaysStaying();
+						
+						}else {
+							
+							result += "\nDays staying: Undefined";
+						}
 						
 						samePetName = true;
 						
