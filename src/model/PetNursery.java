@@ -93,17 +93,17 @@ public class PetNursery {
 	 */
 	public void catHabitats(Pet aPet) {
 		
-		habitats[0][0] = new CatHabitat("C1", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[0][1] = new CatHabitat("C2", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[0][2] = new CatHabitat("C3", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[0][0] = new CatHabitat("C1", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[0][1] = new CatHabitat("C2", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[0][2] = new CatHabitat("C3", 100, 100, Usage.EMPTY, aPet, 100, 10);
 		
-		habitats[1][0] = new CatHabitat("C4", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[1][1] = new CatHabitat("C5", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[1][2] = new CatHabitat("C6", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[1][0] = new CatHabitat("C4", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[1][1] = new CatHabitat("C5", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[1][2] = new CatHabitat("C6", 100, 100, Usage.EMPTY, aPet, 100, 10);
 		
-		habitats[2][0] = new CatHabitat("C7", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[2][1] = new CatHabitat("C8", 100, 100, Usage.EMPTY, aPet, 100, 5);
-		habitats[2][2] = new CatHabitat("C9", 100, 100, Usage.EMPTY, aPet, 100, 5);
+		habitats[2][0] = new CatHabitat("C7", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[2][1] = new CatHabitat("C8", 100, 100, Usage.EMPTY, aPet, 100, 10);
+		habitats[2][2] = new CatHabitat("C9", 100, 100, Usage.EMPTY, aPet, 100, 10);
 	}
 	
 	
