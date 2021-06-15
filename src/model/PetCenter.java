@@ -1006,7 +1006,7 @@ public class PetCenter {
 				}
 			}
 			
-			percentage = (unattendedPets*100)/totalPets;
+			percentage = (unattendedPets * 100) / totalPets;
 		}
 		
 		if(totalPets == 0) {

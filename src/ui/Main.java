@@ -561,13 +561,14 @@ public class Main {
 		System.out.println(
 				"\nSelect an option:" + 
 		
-				"\n(1) to register a new Pet\n" + 
+				"\n(1) to register a new Pet" + 
+				"\n(2) to pick up a Pet\n" + 
 				
-				"\n(2) to show a specific Pet's info" + 
-				"\n(3) to show a specific Habitat's info\n" +
+				"\n(3) to show a specific Pet's info" + 
+				"\n(4) to show a specific Habitat's info\n" +
 				
-				"\n(4) to print all Habitats matrix" + 
-				"\n(5) to print Habitat ocuppation reports\n" + 
+				"\n(5) to print all Habitats matrix" + 
+				"\n(6) to print Habitat ocuppation reports\n" + 
 		
 				"\n(0) to return to Main Menu");
 		
@@ -609,19 +610,23 @@ public class Main {
 			break;
 			
 		case 2:
-			findPet();
+			pickUpPet();
 			break;
 			
 		case 3:
-			showHabitat();
+			findPet();
 			break;
 			
 		case 4:
+			showHabitat();
+			break;
+			
+		case 5:
 			System.out.print("\n---HABITATS MATRIX---\n");
 			System.out.println(nursery.printHabitatsMatrix());
 			break;
 			
-		case 5:
+		case 6:
 			System.out.print("\n---HABITAT OCCUPATION REPORTS---\n");
 			
 			System.out.println("\n---Cat habitats: " + nursery.catOccupation() + "%");
@@ -707,6 +712,26 @@ public class Main {
 		int daysStaying = sc.nextInt();
 		
 		System.out.println(nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress, daysStaying));
+	}
+	
+	
+	/**
+	 * Method to ask the user for the name of the Pet to be picked up.
+	 */
+	public void pickUpPet() {
+		
+		System.out.println("\n---PICK UP PET---");
+		
+		String petName;
+		int daysPassed;
+
+		System.out.print("Input Pet name: ");
+		petName = sc.nextLine();
+		
+		System.out.print("Input days passed: ");
+		daysPassed = sc.nextInt();
+		
+		System.out.println(nursery.retirePet(petName, daysPassed));
 	}
 	
 	

@@ -128,7 +128,7 @@ public class PetNursery {
 	
 	
 	/**
-	 * Method to create all ReptileHabitats.
+	 * Method to create all Reptile Habitats.
 	 * @param aPet must be null
 	 */
 	public void reptileHabitats(Pet aPet) {
@@ -374,6 +374,56 @@ public class PetNursery {
 	
 	
 	/**
+	 * Method to pick up a Pet from the Nursery.
+	 * @param petName must be a String, can contain more than one word
+	 * @param daysPassed must be an integer and represents the days passed
+	 * @return result of operation
+	 */
+	public String retirePet(String petName, int daysPassed) {
+		
+		String result = "";
+		
+		boolean sameName = false;
+		
+		for(int i = 0; i < habitats.length && !sameName; i++) {
+			
+			for(int j = 0; j < habitats[i].length && !sameName; j++) {
+				
+				if(habitats[i][j].getPetInside() != null) {
+					
+					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
+						
+						if(habitats[i][j].getUsage() == Usage.HEALTHY) {
+							
+							int overtime = daysPassed - habitats[i][j].getPetInside().getDaysStaying();
+							
+							habitats[i][j].setPetInside(null);
+							habitats[i][j].setUsage(Usage.EMPTY);
+							
+							if(overtime > 0) {
+								
+								result += "\n---Overtime: " + overtime + " days";
+							}
+							
+							result += "\n---Pet successfully picked up";
+							result += "\n---Habitat " + habitats[i][j].getHabitatId() + " is now available";
+							sameName = true;						
+						}
+						
+						if(habitats[i][j].getUsage() == Usage.SICK) {
+							
+							result += "\n---Pet is hospitalized and can't be picked up yet";
+						}
+					}
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	/**
 	 * <b> Secret function. </b> <br>
 	 * Method to print all Pets inside the Habitats.
 	 * @return String with all Pets inside the Habitats
@@ -540,9 +590,9 @@ public class PetNursery {
 					if(habitats[i][j].getPetInside().getPetName().equalsIgnoreCase(petName)) {
 						
 						result += 
-								"\nPet name: " + petName + 
-								"\nLocation: " + habitats[i][j].getHabitatId() + 
-								"\nStatus: " + habitats[i][j].getUsage();
+							"\nPet name: " + petName + 
+							"\nLocation: " + habitats[i][j].getHabitatId() + 
+							"\nStatus: " + habitats[i][j].getUsage();
 						
 						if(habitats[i][j].getUsage() != Usage.SICK) {
 							
@@ -611,7 +661,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/9;
+		percentage = (count * 100) / 9;
 		
 		return percentage;
 	}
@@ -637,7 +687,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/9;
+		percentage = (count * 100) / 9;
 		
 		return percentage;
 	}
@@ -663,7 +713,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/4;
+		percentage = (count * 100) / 4;
 		
 		return percentage;
 	}
@@ -689,7 +739,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/4;
+		percentage = (count * 100) / 4;
 		
 		return percentage;
 	}
@@ -715,7 +765,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/4;
+		percentage = (count * 100) / 4;
 		
 		return percentage;
 	}
@@ -741,7 +791,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/30;
+		percentage = (count * 100) / 30;
 		
 		return percentage;
 	}
@@ -767,7 +817,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/30;
+		percentage = (count * 100) / 30;
 		
 		return percentage;
 	}
@@ -793,7 +843,7 @@ public class PetNursery {
 			}
 		}
 		
-		percentage = (count*100)/30;
+		percentage = (count * 100) / 30;
 		
 		return percentage;
 	}

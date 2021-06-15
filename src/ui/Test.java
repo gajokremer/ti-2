@@ -40,5 +40,7 @@ public class Test {
 		SickPet aPet = new SickPet("Bird", "D", 4, null, "Vomit", Priority.YELLOW_3, Status.TRANSFER, anOwner, aVeterinarian);
 		
 		nursery.transferedPetAndOwner(aPet);
+		
+		System.out.println("\n---Scenario Pets added");
 	}
 }
