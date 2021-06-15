@@ -28,11 +28,12 @@ public class PetNursery {
 	/**
 	 * Method that receives a Pet from the PetCenter.
 	 * @param aPet must be a SickPet
+	 * @param habitatType must be one of the two possible types of habitat for either birds of reptiles
 	 */
-	public void transferedPetAndOwner(SickPet aPet) {
+	public void transferedPetAndOwner(SickPet aPet, String habitatType) {
 		
 		Usage usage = Usage.SICK;
-		enterPetToHabitat(aPet, usage);
+		enterPetToHabitat(aPet, usage, habitatType);
 	}
 	
 	
@@ -42,6 +43,7 @@ public class PetNursery {
 	 * @param petName must be a String, can contain more than one word
 	 * @param age must be an integer
 	 * @param breed if species is dog or cat, must be a String, else it's null
+	 * @param habitatType must be one of the two possible types of habitat for either birds of reptiles
 	 * @param ownerId must be a String composed of numbers
 	 * @param ownerName must be a String with name and surname included
 	 * @param ownerPhone must be a String with a phone number (10 digits)
@@ -49,7 +51,7 @@ public class PetNursery {
 	 * @param daysStaying must be a number
 	 * @return message if pet was successfully added to the Nursery
 	 */
-	public String addPet(String species, String petName, int age, String breed, String ownerName, 
+	public String addPet(String species, String petName, int age, String breed, String habitatType, String ownerName, 
 			String ownerId, String ownerPhone, String ownerAddress, int daysStaying) {
 		
 		String result = "";
@@ -64,7 +66,7 @@ public class PetNursery {
 		
 		Usage usage = Usage.HEALTHY;
 		
-		enterPetToHabitat(aPet, usage);
+		enterPetToHabitat(aPet, usage, habitatType);
 		
 		result += "\n--Pet successfully added";
 		
@@ -169,14 +171,60 @@ public class PetNursery {
 		habitats[5][3] = new BirdHabitat("B3", 50, 50, Usage.EMPTY, aPet, Cage.GROUNDED);
 		habitats[5][4] = new BirdHabitat("B4", 50, 50, Usage.EMPTY, aPet, Cage.GROUNDED);
 	}
+	
+	
+	/**
+	 * Method to turn String into a value of Aquarium.
+	 * @param habitatType must be either "Amphibian" or "Terrestrial"
+	 * @return respective value of Aquarium
+	 */
+	public Aquarium valueOfAquarium(String habitatType) {
+		
+		Aquarium aquarium = null;
+		
+		if(habitatType != null) {
+			
+			if(habitatType.equalsIgnoreCase("Amphibian") || habitatType.equalsIgnoreCase("Terrestrial")) {
+				
+				aquarium = Aquarium.valueOf(habitatType.toUpperCase());
+			}
+		}
+		
+		return aquarium;
+	}
+	
+	
+	/**
+	 * Method to turn String into value of Cage.
+	 * @param habitatType must be either "Hung" or "Grounded"
+	 * @return respective value of Cage
+	 */
+	public Cage valueOfCage(String habitatType) {
+		
+		Cage cage = null;
+		
+		if(habitatType != null) {
+			
+			if(habitatType.equalsIgnoreCase("Hung") || habitatType.equalsIgnoreCase("Grounded")) {
+				
+				cage = Cage.valueOf(habitatType.toUpperCase());
+			}
+		}
+		
+		return cage;
+	}
 
 
 	/**
 	 * Method to check if there's an available Habitat for a pet depending on the species.
 	 * @param species must be an animal species
+	 * @param habitatType must be one of the two possible types of habitat for either birds of reptiles
 	 * @return true if there's an available space, false if not
 	 */
-	public boolean habitatAvailable(String species) {
+	public boolean habitatAvailable(String species, String habitatType) {
+		
+		Aquarium aquarium = valueOfAquarium(habitatType);
+		Cage cage = valueOfCage(habitatType);
 		
 		boolean available = false;
 		
@@ -216,13 +264,31 @@ public class PetNursery {
 			
 		case "REPTILE":
 			
-			for(int i = 0; i < 2 && !available; i++) {
+			
+			if(aquarium == Aquarium.TERRESTRIAL) {
 				
-				for(int j = 3; j < 5 && !available; j++) {
+				for(int i = 0; i < 1 && !available; i++) {
 					
-					if(habitats[i][j].getPetInside() == null) {
+					for(int j = 3; j < 5 && !available; j++) {
 						
-						available = true;
+						if(habitats[i][j].getPetInside() == null) {
+							
+							available = true;
+						}
+					}
+				}
+			}
+			
+			if(aquarium == Aquarium.AMPHIBIAN) {
+				
+				for(int i = 1; i < 2 && !available; i++) {
+					
+					for(int j = 3; j < 5 && !available; j++) {
+						
+						if(habitats[i][j].getPetInside() == null) {
+							
+							available = true;
+						}
 					}
 				}
 			}
@@ -246,13 +312,30 @@ public class PetNursery {
 			
 		case "BIRD":
 			
-			for(int i = 4; i < 6 && !available; i++) {
+			if(cage == Cage.HUNG) {
 				
-				for(int j = 3; j < 5 && !available; j++) {
+				for(int i = 4; i < 5 && !available; i++) {
 					
-					if(habitats[i][j].getPetInside() == null) {
+					for(int j = 3; j < 5 && !available; j++) {
 						
-						available = true;
+						if(habitats[i][j].getPetInside() == null) {
+							
+							available = true;
+						}
+					}
+				}
+			}
+			
+			if(cage == Cage.GROUNDED) {
+				
+				for(int i = 5; i < 6 && !available; i++) {
+					
+					for(int j = 3; j < 5 && !available; j++) {
+						
+						if(habitats[i][j].getPetInside() == null) {
+							
+							available = true;
+						}
 					}
 				}
 			}
@@ -268,11 +351,15 @@ public class PetNursery {
 	 * Method to enter a Pet to an Habitat.
 	 * @param aPet must exist and have an Owner
 	 * @param usage must be either "Healthy", or "Sick" if it comes from PetCenter
+	 * @param habitatType must be one of the two possible types of habitat for either birds of reptiles
 	 * @return message notifying Pet has successfully entered the Habitat
 	 */
-	public String enterPetToHabitat(Pet aPet, Usage usage) {
+	public String enterPetToHabitat(Pet aPet, Usage usage, String habitatType) {
 		
 		String result = "";
+		
+		Aquarium aquarium = valueOfAquarium(habitatType);
+		Cage cage = valueOfCage(habitatType);
 		
 		boolean empty = false;
 		
@@ -316,16 +403,36 @@ public class PetNursery {
 			
 		case "REPTILE":
 			
-			for(int i = 0; i < 2 && !empty; i++) {
+			if(aquarium == Aquarium.TERRESTRIAL) {
 				
-				for(int j = 3; j < 5 && !empty; j++) {
+				for(int i = 0; i < 1 && !empty; i++) {
 					
-					if(habitats[i][j].getPetInside() == null) {
+					for(int j = 3; j < 5 && !empty; j++) {
 						
-						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(usage);
-						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
-						empty = true;
+						if(habitats[i][j].getPetInside() == null) {
+							
+							habitats[i][j].setPetInside(aPet);
+							habitats[i][j].setUsage(usage);
+							result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+							empty = true;
+						}
+					}
+				}
+			}
+			
+			if(aquarium == Aquarium.AMPHIBIAN) {
+				
+				for(int i = 1; i < 2 && !empty; i++) {
+					
+					for(int j = 3; j < 5 && !empty; j++) {
+						
+						if(habitats[i][j].getPetInside() == null) {
+							
+							habitats[i][j].setPetInside(aPet);
+							habitats[i][j].setUsage(usage);
+							result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+							empty = true;
+						}
 					}
 				}
 			}
@@ -352,16 +459,36 @@ public class PetNursery {
 			
 		case "BIRD":
 			
-			for(int i = 4; i < 6 && !empty; i++) {
+			if(cage == Cage.HUNG) {
 				
-				for(int j = 3; j < 5 && !empty; j++) {
+				for(int i = 4; i < 5 && !empty; i++) {
 					
-					if(habitats[i][j].getPetInside() == null) {
+					for(int j = 3; j < 5 && !empty; j++) {
 						
-						habitats[i][j].setPetInside(aPet);
-						habitats[i][j].setUsage(usage);
-						result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
-						empty = true;
+						if(habitats[i][j].getPetInside() == null) {
+							
+							habitats[i][j].setPetInside(aPet);
+							habitats[i][j].setUsage(usage);
+							result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+							empty = true;
+						}
+					}
+				}
+			}
+			
+			if(cage == Cage.GROUNDED) {
+				
+				for(int i = 5; i < 6 && !empty; i++) {
+					
+					for(int j = 3; j < 5 && !empty; j++) {
+						
+						if(habitats[i][j].getPetInside() == null) {
+							
+							habitats[i][j].setPetInside(aPet);
+							habitats[i][j].setUsage(usage);
+							result += "\n--Pet successfully entered habitat: " + habitats[i][j].getHabitatId();
+							empty = true;
+						}
 					}
 				}
 			}

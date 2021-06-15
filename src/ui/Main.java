@@ -96,6 +96,10 @@ public class Main {
 		case 0:
 			System.out.println("\n-----OPERATION ENDED-----\n");
 			break;
+			
+		case -1:
+			createScenarios();
+			break;
 	
 		case 1:
 			do {
@@ -516,8 +520,16 @@ public class Main {
 		newStatus = sc.nextLine();
 		
 		Status status = Status.valueOf(newStatus.toUpperCase());
+		
+		String habitatType = null;
+		
+		if(status == Status.TRANSFER) {
+			
+			System.out.print("Type of habitat requiered: ");
+			habitatType = sc.nextLine();
+		}
 
-		System.out.println(center.finishConsultation(petName, idNumber, status));
+		System.out.println(center.finishConsultation(petName, idNumber, status, habitatType));
 	}
 	
 	
@@ -601,10 +613,6 @@ public class Main {
 			System.out.println("\n-----RETURN TO MAIN MENU-----\n");
 			break;
 			
-		case -1:
-			createNurseryScenario();
-			break;
-			
 		case 1:
 			registerPetToNursery();
 			break;
@@ -665,10 +673,29 @@ public class Main {
 
 		String species, petName, breed; 
 		int age;
+		String habitatType;
 		
-		System.out.print("Input species: ");
-		species = sc.nextLine();
-
+		do {
+			
+			System.out.print("Input species: ");
+			species = sc.nextLine();
+			
+			habitatType = null;
+			
+			if(species.equalsIgnoreCase("Bird") || species.equalsIgnoreCase("Reptile")) {
+				
+				System.out.print("Type of habitat requiered: ");
+				habitatType = sc.nextLine();
+				System.out.println();
+			}
+			
+			if(nursery.habitatAvailable(species, habitatType) == false) {
+				
+				System.out.println("\n---There are no available habitats with this parameters\n");
+			}
+		
+		} while (nursery.habitatAvailable(species, habitatType) == false);
+		
 		System.out.print("Input Pet name: ");
 		petName = sc.nextLine();
 		
@@ -711,7 +738,8 @@ public class Main {
 		System.out.print("\nInput days staying: ");
 		int daysStaying = sc.nextInt();
 		
-		System.out.println(nursery.addPet(species, petName, age, breed, ownerName, ownerId, ownerPhone, ownerAddress, daysStaying));
+		System.out.println(nursery.addPet(species, petName, age, breed , habitatType, 
+				ownerName, ownerId, ownerPhone, ownerAddress, daysStaying));
 	}
 	
 	
@@ -767,12 +795,22 @@ public class Main {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Method to create a small scenario for testing.
 	 */
-	public  void createNurseryScenario() {
+	public  void createScenarios() {
 		
 		Test scenario = new Test();
-		scenario.createScenario1(nursery, center);
+		
+		scenario.createNurseryScenario(nursery, center);
+		scenario.createCenterScenario(nursery, center);
+		
+		System.out.println("\n---Scenarios created");
 	}
 }

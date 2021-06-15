@@ -332,8 +332,6 @@ public class PetCenter {
 
 					pets[i] = new SickPet(species, petName, age, breed, symptoms, priority, status, ownedBy, attendedBy);
 					
-					System.out.println("---" + ownedBy);
-		
 					totalPets++;
 					empty = true;
 					
@@ -660,11 +658,6 @@ public class PetCenter {
 						result = "\nERROR: ID number does not correspond to any veterinarian";
 
 					}
-					
-//					if(!veterinarians[i].getIdNumber().equals(idNumber)) {
-//						
-//						result = "\nERROR: ID number does not correspond to any veterinarian";
-//					}
 				}
 			}
 
@@ -674,11 +667,6 @@ public class PetCenter {
 					
 					if(pets[i].getPetName().equalsIgnoreCase(petName)) {
 
-//						if(pets[i].getStatus() != Status.WAITING){
-//							
-//							result = "\nERROR: Pet does not have waiting status";
-//						}
-						
 						if(pets[i].getStatus() == Status.WAITING) {
 							
 							if(pets[i].getAttendedBy() == null) {
@@ -698,14 +686,8 @@ public class PetCenter {
 							result = "\nERROR: Pet does not have waiting status";
 						}
 					}
-					
-//					if(pets[i].getStatus() != Status.WAITING) {
-//						
-//						result = "\nERROR: Pet does not have waiting status";
-//					}
 				}
 			}
-
 			
 		} else{
 
@@ -722,9 +704,10 @@ public class PetCenter {
 	 * @param petName must be a String, can contain more than one word
 	 * @param idNumber must be a String which can combine letters and numbers
 	 * @param status must be one of these three: "Transfer", "Authorized", "Unattended"
+	 * @param habitatType must be one of the two possible types of habitat for either birds of reptiles
 	 * @return String with result of procedure
 	 */
-	public String finishConsultation(String petName, String idNumber, Status status) {
+	public String finishConsultation(String petName, String idNumber, Status status, String habitatType) {
 		
 		String result = "";
 
@@ -732,17 +715,20 @@ public class PetCenter {
 		int i;
 
 		for(i = 0; i < veterinarians.length && !sameId; i++) {
-
-			if(veterinarians[i].getAttends() != null) {
+			
+			if(veterinarians[i] != null) {
 				
-				if(veterinarians[i].getIdNumber().equals(idNumber)) {
+				if(veterinarians[i].getAttends() != null) {
 					
-					veterinarians[i].setAttends(null);
-					sameId = true;
-					
-				}else {
-				
-					result = "\nERROR: Veterinarian is not attending a pet";
+					if(veterinarians[i].getIdNumber().equals(idNumber)) {
+						
+						veterinarians[i].setAttends(null);
+						sameId = true;
+						
+					}else {
+						
+						result = "\nERROR: Veterinarian is not attending a pet";
+					}
 				}
 			}
 		}
@@ -750,25 +736,35 @@ public class PetCenter {
 		boolean samePetName = false;
 
 		for(i = 0; i < pets.length && !samePetName; i++) {
-
-			if(pets[i].getPetName().equalsIgnoreCase(petName)) {
+			
+			if(pets[i] != null) {
 				
-				if(pets[i].getStatus() == Status.CONSULTING) {
+				if(pets[i].getPetName().equalsIgnoreCase(petName)) {
 					
-					pets[i].setStatus(status);	
-					
-					if(status == Status.TRANSFER) {
+					if(pets[i].getStatus() == Status.CONSULTING) {
 						
-						centerToNursery.transferedPetAndOwner(pets[i]);	
+						pets[i].setStatus(status);	
 						
-						result += "\n--" + pets[i].getPetName() + " successfully transfered to nursery";
+						if(centerToNursery.habitatAvailable(pets[i].getSpecies(), habitatType) == true) {
+							
+							if(status == Status.TRANSFER) {
+								
+								centerToNursery.transferedPetAndOwner(pets[i], habitatType);	
+								
+								result += "\n--" + pets[i].getPetName() + " successfully transfered to nursery";
+							}
+							
+							samePetName = true;
+							
+						} else {
+							
+							result += "\nERROR: There are no available habitats"; 
+						}
+						
+					} else {
+						
+						result = "\nERROR: Pet is not in consultation";
 					}
-					
-					samePetName = true;
-					
-				}else {
-					
-					result = "\nERROR: Pet is not in consultation";
 				}
 			}
 		}
