@@ -6,6 +6,10 @@ package model;
  */
 public class PetNursery {
 	
+	//---ATTRIBUTES
+	private static final int SERVICE_DAY = 150;
+	private static final int OVERTIME_DAY = 250;
+	
 	//---RELATIONS
 	private Habitat [][] habitats;
 	
@@ -523,6 +527,7 @@ public class PetNursery {
 						if(habitats[i][j].getUsage() == Usage.HEALTHY) {
 							
 							int overtime = daysPassed - habitats[i][j].getPetInside().getDaysStaying();
+							int payment = daysPayment(habitats[i][j].getPetInside().getDaysStaying(), overtime);
 							
 							habitats[i][j].setPetInside(null);
 							habitats[i][j].setUsage(Usage.EMPTY);
@@ -532,8 +537,11 @@ public class PetNursery {
 								result += "\n---Overtime: " + overtime + " days";
 							}
 							
-							result += "\n---Pet successfully picked up";
+							result += "\n---Service Price: $" + payment;
+							
+							result += "\n\n---Pet successfully picked up";
 							result += "\n---Habitat " + habitats[i][j].getHabitatId() + " is now available";
+							
 							sameName = true;						
 						}
 						
@@ -973,5 +981,21 @@ public class PetNursery {
 		percentage = (count * 100) / 30;
 		
 		return percentage;
+	}
+	
+	
+	/**
+	 * Method to calculate the service payment.
+	 * @param daysStaying is the amount of days the Owner got the service for
+	 * @param overtime is the amount of extra service days
+	 * @return value of payment
+	 */
+	public int daysPayment(int daysStaying, int overtime) {
+		
+		int payment = 0;
+		
+		payment = (daysStaying * SERVICE_DAY) + (overtime * OVERTIME_DAY);
+		
+		return payment;
 	}
 }
